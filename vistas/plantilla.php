@@ -19,10 +19,13 @@
 		$vistas = new vistasControlador();
 		$vistaRespuesta=$vistas->obtener_vistas_controlador();
 
-		if($vistaRespuesta=="login" || $vistaRespuesta=="404"):
+		if($vistaRespuesta=="login" || $vistaRespuesta=="404" || $vistaRespuesta=="registro" ):
 			if($vistaRespuesta=="login")
 			{
 				require_once "./vistas/contenidos/login-view.php";
+			}
+			elseif ($vistaRespuesta=="registro") {
+				require_once "./vistas/contenidos/registro-view.php";
 			}
 			else
 			{

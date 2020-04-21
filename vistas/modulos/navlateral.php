@@ -87,6 +87,9 @@
 					<li>
 						<a href="<?php echo SERVERURL; ?>docentelist/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Docentes</a>
 					</li>
+					<li>
+						<a href="<?php echo SERVERURL; ?>estudiantelist/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Estudiantes</a>
+					</li>
 				</ul>
 			</li>
 
@@ -98,7 +101,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="<?php echo SERVERURL; ?>homeDocente/">
+				<a href="<?php echo SERVERURL; ?>metodologialist/">
 					<i class="zmdi zmdi-home zmdi-hc-fw"></i> METODOLOGIAS
 				</a>
 			</li>
@@ -108,7 +111,10 @@
 				</a>
 				<ul class="list-unstyled full-box">
 					<li>
-						<a href="<?php echo SERVERURL; ?>admin/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Proyectos</a>
+						<a href="<?php echo SERVERURL; ?>proyectolist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Proyectos</a>
+					</li>
+					<li>
+						<a href="<?php echo SERVERURL; ?>asignacion/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Asignacion</a>
 					</li>
 
 		<?php }elseif($_SESSION['tipo_sesion']==3) { ?>

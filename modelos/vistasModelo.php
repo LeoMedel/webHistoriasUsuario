@@ -4,9 +4,7 @@
 			$listaBlanca=[
 				"adminlist",
 				"adminsearch",
-				"admin","book",
-				"bookconfig",
-				"bookinfo",
+				"admin",
 				"catalog",
 				"client",
 				"clientlist",
@@ -17,20 +15,42 @@
 				"home",
 				"homeDocente",
 				"homeEstudiante",
+				"estudiantelist",
+				"estudiante",
 				"myaccount",
-				"mydata"
+				"mydata",
+				"proyectolist",
+				"proyecto",
+				"proyectoInfo",
+				"proyectoActualizar",
+				"metodologialist",
+				"metodologia"
 			];
-			if(in_array($vistas, $listaBlanca)){
-				if(is_file("./vistas/contenidos/".$vistas."-view.php")){
+			if(in_array($vistas, $listaBlanca))
+			{
+				if(is_file("./vistas/contenidos/".$vistas."-view.php"))
+				{
 					$contenido="./vistas/contenidos/".$vistas."-view.php";
-				}else{
+				}
+				else
+				{
 					$contenido="login";
 				}
-			}elseif($vistas=="login"){
+			}
+			elseif($vistas=="login")
+			{
 				$contenido="login";
-			}elseif($vistas=="index"){
+			}
+			elseif($vistas=="index")
+			{
 				$contenido="login";
-			}else{
+			}
+			elseif($vistas=="registro")
+			{
+				$contenido="registro";
+			}
+			else
+			{
 				$contenido="404";
 			}
 			return $contenido;
