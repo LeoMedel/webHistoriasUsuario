@@ -19,7 +19,7 @@
 				$pdo = modeloPrincipal::conectarBD();
 				
 
-				$sql = "INSERT INTO proyecto(titulo, inicio, fin, cuentaCreador) VALUES(?, ?, ?, ?)";
+				$sql = "INSERT INTO proyecto(titulo, inicio, fin, cuentaCreador, created, modified) VALUES(?, ?, ?, ?, now(), now()";
 
 
 				$pdo->prepare($sql)->execute([
@@ -50,7 +50,7 @@
 
 		protected function actualizarProyectoModelo($datos)
 		{
-			$actualizar = modeloPrincipal::conectarBD()->prepare("UPDATE proyecto SET titulo=:Titulo, inicio=:Inicio, fin=:Fin WHERE id=:IdProyecto");
+			$actualizar = modeloPrincipal::conectarBD()->prepare("UPDATE proyecto SET titulo=:Titulo, inicio=:Inicio, fin=:Fin, modified=now() WHERE id=:IdProyecto");
 			
 			$actualizar->bindParam("Titulo", $datos['Titulo']);
 			$actualizar->bindParam("Inicio", $datos['Inicio']);
