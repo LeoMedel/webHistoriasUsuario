@@ -19,8 +19,9 @@
 				$pdo = modeloPrincipal::conectarBD();
 				
 
-				$sql = "INSERT INTO proyecto(titulo, inicio, fin, cuentaCreador, created, modified) VALUES(?, ?, ?, ?, now(), now()";
+				$sql = "INSERT INTO proyecto(titulo, inicio, fin, cuentaCreador, created, modified) VALUES(?, ?, ?, ?, now(), now() )";
 
+				print_r("Consulta ".$sql);
 
 				$pdo->prepare($sql)->execute([
 					$datosPro['Titulo'], 

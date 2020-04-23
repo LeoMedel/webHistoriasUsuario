@@ -100,11 +100,11 @@
 					<i class="zmdi zmdi-home zmdi-hc-fw"></i> INICIO
 				</a>
 			</li>
-			<li>
+			<!--li>
 				<a href="<?php echo SERVERURL; ?>metodologialist/">
 					<i class="zmdi zmdi-home zmdi-hc-fw"></i> METODOLOGIAS
 				</a>
-			</li>
+			</li-->
 			<li>
 				<a href="#!" class="btn-sideBar-SubMenu">
 					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> PROYECTOS <i class="zmdi zmdi-caret-down pull-right"></i>
@@ -113,9 +113,9 @@
 					<li>
 						<a href="<?php echo SERVERURL; ?>proyectolist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Proyectos</a>
 					</li>
-					<li>
+					<!--li>
 						<a href="<?php echo SERVERURL; ?>asignacion/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Asignacion</a>
-					</li>
+					</li-->
 
 		<?php }elseif($_SESSION['tipo_sesion']==3) { ?>
 
