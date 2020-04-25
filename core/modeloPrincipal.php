@@ -294,4 +294,32 @@
 			return $alerta;
 
 		}
+
+
+
+		protected function mostrarAlertaRedireccion($datosAlerta)
+		{
+			
+			if($datosAlerta['Alerta']==="redireccionar")
+			{
+				$alerta = "
+					<script>
+						swal({
+							title: '".$datosAlerta['Titulo']."',
+							text: '".$datosAlerta['Texto']."',
+							type: '".$datosAlerta['Tipo']."',
+							confirmButtonText: 'Aceptar'
+						}).then(function() {
+							window.location.href = '".SERVERURL.$datosAlerta['Pagina']."';
+						});
+					</script>
+				";
+			}
+
+			return $alerta;
+
+		}
+
+
+
 	}

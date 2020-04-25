@@ -31,13 +31,13 @@
 	</ul>
 </div>
 
-<!--?php
+<?php
 
-	//require_once "./controladores/administradorControlador.php";
+	require_once "./controladores/metodologiaControlador.php";
 
-	//$instanciaAdministrador = new administradorControlador();
+	$instanciaMetodologia = new metodologiaControlador();
 
-?-->
+?>
 
 <!-- Panel listado de administradores -->
 <div class="container-fluid">
@@ -46,28 +46,15 @@
 			<h3 class="panel-title"><i class="zmdi zmdi-format-list-bulleted"></i> &nbsp;Metodologías</h3>
 		</div>
 
-		<div class="table-responsive">
-			<table class="table table-hover text-center">
-				<thead>
-					<tr>
-						<th class="text-center">#</th>
-						<th class="text-center">METODOLOGÍA</th>
-						<th class="text-center">DESCRIPCION</th>
-						<th class="text-center">CONSULTAR</th>
-						<th class="text-center">ACTUALIZAR</th>
-						<th class="text-center">ELIMINAR</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td colspan="6">No hay metodologías registradas</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<!--div class="panel-body">
+		<div class="panel-body">
 
-			
-		</div-->
+			<?php
+
+				$pagina = explode("/", $_GET['views']);
+
+				echo $instanciaMetodologia->paginarMetodologiasControlador($pagina[1], 5, $_SESSION['codigo_cuenta_sesion'], "");
+			?>
+
+		</div>
 	</div>
 </div>

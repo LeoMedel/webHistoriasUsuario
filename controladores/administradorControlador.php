@@ -482,8 +482,16 @@
 		{
 			$codigo = modeloPrincipal::desencriptar($codigo);
 			$tipo = modeloPrincipal::limpiarCadena($tipo);
+			$usuario = modeloPrincipal::limpiarCadena($usuario);
 
 			return administradorModelo::mostrarInfoAdministradoresModelo($tipo, $codigo);
+		}
+
+		public function mostrarInfoUsuariosControlador($usuario)
+		{
+			$usuario = modeloPrincipal::limpiarCadena($usuario);
+
+			return administradorModelo::mostrarInfoUsuariosModelo($usuario);
 		}
 
 

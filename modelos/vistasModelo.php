@@ -24,7 +24,9 @@
 				"proyectoInfo",
 				"proyectoActualizar",
 				"metodologialist",
-				"metodologia"
+				"metodologia",
+				"metodologiaInfo",
+				"fuentes"
 			];
 			if(in_array($vistas, $listaBlanca))
 			{

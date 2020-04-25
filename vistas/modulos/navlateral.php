@@ -100,11 +100,11 @@
 					<i class="zmdi zmdi-home zmdi-hc-fw"></i> INICIO
 				</a>
 			</li>
-			<!--li>
+			<li>
 				<a href="<?php echo SERVERURL; ?>metodologialist/">
 					<i class="zmdi zmdi-home zmdi-hc-fw"></i> METODOLOGIAS
 				</a>
-			</li-->
+			</li>
 			<li>
 				<a href="#!" class="btn-sideBar-SubMenu">
 					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> PROYECTOS <i class="zmdi zmdi-caret-down pull-right"></i>
@@ -125,7 +125,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#!" class="btn-sideBar-SubMenu">
+				<!--a href="#!" class="btn-sideBar-SubMenu">
 					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> AVANCES <i class="zmdi zmdi-caret-down pull-right"></i>
 				</a>
 				<ul class="list-unstyled full-box">
@@ -134,7 +134,7 @@
 					</li>
 					<li>
 						<a href="<?php echo SERVERURL; ?>client/"><i class="zmdi zmdi-male-female zmdi-hc-fw">Reportes</i></a>
-					</li>
+					</li-->
 		<?php } ?>
 				</ul>
 			</li>

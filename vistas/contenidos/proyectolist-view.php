@@ -33,7 +33,7 @@
 
 <?php
 
-	require_once "./controladores/ProyectoControlador.php";
+	require_once "./controladores/proyectoControlador.php";
 
 	$instanciaProyecto = new proyectoControlador();
 

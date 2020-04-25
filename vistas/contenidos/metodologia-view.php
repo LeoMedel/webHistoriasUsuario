@@ -39,7 +39,7 @@
 			<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVA METODOLOGÍA</h3>
 		</div>
 		<div class="panel-body">
-			<form action="<?php echo SERVERURL; ?>ajax/proyectoAjax.php" method="POST" data-form="save" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data">
+			<form action="<?php echo SERVERURL; ?>ajax/metodologiaAjax.php" method="POST" data-form="save" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data">
 		    	<fieldset>
 		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información de la metodología</legend>
 		    		<div class="container-fluid">

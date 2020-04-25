@@ -71,6 +71,25 @@
 			return $administradores;
 		}
 
+		protected function mostrarInfoUsuariosModelo($usuario)
+		{
+			if ($usuario=="administrador")
+			{
+				$datos = modeloPrincipal::conectarBD()->prepare("SELECT id FROM persona WHERE id!='1' AND PersonaPrivilegio='Administrador'");
+			}
+			elseif ($usuario=="docente")
+			{
+				$datos = modeloPrincipal::conectarBD()->prepare("SELECT id FROM persona WHERE PersonaPrivilegio='Docente'");
+			}
+			else if($usuario=="estudiante")
+			{
+			 	$datos = modeloPrincipal::conectarBD()->prepare("SELECT id FROM persona WHERE PersonaPrivilegio='Estudiante'");
+			}
+			
+			$datos->execute();
+			return $datos;
+		}
+
 		protected function actualizarAdministradorModelo($datos)
 		{
 			$actualizar = modeloPrincipal::conectarBD()->prepare("UPDATE persona SET PersonaDNI=:DNI, PersonaNombre=:Nombre, PersonaApellido=:Apellido, PersonaTelefono=:Telefono, PersonaDireccion=:Direccion, PersonaPrivilegio=:Privilegio WHERE CuentaCodigo=:Codigo");
