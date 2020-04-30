@@ -31,7 +31,7 @@
 				</div>
 				<div class="full-box tile-number text-titles">
 					<p class="full-box"> <?php echo $conteoAdmin->rowCount(); ?> </p>
-					<small>Resgistros</small>
+					<small>Registros</small>
 				</div>
 			</article>
 		</a>
@@ -46,7 +46,7 @@
 				</div>
 				<div class="full-box tile-number text-titles">
 					<p class="full-box"> <?php echo $conteoDocente->rowCount(); ?> </p>
-					<small>Resgistros</small>
+					<small>Registros</small>
 				</div>
 			</article>
 		</a>
@@ -61,7 +61,7 @@
 				</div>
 				<div class="full-box tile-number text-titles">
 					<p class="full-box"> <?php echo $conteoEstudiante->rowCount(); ?> </p>
-					<small>Resgistros</small>
+					<small>Registros</small>
 				</div>
 			</article>
 		</a>

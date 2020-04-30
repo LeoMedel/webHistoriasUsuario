@@ -34,9 +34,6 @@
 
 			?>
 
-
-			
-
 			<ul class="full-box list-unstyled text-center">
 				<?php	if ($_SESSION['tipo_sesion']==1) { ?>
 
@@ -106,6 +103,11 @@
 				</a>
 			</li>
 			<li>
+				<a href="<?php echo SERVERURL; ?>equipolist/">
+					<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> EQUIPOS
+				</a>
+			</li>
+			<li>
 				<a href="#!" class="btn-sideBar-SubMenu">
 					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> PROYECTOS <i class="zmdi zmdi-caret-down pull-right"></i>
 				</a>
@@ -113,9 +115,9 @@
 					<li>
 						<a href="<?php echo SERVERURL; ?>proyectolist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Proyectos</a>
 					</li>
-					<!--li>
-						<a href="<?php echo SERVERURL; ?>asignacion/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Asignacion</a>
-					</li-->
+					<li>
+						<a href="<?php echo SERVERURL; ?>proyectoMetodologia/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Asignacion de la metodología</a>
+					</li>
 
 		<?php }elseif($_SESSION['tipo_sesion']==3) { ?>
 

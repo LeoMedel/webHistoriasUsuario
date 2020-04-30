@@ -23,6 +23,7 @@
 				"proyecto",
 				"proyectoInfo",
 				"proyectoActualizar",
+				"proyectoMetodologia",
 				"metodologialist",
 				"metodologia",
 				"metodologiaInfo",

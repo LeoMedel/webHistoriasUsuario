@@ -34,40 +34,63 @@
 </div>
 <div class="full-box text-center" style="padding: 30px 10px;">
 	
-	<article class="full-box tile">
-		<div class="full-box tile-title text-center text-titles text-uppercase">
-			ESTUDIANTES
-		</div>
-		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-male-female"></i>
-		</div>
-		<div class="full-box tile-number text-titles">
-			<p class="full-box"> X </p>
-			<small>Registros</small>
-		</div>
-	</article>
-	<article class="full-box tile">
-		<div class="full-box tile-title text-center text-titles text-uppercase">
-			PROYECTOS
-		</div>
-		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-assignment"></i>
-		</div>
-		<div class="full-box tile-number text-titles">
-			<p class="full-box"> X </p>
-			<small>Registros</small>
-		</div>
-	</article>
-	<article class="full-box tile">
-		<div class="full-box tile-title text-center text-titles text-uppercase">
-			EQUIPOS
-		</div>
-		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-globe"></i>
-		</div>
-		<div class="full-box tile-number text-titles">
-			<p class="full-box"> X </p>
-			<small>Registros</small>
-		</div>
-	</article>
+	<a href="<?php echo SERVERURL; ?>proyectolist/">
+		<article class="full-box tile">
+			<div class="full-box tile-title text-center text-titles text-uppercase">
+				PROYECTOS
+			</div>
+			<div class="full-box tile-icon text-center">
+				<i class="zmdi zmdi-account"></i>
+			</div>
+			<div class="full-box tile-number text-titles">
+				<p class="full-box"> X	 </p>
+				<small>Registros</small>
+			</div>
+		</article>
+	</a>
+
+	<a href="<?php echo SERVERURL; ?>metodologialist/">
+		<article class="full-box tile">
+			<div class="full-box tile-title text-center text-titles text-uppercase">
+				METODOLOGÍAS
+			</div>
+			<div class="full-box tile-icon text-center">
+				<i class="zmdi zmdi-account"></i>
+			</div>
+			<div class="full-box tile-number text-titles">
+				<p class="full-box"> X	 </p>
+				<small>Registros</small>
+			</div>
+		</article>
+	</a>
+
+	<a href="<?php echo SERVERURL; ?>proyectoMetodologia/">
+		<article class="full-box tile">
+			<div class="full-box tile-title text-center text-titles text-uppercase">
+				ASIGNACIONES
+			</div>
+			<div class="full-box tile-icon text-center">
+				<i class="zmdi zmdi-account"></i>
+			</div>
+			<div class="full-box tile-number text-titles">
+				<p class="full-box"></p>
+				<small>Asignacion de la metodología empleada en el proyecto</small>
+			</div>
+		</article>
+	</a>
+
+	<a href="<?php echo SERVERURL; ?>equipolist/">
+		<article class="full-box tile">
+			<div class="full-box tile-title text-center text-titles text-uppercase">
+				EQUIPOS
+			</div>
+			<div class="full-box tile-icon text-center">
+				<i class="zmdi zmdi-account"></i>
+			</div>
+			<div class="full-box tile-number text-titles">
+				<p class="full-box"> X </p>
+				<small>Registros</small>
+			</div>
+		</article>
+	</a>
 </div>

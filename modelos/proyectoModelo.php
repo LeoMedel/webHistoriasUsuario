@@ -42,7 +42,7 @@
 		protected function mostrarInfoProyectoModelo($codigo)
 		{
 
-			$proyecto = modeloPrincipal::conectarBD()->prepare("SELECT * FROM proyecto WHERE id=:Codigo");
+			$proyecto = modeloPrincipal::conectarBD()->prepare("SELECT * FROM proyecto WHERE id_proyecto=:Codigo");
 			$proyecto->bindParam("Codigo", $codigo);
 			$proyecto->execute();
 			return $proyecto;
@@ -72,6 +72,40 @@
 
 			return $eliminar;
 
+		}
+
+		protected function cargarProyectosModelo($id)
+		{
+
+			$metodologia = modeloPrincipal::conectarBD()->prepare("SELECT * FROM proyecto WHERE cuentaCreador ='$id'");
+			$metodologia->execute();
+			return $metodologia;
+		}
+
+		protected function asignarMetodologiaProyectoModelo($datos)
+		{
+			try
+			{
+				$pdo = modeloPrincipal::conectarBD();
+				
+
+				$sql = "INSERT INTO proyecto_metodologia(id_proyecto, id_metodologia, objetivo, created, modified) VALUES(?, ?, ?, now(), now() )";
+
+				print_r("Consulta ".$sql);
+
+				$pdo->prepare($sql)->execute([
+					$datos['idProyecto'], 
+					$datos['idMetodologia'], 
+					$datos['Objetivo']
+				]);
+				
+
+				return true;
+
+			} catch (Exception $e) 
+			{
+				return false;
+			}
 		}
 
 	}

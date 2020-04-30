@@ -13,6 +13,7 @@
 	 */
 	class proyectoControlador extends proyectoModelo
 	{
+
 		/*Controlador para Agregar PROYECTOS*/
 		public function agregarProyectoControlador()
 		{
@@ -95,6 +96,188 @@
 		}
 		/*Fin de Agregar PROYECTO*/
 
+		public function actualizarProyectoControlador()
+		{
+			//Proyecto
+			$idProyecto = modeloPrincipal::desencriptar($_POST['idProyecto-up']);
+			$titulo = modeloPrincipal::limpiarCadena($_POST['titulo-up']);
+			
+			$inicio = $_POST['inicio-up'];
+			$fin = $_POST['fin-up'];
+
+
+			$fechaInicio=date_create($inicio);
+			$fechaFin=date_create($fin);
+			$inicio = date_format($fechaInicio,"Y/m/d");
+			$fin = date_format($fechaFin,"Y/m/d");
+
+			$consultaTitulo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT titulo FROM proyecto WHERE titulo='$titulo'");
+
+			
+			if ($consultaTitulo->rowCount()>=1) {
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "El TITULO ya esta registrado en el sistema. Verifique nuevamente",
+					"Tipo" => "error"
+				];
+				
+				return modeloPrincipal::mostrarAlerta($alerta);
+				exit();
+			}
+			else
+			{
+
+					if( ($inicio > $fin) || ($inicio == $fin) )
+					{
+						$alerta = [
+							"Alerta" => "simple",
+							"Titulo" => "Error",
+							"Texto" => "Las fechas NO son validas. Verifique nuevamente",
+							"Tipo" => "error"
+						];	
+						
+						return modeloPrincipal::mostrarAlerta($alerta);
+						exit();
+					} 
+					else
+					{
+
+						$datosProyecto = [
+							"IdProyecto" => $idProyecto,
+							"Titulo" => $titulo,
+							"Inicio" => $inicio,
+							"Fin" => $fin
+						];
+
+						$proyectoActualizado = proyectoModelo::actualizarProyectoModelo($datosProyecto);
+
+						if($proyectoActualizado)
+						{
+							$alerta = [
+								"Alerta" => "recargar",
+								"Titulo" => "Éxito",
+								"Texto" => "El proyecto fue actualizado correctamente",
+								"Tipo" => "success"
+							];	
+						} 
+						else
+						{
+							$alerta = [
+								"Alerta" => "simple",
+								"Titulo" => "Error",
+								"Texto" => "El proyecto NO fue actualizado",
+								"Tipo" => "error"
+							];
+						}
+
+					}
+					
+			}
+						
+			return modeloPrincipal::mostrarAlerta($alerta);
+
+		}
+
+
+		/*Eliminar ADMINISTRADORES*/
+		public function eliminarProyectoControlador()
+		{
+			$idProyecto = modeloPrincipal::desencriptar($_POST['idProyecto-del']);
+
+			$eliminarProyecto = proyectoModelo::eliminarProyectoModelo($idProyecto);
+
+				if ($eliminarProyecto->rowCount()==1)
+				{
+					$alerta = [
+						"Alerta" => "recargar",
+						"Titulo" => "Éxito",
+						"Texto" => "El Proyecto fue eliminado correctamente del sistema",
+						"Tipo" => "success"
+					];
+				} else {
+					$alerta = [
+						"Alerta" => "simple",
+						"Titulo" => "Error",
+						"Texto" => "No se elimino el proyecto. Intentelo mas tarde",
+						"Tipo" => "error"
+					];
+				}
+			
+
+			return modeloPrincipal::mostrarAlerta($alerta);
+			
+
+		}
+		/*FIN de Eliminar ADMINISTRADORES*/
+
+		/*Controlador para mostrar la informacion de un PROYECTO*/
+		public function mostrarInfoProyectoControlador($codigo)
+		{
+			$codigo = modeloPrincipal::desencriptar($codigo);
+
+			return proyectoModelo::mostrarInfoProyectoModelo($codigo);
+		}
+		/*FIN Controlador para mostrar la informacion de un PROYECTO*/
+
+		/*Controlador para obtener todos los proyectos de un cuenta de docente*/
+		public function cargarProyectosControlador($cuenta)
+		{
+			return proyectoModelo::cargarProyectosModelo($cuenta);
+		}
+		/*FIN de obtener Proyectos*/
+
+		public function asignarMetodologiaProyectoControlador()
+		{
+			$idProyecto = modeloPrincipal::limpiarCadena($_POST['proyecto-asig']);
+			$idMetodologia = modeloPrincipal::limpiarCadena($_POST['metodologia-asig']);
+			$objetivo = modeloPrincipal::limpiarCadena($_POST['objetivo-asig']);
+
+			$consultaProyecto = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT id_proyecto FROM proyecto_metodologia WHERE id_proyecto='$idProyecto'");
+
+			if ($consultaProyecto->rowCount()>=1)
+			{
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "El PROYECTO ya tiene una metodologia. Verifique nuevamente",
+					"Tipo" => "error"
+				];
+			}
+			else
+			{
+				$datosProyectoMetodo = [
+							"idProyecto" => $idProyecto,
+							"idMetodologia" => $idMetodologia,
+							"Objetivo" => $objetivo
+						];
+
+				$proyectoAsignado = proyectoModelo::asignarMetodologiaProyectoModelo($datosProyectoMetodo);
+
+				if($proyectoAsignado)
+				{
+					$alerta = [
+						"Alerta" => "limpiar",
+						"Titulo" => "Éxito",
+						"Texto" => "La metodologia fue asignada al proyecto correctamente",
+						"Tipo" => "success"
+					];	
+				} 
+				else
+				{
+					$alerta = [
+						"Alerta" => "simple",
+						"Titulo" => "Error",
+						"Texto" => "La metodologia NO fue agregado",
+						"Tipo" => "error"
+					];
+				}
+			}
+			return modeloPrincipal::mostrarAlerta($alerta);
+
+		}
+
+
 
 		/*Controlador para paginar los PROYECTOS*/
 		public function paginarProyectosControlador($pagina, $noRegistros, $codigo, $busqueda)
@@ -155,16 +338,16 @@
 					$tabla .= '		<tr>
 										<td><p>'.$contador.'</p></td>
 										<td><p>'.$proyecto['titulo'].'</td>
-										<td><p>'.$proyecto['inicio'].'</p></td>
-										<td><p>'.$proyecto['fin'].'</p></td>';
+										<td><p>'.$proyecto['fecha_inicio'].'</p></td>
+										<td><p>'.$proyecto['fecha_fin'].'</p></td>';
 						
 						$tabla .= '		<td>
-											<a href="'.SERVERURL.'proyectoInfo/'.modeloPrincipal::encriptar($proyecto['id']).'/" class="btn btn-success btn-raised btn-sm">
+											<a href="'.SERVERURL.'proyectoInfo/'.modeloPrincipal::encriptar($proyecto['id_proyecto']).'/" class="btn btn-info btn-raised btn-sm">
 												<i class="zmdi zmdi-file"></i>
 											</a>
 										</td>
 										<td>
-											<a href="'.SERVERURL.'proyectoActualizar/'.modeloPrincipal::encriptar($proyecto['id']).'/" class="btn btn-success btn-raised btn-sm">
+											<a href="'.SERVERURL.'proyectoActualizar/'.modeloPrincipal::encriptar($proyecto['id_proyecto']).'/" class="btn btn-success btn-raised btn-sm">
 												<i class="zmdi zmdi-file"></i>
 											</a>
 										</td>	
@@ -172,7 +355,7 @@
 						$tabla .= '		<td>
 											<form action="'.SERVERURL.'ajax/proyectoAjax.php" method="POST" class="FormularioAjax" data-form="delete" enctype="multipart/forma-data" autocomplete="off">
 
-												<input type="hidden" name="idProyecto-del" value="'.modeloPrincipal::encriptar($proyecto['id']).'">
+												<input type="hidden" name="idProyecto-del" value="'.modeloPrincipal::encriptar($proyecto['id_proyecto']).'">
 
 												<button type="submit" class="btn btn-danger btn-raised btn-sm">
 													<i class="zmdi zmdi-delete"></i>
@@ -289,131 +472,7 @@
 		}
 		/*FIN del paginador de ADMINISTRADORES*/
 
-
-		/*Controlador para mostrar la informacion de un PROYECTO*/
-		public function mostrarInfoProyectoControlador($codigo)
-		{
-			$codigo = modeloPrincipal::desencriptar($codigo);
-
-			return proyectoModelo::mostrarInfoProyectoModelo($codigo);
-		}
-		/*FIN Controlador para mostrar la informacion de un PROYECTO*/
-
-		public function actualizarProyectoControlador()
-		{
-			//Proyecto
-			$idProyecto = modeloPrincipal::desencriptar($_POST['idProyecto-up']);
-			$titulo = modeloPrincipal::limpiarCadena($_POST['titulo-up']);
-			
-			$inicio = $_POST['inicio-up'];
-			$fin = $_POST['fin-up'];
-
-
-			$fechaInicio=date_create($inicio);
-			$fechaFin=date_create($fin);
-			$inicio = date_format($fechaInicio,"Y/m/d");
-			$fin = date_format($fechaFin,"Y/m/d");
-
-			$consultaTitulo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT titulo FROM proyecto WHERE titulo='$titulo'");
-
-			
-			if ($consultaTitulo->rowCount()>=1) {
-				$alerta = [
-					"Alerta" => "simple",
-					"Titulo" => "Error",
-					"Texto" => "El TITULO ya esta registrado en el sistema. Verifique nuevamente",
-					"Tipo" => "error"
-				];
-				
-				return modeloPrincipal::mostrarAlerta($alerta);
-				exit();
-			}
-			else
-			{
-
-					if( ($inicio > $fin) || ($inicio == $fin) )
-					{
-						$alerta = [
-							"Alerta" => "simple",
-							"Titulo" => "Error",
-							"Texto" => "Las fechas NO son validas. Verifique nuevamente",
-							"Tipo" => "error"
-						];	
-						
-						return modeloPrincipal::mostrarAlerta($alerta);
-						exit();
-					} 
-					else
-					{
-
-						$datosProyecto = [
-							"IdProyecto" => $idProyecto,
-							"Titulo" => $titulo,
-							"Inicio" => $inicio,
-							"Fin" => $fin
-						];
-
-						$proyectoActualizado = proyectoModelo::actualizarProyectoModelo($datosProyecto);
-
-						if($proyectoActualizado)
-						{
-							$alerta = [
-								"Alerta" => "recargar",
-								"Titulo" => "Éxito",
-								"Texto" => "El proyecto fue actualizado correctamente",
-								"Tipo" => "success"
-							];	
-						} 
-						else
-						{
-							$alerta = [
-								"Alerta" => "simple",
-								"Titulo" => "Error",
-								"Texto" => "El proyecto NO fue actualizado",
-								"Tipo" => "error"
-							];
-						}
-
-					}
-					
-			}
-						
-			return modeloPrincipal::mostrarAlerta($alerta);
-
-		}
-
-
-		/*Eliminar ADMINISTRADORES*/
-		public function eliminarProyectoControlador()
-		{
-			$idProyecto = modeloPrincipal::desencriptar($_POST['idProyecto-del']);
-
-			$eliminarProyecto = proyectoModelo::eliminarProyectoModelo($idProyecto);
-
-				if ($eliminarProyecto->rowCount()==1)
-				{
-					$alerta = [
-						"Alerta" => "recargar",
-						"Titulo" => "Éxito",
-						"Texto" => "El Proyecto fue eliminado correctamente del sistema",
-						"Tipo" => "success"
-					];
-				} else {
-					$alerta = [
-						"Alerta" => "simple",
-						"Titulo" => "Error",
-						"Texto" => "No se elimino el proyecto. Intentelo mas tarde",
-						"Tipo" => "error"
-					];
-				}
-			
-
-			return modeloPrincipal::mostrarAlerta($alerta);
-			
-
-		}
-
-
+		
 
 
 	}

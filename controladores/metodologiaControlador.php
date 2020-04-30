@@ -385,6 +385,11 @@
 
 		}
 
+		public function cargarMetodologiasControlador()
+		{
+			return metodologiaModelo::cargarMetodologiasModelo();
+		}
+
 
 
 

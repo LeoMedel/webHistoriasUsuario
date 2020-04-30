@@ -45,6 +45,14 @@
 			return $metodologia;
 		}
 
+		protected function cargarMetodologiasModelo()
+		{
+
+			$metodologia = modeloPrincipal::conectarBD()->prepare("SELECT * FROM metodologia");
+			$metodologia->execute();
+			return $metodologia;
+		}
+
 
 		protected function actualizarProyectoModelo($datos)
 		{

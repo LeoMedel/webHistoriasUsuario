@@ -1,3 +1,11 @@
+<?php
+    if ($_SESSION['tipo_sesion'] != 2) {
+
+        echo $loginControl->forzarCierreSesion();
+        //echo $loginControl->redireccionarUsuarioControlador($_SESSION['tipo_sesion']);
+    }
+?>
+
 
 <div class="container-fluid">
 	<div class="page-header">
@@ -6,6 +14,15 @@
 	<p class="lead">consultar datos del Proyecto</p>
 </div>
 
+<div class="container-fluid">
+	<ul class="breadcrumb breadcrumb-tabs">
+		<li>
+	  		<a href="<?php echo SERVERURL; ?>proyectolist/" class="btn btn-success">
+	  			<i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; TODOS LOS PROYECTOS
+	  		</a>
+	  	</li>
+	</ul>
+</div>
 
 <?php
 
@@ -36,11 +53,14 @@
 
 						<h3>Fechas del proyecto:</h3>
 
-						<h6><?php echo $camposProyecto['inicio']; ?></h6>
-						<h6><?php echo $camposProyecto['fin']; ?></h6>
+						<h6><?php echo $camposProyecto['fecha_inicio']; ?></h6>
+						<h6><?php echo $camposProyecto['fecha_fin']; ?></h6>
 					</div>
 				</div>
 			</div>
+
+			<br>
+			
 
 <?php
 		}

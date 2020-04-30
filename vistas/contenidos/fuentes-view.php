@@ -58,7 +58,7 @@
 		    	</fieldset>
 		    	<br>
 			    <p class="text-center" style="margin-top: 20px;">
-			    	<button type="submit" class="btn btn-success btn-raised btn-lg"><i class="zmdi zmdi-floppy"></i> Registrar metodología </button>
+			    	<button type="submit" class="btn btn-success btn-raised btn-lg"><i class="zmdi zmdi-floppy"></i> Registrar fuente </button>
 			    </p>
 			    <div class="RespuestaAjax"></div>
 		    </form>
