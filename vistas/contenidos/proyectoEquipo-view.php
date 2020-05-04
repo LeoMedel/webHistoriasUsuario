@@ -5,10 +5,10 @@
         //echo $loginControl->redireccionarUsuarioControlador($_SESSION['tipo_sesion']);
     }
 
-    require_once "./controladores/metodologiaControlador.php";
-	$claseMetodo = new metodologiaControlador();
-	$datosMeto = $claseMetodo->cargarMetodologiasControlador();
-	$datosMeto = $datosMeto->fetchAll();
+    require_once "./controladores/equipoControlador.php";
+	$claseEquipo = new equipoControlador();
+	$datosEquipos = $claseEquipo->cargarEquiposControlador($_SESSION['codigo_cuenta_sesion']);
+	$datosEquipos = $datosEquipos->fetchAll();
 
 	require_once "./controladores/proyectoControlador.php";
 	$claseProyecto = new proyectoControlador();
@@ -22,7 +22,7 @@
 	<div class="page-header">
 	  <h1 class="text-titles"><i class="zmdi zmdi-settings zmdi-hc-fw"></i>ASIGNACION DE METODOLOGIA</small></h1>
 	</div>
-	<p class="lead">Asignación de la metodología a utilizar en un proyecto</p>
+	<p class="lead">Asignación del equipo para el proyecto</p>
 </div>
 
 <div class="container-fluid">
@@ -33,8 +33,8 @@
 	  		</a>
 	  	</li>
 	  	<li>
-	  		<a href="<?php echo SERVERURL; ?>proyectoMetodologialist/" class="btn btn-info">
-	  			<i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; VER LAS RELACIONES PROYECTO-METODOLOGIA
+	  		<a href="<?php echo SERVERURL; ?>proyectoEquipolist/" class="btn btn-info">
+	  			<i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; VER LAS RELACIONES PROYECTO-EQUIPO
 	  		</a>
 	  	</li>
 	</ul>
@@ -49,20 +49,20 @@
 		<div class="panel-body">
 			<form action="<?php echo SERVERURL; ?>ajax/proyectoAjax.php" method="POST" data-form="save" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data">
 		    	<fieldset>
-		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información de la metodología</legend>
+		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información del equipo</legend>
 		    		<div class="container-fluid">
 		    			<div class="row">
 		    				
 		    				<div class="col-xs-12">
-		    					<p>NOMBRE DE LA METODOLOGIA: </p>
+		    					<p>NOMBRE DEL EQUIPO: </p>
 						    	<div class="form-group label-floating">
-								  	<label class="control-label">Metodologia *</label>
-								  	<select class="form-control" name="metodologia-asig">
-								  		<option value="0">Seleccione la metodologia</option>
+								  	<label class="control-label">Equipo *</label>
+								  	<select class="form-control" name="equipoPro-asig">
+								  		<option value="0">Seleccione el equipo</option>
 										<?php
-										foreach ($datosMeto as $metodologia)
+										foreach ($datosEquipos as $equipo)
 										{
-											echo '<option value="'.$metodologia['id_metodologia'].'">'.$metodologia['metodologia'].'</option>';
+											echo '<option value="'.modeloPrincipal::encriptar($equipo['id_equipo']).'">'.$equipo['equipo'].'</option>';
 										}
 										?>
 								  	</select>
@@ -71,21 +71,15 @@
 		    				<div class="col-xs-12">
 								<div class="form-group label-floating">
 								  	<label class="control-label">Proyecto *</label>
-								  	<select class="form-control" name="proyecto-asig">
+								  	<select class="form-control" name="proyectoEq-asig">
 								  		<option value="0">Seleccione el proyecto</option>
 										<?php
 										foreach ($datosPro as $proyecto)
 										{
-											echo '<option value="'.$proyecto['id_proyecto'].'">'.$proyecto['titulo'].'</option>';
+											echo '<option value="'.modeloPrincipal::encriptar($proyecto['id_proyecto']).'">'.$proyecto['titulo'].'</option>';
 										}
 										?>
 								  	</select>
-								</div>
-		    				</div>
-		    				<div class="col-xs-12">
-								<div class="form-group label-floating">
-								  	<label class="control-label">Objetivo</label>
-								  	<textarea name="objetivo-asig" class="form-control" rows="2" maxlength="100" ></textarea>
 								</div>
 		    				</div>
 		    			</div>
@@ -93,7 +87,7 @@
 		    	</fieldset>
 		    	<br>
 			    <p class="text-center" style="margin-top: 20px;">
-			    	<button type="submit" class="btn btn-success btn-raised btn-lg"><i class="zmdi zmdi-floppy"></i> Asignar metodología </button>
+			    	<button type="submit" class="btn btn-success btn-raised btn-lg"><i class="zmdi zmdi-floppy"></i> Asignar equipo </button>
 			    </p>
 			    <div class="RespuestaAjax"></div>
 		    </form>

@@ -19,9 +19,9 @@
 				$pdo = modeloPrincipal::conectarBD();
 				
 
-				$sql = "INSERT INTO proyecto(titulo, inicio, fin, cuentaCreador, created, modified) VALUES(?, ?, ?, ?, now(), now() )";
+				$sql = "INSERT INTO proyecto(titulo, fecha_inicio, fecha_fin, cuentaCreador, created, modified) VALUES(?, ?, ?, ?, now(), now() )";
 
-				print_r("Consulta ".$sql);
+				//print_r("Consulta ".$sql);
 
 				$pdo->prepare($sql)->execute([
 					$datosPro['Titulo'], 
@@ -35,6 +35,7 @@
 
 			} catch (Exception $e) 
 			{
+				print_r("ERROR: ". $e);
 				return false;
 			}
 		}
@@ -106,6 +107,58 @@
 			{
 				return false;
 			}
+		}
+
+		protected function asignarProyectoEquipoModelo($datos)
+		{
+			try
+			{
+				$pdo = modeloPrincipal::conectarBD();
+				
+
+				$sql = "INSERT INTO asignacion(id_proyecto, id_equipo, id_estado, created, modified) VALUES(?, ?, ?, now(), now() )";
+
+				//print_r("Consulta ".$sql);
+
+				$pdo->prepare($sql)->execute([
+					$datos['idProyecto'], 
+					$datos['idEquipo'], 
+					$datos['Estado']
+				]);
+				
+
+				return true;
+
+			} catch (Exception $e) 
+			{
+				print_r("ERROR: ". $e);
+				return false;
+			}
+
+		}
+
+		protected function eliminarMetodologiaProyectoModelo($idProyecto)
+		{
+			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM proyecto_metodologia WHERE id_proyecto_metodologia=:IdProyecto");
+
+			$eliminar->bindParam("IdProyecto", $idProyecto);
+
+			$eliminar->execute();
+
+			return $eliminar;
+
+		}
+
+		protected function eliminarProyectoEquipoModelo($idProyecto)
+		{
+			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM asignacion WHERE id_asignacion=:IdProyecto");
+
+			$eliminar->bindParam("IdProyecto", $idProyecto);
+
+			$eliminar->execute();
+
+			return $eliminar;
+
 		}
 
 	}

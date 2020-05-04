@@ -103,11 +103,6 @@
 				</a>
 			</li>
 			<li>
-				<a href="<?php echo SERVERURL; ?>equipolist/">
-					<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> EQUIPOS
-				</a>
-			</li>
-			<li>
 				<a href="#!" class="btn-sideBar-SubMenu">
 					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> PROYECTOS <i class="zmdi zmdi-caret-down pull-right"></i>
 				</a>
@@ -116,7 +111,10 @@
 						<a href="<?php echo SERVERURL; ?>proyectolist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Proyectos</a>
 					</li>
 					<li>
-						<a href="<?php echo SERVERURL; ?>proyectoMetodologia/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Asignacion de la metodología</a>
+						<a href="<?php echo SERVERURL; ?>proyectoMetodologialist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Asignacion de la metodología</a>
+					</li>
+					<li>
+						<a href="<?php echo SERVERURL; ?>proyectoEquipolist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Asignacion del Equipo</a>
 					</li>
 
 		<?php }elseif($_SESSION['tipo_sesion']==3) { ?>
@@ -126,17 +124,46 @@
 					<i class="zmdi zmdi-home zmdi-hc-fw"></i> INICIO
 				</a>
 			</li>
-			<li>
-				<!--a href="#!" class="btn-sideBar-SubMenu">
-					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> AVANCES <i class="zmdi zmdi-caret-down pull-right"></i>
+			<?php if($_SESSION['codigo_proyecto_sesion']>0) { ?>
+				<li>
+				<!--a href="<?php echo SERVERURL; ?>equipolist/">
+					<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> EQUIPOS
+				</a-->
+				<a href="#!" class="btn-sideBar-SubMenu">
+					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> PROYECTO <i class="zmdi zmdi-caret-down pull-right"></i>
 				</a>
 				<ul class="list-unstyled full-box">
 					<li>
-						<a href="<?php echo SERVERURL; ?>admin/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Fases</a>
+						<a href="<?php echo SERVERURL; ?>equipolist/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Fases</a>
 					</li>
-					<li>
-						<a href="<?php echo SERVERURL; ?>client/"><i class="zmdi zmdi-male-female zmdi-hc-fw">Reportes</i></a>
+					<!--li>
+						<a href="<?php echo SERVERURL; ?>equipoEstudianteslist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Agregar estudiante al equipo</a>
 					</li-->
+				</ul>
+			</li>
+			<?php } ?>
+
+			<?php if($_SESSION['codigo_equipo_sesion']>0) { ?>
+				<li>
+				<!--a href="<?php echo SERVERURL; ?>equipolist/">
+					<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> EQUIPOS
+				</a-->
+				<a href="#!" class="btn-sideBar-SubMenu">
+					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> EQUIPO <i class="zmdi zmdi-caret-down pull-right"></i>
+				</a>
+				<ul class="list-unstyled full-box">
+					<li>
+						<a href="<?php echo SERVERURL; ?>equipolist/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Responsables</a>
+					</li>
+					<!--li>
+						<a href="<?php echo SERVERURL; ?>equipoEstudianteslist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Agregar estudiante al equipo</a>
+					</li-->
+				</ul>
+			</li>
+			<?php } ?>
+
+			
+				
 		<?php } ?>
 				</ul>
 			</li>

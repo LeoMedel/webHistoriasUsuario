@@ -480,4 +480,28 @@
 
 		}
 
+
+		public function cargarEstudiantesControlador()
+		{
+			$estudiantes = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM persona WHERE PersonaPrivilegio='Estudiante'");
+
+			return $estudiantes;
+		}
+
+		public function mostrarMiEquipoControlador($idEq)
+		{
+			$miEquipo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM equipo WHERE id_equipo='$idEq'");
+
+			return $miEquipo;
+
+		}
+
+		public function mostrarMiProyectoControlador($idProyecto)
+		{
+			$miProyecto = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM proyecto WHERE id_proyecto='$idProyecto'");
+
+			return $miProyecto;
+
+		}
+
 	}

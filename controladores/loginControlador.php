@@ -101,6 +101,31 @@
 							$url = SERVERURL."homeDocente/";
 						}
 						elseif ($registro['CuentaRol'] == 3) {
+							$consultaEquipo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT id_equipo FROM cuenta_equipo WHERE CuentaCodigo='".$_SESSION['codigo_cuenta_sesion']."'");
+							if($consultaEquipo->rowCount()>0)
+							{
+								$equipo = $consultaEquipo->fetch();
+								$_SESSION['codigo_equipo_sesion'] = $equipo['id_equipo'];
+
+								$consultaProyecto = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT id_proyecto FROM asignacion WHERE id_equipo='".$_SESSION['codigo_equipo_sesion']."'");
+
+								if($consultaProyecto->rowCount()>0)
+								{
+									$proyecto = $consultaProyecto->fetch();
+									$_SESSION['codigo_proyecto_sesion'] = $proyecto['id_proyecto'];
+									
+								}
+								else
+								{
+									$_SESSION['codigo_proyecto_sesion'] = 0;
+								}
+								
+							}
+							else
+							{
+								$_SESSION['codigo_equipo_sesion'] = 0;
+							}
+							
 							$url = SERVERURL."homeEstudiante/";
 						}
 						

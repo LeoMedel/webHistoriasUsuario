@@ -277,8 +277,132 @@
 
 		}
 
+		public function asignarProyectoEquipoControlador()
+		{
+			$idProyecto = modeloPrincipal::desencriptar($_POST['proyectoEq-asig']);
+			$idEquipo = modeloPrincipal::desencriptar($_POST['equipoPro-asig']);
+
+			$consultaEquipo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT id_equipo FROM asignacion WHERE id_equipo='$idEquipo'");
+
+			if ($consultaEquipo->rowCount()>=1)
+			{
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "El EQUIPO ya tiene un proyecto asignado. Verifique nuevamente",
+					"Tipo" => "error"
+				];
+			}
+			else
+			{
+				$consultaProyecto = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT id_proyecto FROM asignacion WHERE id_proyecto='$idProyecto'");
+				if ($consultaProyecto->rowCount()>=1) {
+					$alerta = [
+						"Alerta" => "simple",
+						"Titulo" => "Error",
+						"Texto" => "El PROYECTO ya tiene un equipo asignado. Verifique nuevamente",
+						"Tipo" => "error"
+					];
+				}
+				else 
+				{
+					$datosProyectoEquipo = [
+							"idProyecto" => $idProyecto,
+							"idEquipo" => $idEquipo,
+							"Estado"  => 1
+						];
+
+					$proyectoAsignado = proyectoModelo::asignarProyectoEquipoModelo($datosProyectoEquipo);
+
+					if($proyectoAsignado)
+					{
+						$alerta = [
+							"Alerta" => "limpiar",
+							"Titulo" => "Éxito",
+							"Texto" => "El equipo fue asignado al proyecto correctamente",
+							"Tipo" => "success"
+						];	
+					} 
+					else
+					{
+						$alerta = [
+							"Alerta" => "simple",
+							"Titulo" => "Error",
+							"Texto" => "La equipo NO fue asignado",
+							"Tipo" => "error"
+						];
+					}
+				}
+				
+				
+			}
+			return modeloPrincipal::mostrarAlerta($alerta);
+		}
+
+		/*Eliminar ADMINISTRADORES*/
+		public function eliminarMetodologiaProyectoControlador()
+		{
+			$idProyecto = modeloPrincipal::desencriptar($_POST['idProyectoMet-del']);
+
+			$eliminarProyecto = proyectoModelo::eliminarMetodologiaProyectoModelo($idProyecto);
+
+				if ($eliminarProyecto->rowCount()==1)
+				{
+					$alerta = [
+						"Alerta" => "recargar",
+						"Titulo" => "Éxito",
+						"Texto" => "La metodologia fue eliminada del proyecto correctamente",
+						"Tipo" => "success"
+					];
+				} else {
+					$alerta = [
+						"Alerta" => "simple",
+						"Titulo" => "Error",
+						"Texto" => "No se elimino la metodologia del proyecto. Intentelo mas tarde",
+						"Tipo" => "error"
+					];
+				}
+			
+
+			return modeloPrincipal::mostrarAlerta($alerta);
+			
+
+		}
+		/*FIN de Eliminar ADMINISTRADORES*/
+
+		/*Eliminar ADMINISTRADORES*/
+		public function eliminarProyectoEquipoControlador()
+		{
+			$idProyecto = modeloPrincipal::desencriptar($_POST['idProyectoEq-del']);
+
+			$eliminarEquipo = proyectoModelo::eliminarProyectoEquipoModelo($idProyecto);
+
+				if ($eliminarEquipo->rowCount()==1)
+				{
+					$alerta = [
+						"Alerta" => "recargar",
+						"Titulo" => "Éxito",
+						"Texto" => "El equipo fue eliminado del proyecto correctamente",
+						"Tipo" => "success"
+					];
+				} else {
+					$alerta = [
+						"Alerta" => "simple",
+						"Titulo" => "Error",
+						"Texto" => "No se elimino el equpo del proyecto. Intentelo mas tarde",
+						"Tipo" => "error"
+					];
+				}
+			
+
+			return modeloPrincipal::mostrarAlerta($alerta);
+			
+
+		}
+		/*FIN de Eliminar ADMINISTRADORES*/
 
 
+		
 		/*Controlador para paginar los PROYECTOS*/
 		public function paginarProyectosControlador($pagina, $noRegistros, $codigo, $busqueda)
 		{
@@ -471,6 +595,383 @@
 
 		}
 		/*FIN del paginador de ADMINISTRADORES*/
+
+
+		/*Controlador para paginar los PROYECTOS*/
+		public function paginarProyectosMetodologiaControlador($pagina, $noRegistros, $codigo, $busqueda)
+		{
+			$pagina = modeloPrincipal::limpiarCadena($pagina);
+			$noRegistros = modeloPrincipal::limpiarCadena($noRegistros);
+			$codigo = modeloPrincipal::limpiarCadena($codigo);
+			$busqueda = modeloPrincipal::limpiarCadena($busqueda);
+
+			$tabla = "";
+
+			$pagina = (isset($pagina) && $pagina>0) ? (int)$pagina : 1 ;
+			$inicio = ($pagina>0) ? (($pagina*$noRegistros)-$noRegistros) : 0;
+
+			
+			$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM proyecto_metodologia ORDER BY id_proyecto ASC LIMIT $inicio, $noRegistros";
+			$paginaURL = "proyectoMetodologialist";
+			
+			
+
+			$conexion = modeloPrincipal::conectarBD();
+
+			$datos = $conexion->query($consulta);
+
+			$datos = $datos->fetchAll();
+
+			$total = $conexion->query("SELECT FOUND_ROWS()");
+			$total = (int) $total->fetchColumn();
+
+			$noPaginas = ceil($total/$noRegistros);
+
+			$tabla .= '<div class="table-responsive">
+								<table class="table table-hover text-center">
+									<thead>
+										<tr>
+											<th class="text-center">#</th>
+											<th class="text-center">PROYECTO</th>
+											<th class="text-center">METODOLOGIA</th>
+											<th class="text-center">OBJETIVO</th>
+											<!--th class="text-center">CONSULTAR</th>
+											<th class="text-center">ACTUALIZAR</th-->
+											<th class="text-center">ELIMINAR</th>
+										</tr>
+									</thead>
+									<tbody>';
+
+			if ($total >=1 && $pagina<=$noPaginas)
+			{
+				$contador = $inicio+1;
+
+				foreach ($datos as $proyecto)
+				{
+					$tabla .= '		<tr>
+										<td><p>'.$contador.'</p></td>
+										<td><p>'.$proyecto['id_proyecto'].'</td>
+										<td><p>'.$proyecto['id_metodologia'].'</p></td>
+										<td><p>'.$proyecto['objetivo'].'</p></td>';
+						
+						$tabla .= '		<!--td>
+											<a href="'.SERVERURL.'proyectoInfo/'.modeloPrincipal::encriptar($proyecto['id_proyecto_metodologia']).'/" class="btn btn-info btn-raised btn-sm">
+												<i class="zmdi zmdi-file"></i>
+											</a>
+										</td>
+										<td>
+											<a href="'.SERVERURL.'proyectoActualizar/'.modeloPrincipal::encriptar($proyecto['id_proyecto_metodologia']).'/" class="btn btn-success btn-raised btn-sm">
+												<i class="zmdi zmdi-file"></i>
+											</a>
+										</td-->	
+						';
+						$tabla .= '		<td>
+											<form action="'.SERVERURL.'ajax/proyectoAjax.php" method="POST" class="FormularioAjax" data-form="delete" enctype="multipart/forma-data" autocomplete="off">
+
+												<input type="hidden" name="idProyectoMet-del" value="'.modeloPrincipal::encriptar($proyecto['id_proyecto_metodologia']).'">
+
+												<button type="submit" class="btn btn-danger btn-raised btn-sm">
+													<i class="zmdi zmdi-delete"></i>
+												</button>
+												<div class="RespuestaAjax"></div>
+
+											</form>
+										</td>
+									</tr>';
+
+								$contador++;
+				}
+			}
+			else
+			{
+				if ($total>=1) {
+					$tabla .= '<tr>
+									<td colspan="6">
+
+										<a href="'.SERVERURL.$paginaURL.'/" class="btn btn-success btn-raised">
+											<i class="zmdi zmdi-refresh zmdi-hc-spin"></i> Recargar tabla de Proyectos y metodologias
+										</a>
+
+									</td>
+								</tr>';
+				} else {
+					$tabla .= '<tr>
+									<td colspan="6">No hay registros en el Sistema</td>
+								</tr>';
+				}
+				
+				
+			}
+			
+
+
+			$tabla .='			</tbody>
+								</table>
+							</div>
+						';
+
+			if ($total >=1 && $pagina <=$noPaginas) {
+				$tabla .= '
+							<nav class="text-center">
+								<ul class="pagination pagination-sm">
+							';
+
+				if ($pagina==1 ) {
+					$tabla .= '
+
+									<li class="disabled"><a><i class="zmdi zmdi-long-arrow-left"></i></a></li>
+
+							';
+				} else {
+					$tabla .= '
+
+									<li><a href="'.SERVERURL.$paginaURL.'/'.($pagina-1).'/"><i class="zmdi zmdi-long-arrow-left"></i></a></li>
+
+							';
+				}
+
+
+
+
+				for($i=1; $i<=$noPaginas; $i++)
+				{
+					if ($pagina==$i) {
+						
+						$tabla .= '
+
+									<li class="active"><a href="'.SERVERURL.$paginaURL.'/'.$i.'/">'.$i.'</a></li>
+
+							';
+					} else {
+						$tabla .= '
+
+									<li><a href="'.SERVERURL.$paginaURL.'/'.$i.'/">'.$i.'</a></li>
+
+							';
+					}
+					
+				}
+
+
+
+
+
+
+				if ($pagina==$noPaginas) {
+					
+					$tabla .= '<li class="disabled"><a><i class="zmdi zmdi-long-arrow-right"></i></a></li>';
+
+				} 
+				else 
+				{
+					$tabla .= '<li><a href="'.SERVERURL.$paginaURL.'/'.($pagina+1).'/"><i class="zmdi zmdi-long-arrow-right"></i></a></li>';
+				}
+				
+
+
+				$tabla .= '</ul>
+							</nav>
+							';
+			} else {
+				# code...
+			}
+			
+
+
+
+			return $tabla;
+
+
+		}
+		/*FIN del paginador de ADMINISTRADORES*/
+
+
+		/*Controlador para paginar los PROYECTOS*/
+		public function paginarProyectosEquiposControlador($pagina, $noRegistros, $codigo, $busqueda)
+		{
+			$pagina = modeloPrincipal::limpiarCadena($pagina);
+			$noRegistros = modeloPrincipal::limpiarCadena($noRegistros);
+			$codigo = modeloPrincipal::limpiarCadena($codigo);
+			$busqueda = modeloPrincipal::limpiarCadena($busqueda);
+
+			$tabla = "";
+
+			$pagina = (isset($pagina) && $pagina>0) ? (int)$pagina : 1 ;
+			$inicio = ($pagina>0) ? (($pagina*$noRegistros)-$noRegistros) : 0;
+
+			
+			$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM asignacion ORDER BY id_proyecto ASC LIMIT $inicio, $noRegistros";
+			$paginaURL = "proyectoEquipolist";
+			
+			
+
+			$conexion = modeloPrincipal::conectarBD();
+
+			$datos = $conexion->query($consulta);
+
+			$datos = $datos->fetchAll();
+
+			$total = $conexion->query("SELECT FOUND_ROWS()");
+			$total = (int) $total->fetchColumn();
+
+			$noPaginas = ceil($total/$noRegistros);
+
+			$tabla .= '<div class="table-responsive">
+								<table class="table table-hover text-center">
+									<thead>
+										<tr>
+											<th class="text-center">#</th>
+											<th class="text-center">PROYECTO</th>
+											<th class="text-center">EQUIPO</th>
+											<!--th class="text-center">CONSULTAR</th>
+											<th class="text-center">ACTUALIZAR</th-->
+											<th class="text-center">ELIMINAR</th>
+										</tr>
+									</thead>
+									<tbody>';
+
+			if ($total >=1 && $pagina<=$noPaginas)
+			{
+				$contador = $inicio+1;
+
+				foreach ($datos as $proyecto)
+				{
+					$tabla .= '		<tr>
+										<td><p>'.$contador.'</p></td>
+										<td><p>'.$proyecto['id_proyecto'].'</td>
+										<td><p>'.$proyecto['id_equipo'].'</p></td>';
+						
+						$tabla .= '		<!--td>
+											<a href="'.SERVERURL.'proyectoInfo/'.modeloPrincipal::encriptar($proyecto['id_asignacion']).'/" class="btn btn-info btn-raised btn-sm">
+												<i class="zmdi zmdi-file"></i>
+											</a>
+										</td>
+										<td>
+											<a href="'.SERVERURL.'proyectoActualizar/'.modeloPrincipal::encriptar($proyecto['id_asignacion']).'/" class="btn btn-success btn-raised btn-sm">
+												<i class="zmdi zmdi-file"></i>
+											</a>
+										</td-->	
+						';
+						$tabla .= '		<td>
+											<form action="'.SERVERURL.'ajax/proyectoAjax.php" method="POST" class="FormularioAjax" data-form="delete" enctype="multipart/forma-data" autocomplete="off">
+
+												<input type="hidden" name="idProyectoEq-del" value="'.modeloPrincipal::encriptar($proyecto['id_asignacion']).'">
+
+												<button type="submit" class="btn btn-danger btn-raised btn-sm">
+													<i class="zmdi zmdi-delete"></i>
+												</button>
+												<div class="RespuestaAjax"></div>
+
+											</form>
+										</td>
+									</tr>';
+
+								$contador++;
+				}
+			}
+			else
+			{
+				if ($total>=1) {
+					$tabla .= '<tr>
+									<td colspan="6">
+
+										<a href="'.SERVERURL.$paginaURL.'/" class="btn btn-success btn-raised">
+											<i class="zmdi zmdi-refresh zmdi-hc-spin"></i> Recargar tabla de Proyectos y Equipos
+										</a>
+
+									</td>
+								</tr>';
+				} else {
+					$tabla .= '<tr>
+									<td colspan="6">No hay registros en el Sistema</td>
+								</tr>';
+				}
+				
+				
+			}
+			
+
+
+			$tabla .='			</tbody>
+								</table>
+							</div>
+						';
+
+			if ($total >=1 && $pagina <=$noPaginas) {
+				$tabla .= '
+							<nav class="text-center">
+								<ul class="pagination pagination-sm">
+							';
+
+				if ($pagina==1 ) {
+					$tabla .= '
+
+									<li class="disabled"><a><i class="zmdi zmdi-long-arrow-left"></i></a></li>
+
+							';
+				} else {
+					$tabla .= '
+
+									<li><a href="'.SERVERURL.$paginaURL.'/'.($pagina-1).'/"><i class="zmdi zmdi-long-arrow-left"></i></a></li>
+
+							';
+				}
+
+
+
+
+				for($i=1; $i<=$noPaginas; $i++)
+				{
+					if ($pagina==$i) {
+						
+						$tabla .= '
+
+									<li class="active"><a href="'.SERVERURL.$paginaURL.'/'.$i.'/">'.$i.'</a></li>
+
+							';
+					} else {
+						$tabla .= '
+
+									<li><a href="'.SERVERURL.$paginaURL.'/'.$i.'/">'.$i.'</a></li>
+
+							';
+					}
+					
+				}
+
+
+
+
+
+
+				if ($pagina==$noPaginas) {
+					
+					$tabla .= '<li class="disabled"><a><i class="zmdi zmdi-long-arrow-right"></i></a></li>';
+
+				} 
+				else 
+				{
+					$tabla .= '<li><a href="'.SERVERURL.$paginaURL.'/'.($pagina+1).'/"><i class="zmdi zmdi-long-arrow-right"></i></a></li>';
+				}
+				
+
+
+				$tabla .= '</ul>
+							</nav>
+							';
+			} else {
+				# code...
+			}
+			
+
+
+
+			return $tabla;
+
+
+		}
+		/*FIN del paginador de ADMINISTRADORES*/
+
 
 		
 

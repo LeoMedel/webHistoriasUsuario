@@ -1,25 +1,38 @@
-<!--?php
-    if ($_SESSION['tipo_sesion'] != "Cliente") {
-        echo $loginControl->forzarCierreSesion();
+<?php
+    //if ($_SESSION['tipo_sesion'] != "Cliente") {
+        //echo $loginControl->forzarCierreSesion();
         //echo $loginControl->redireccionarUsuarioControlador($_SESSION['tipo_sesion']);
-    }
-?-->
+    //}
+
+	require "./controladores/estudianteControlador.php";
+	$estudianteControl = new estudianteControlador();
+
+	$equipo = $estudianteControl->mostrarMiEquipoControlador($_SESSION['codigo_equipo_sesion']);
+	if($equipo->rowCount() > 0) {
+		$datosEquipo = $equipo->fetch();
+		$titulo = $datosEquipo['equipo'];
+	} else {
+		$titulo = "No hay equipo";
+	}
+
+	$proyecto = $estudianteControl->mostrarMiProyectoControlador($_SESSION['codigo_proyecto_sesion']);
+	if($proyecto->rowCount() > 0) {
+		$datosProyecto = $proyecto->fetch();
+		$nombreEquipo = $datosProyecto['titulo'];
+	} else {
+		$nombreEquipo = "Sin proyecto";
+	}
+	
+
+?>
 
 <div class="container-fluid">
     <div class="page-header">
-      <h1 class="text-titles">ESTUDIANTE <small>Mi Proyecto</small></h1>
+      <h1 class="text-titles">ESTUDIANTE <small>Mi Hisotria de usuario</small></h1>
     </div>
 </div>
 <div class="full-box text-center" style="padding: 30px 10px;">
     
-
-    <!--?php
-        require "./controladores/administradorControlador.php";
-        $administradorControl = new administradorControlador();
-
-        $conteoAdmin = $administradorControl->mostrarInfoAdministradoresControlador("conteo", 0)
-    ?-->
-
 
 
 
@@ -32,38 +45,28 @@
 	
 	<article class="full-box tile">
 		<div class="full-box tile-title text-center text-titles text-uppercase">
-			MIS AVANCES
-		</div>
-		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-male-female"></i>
-		</div>
-		<div class="full-box tile-number text-titles">
-			<p class="full-box"> X </p>
-			<small>Información</small>
-		</div>
-	</article>
-	<article class="full-box tile">
-		<div class="full-box tile-title text-center text-titles text-uppercase">
-			MI PROYECTO
-		</div>
-		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-assignment"></i>
-		</div>
-		<div class="full-box tile-number text-titles">
-			<p class="full-box"> X </p>
-			<small>Información</small>
-		</div>
-	</article>
-	<article class="full-box tile">
-		<div class="full-box tile-title text-center text-titles text-uppercase">
-			MI EQUIPO
+			"<?php echo $titulo; ?>"
 		</div>
 		<div class="full-box tile-icon text-center">
 			<i class="zmdi zmdi-globe"></i>
 		</div>
 		<div class="full-box tile-number text-titles">
-			<p class="full-box"> X </p>
-			<small>Información</small>
+			<p class="full-box"> XD </p>
+			<small>MI EQUIPO</small>
 		</div>
 	</article>
+
+	<article class="full-box tile">
+		<div class="full-box tile-title text-center text-titles text-uppercase">
+			"<?php echo $nombreEquipo; ?>"
+		</div>
+		<div class="full-box tile-icon text-center">
+			<i class="zmdi zmdi-globe"></i>
+		</div>
+		<div class="full-box tile-number text-titles">
+			<p class="full-box"> XS </p>
+			<small>MI PROYECTO</small>
+		</div>
+	</article>
+	
 </div>

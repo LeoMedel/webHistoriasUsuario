@@ -24,10 +24,18 @@
 				"proyectoInfo",
 				"proyectoActualizar",
 				"proyectoMetodologia",
+				"proyectoMetodologialist",
+				"proyectoEquipolist",
+				"proyectoEquipo",
 				"metodologialist",
 				"metodologia",
 				"metodologiaInfo",
-				"fuentes"
+				"fuentes",
+				"equipolist",
+				"equipo",
+				"equipoActualizar",
+				"equipoEstudiantes",
+				"equipoEstudianteslist"
 			];
 			if(in_array($vistas, $listaBlanca))
 			{
