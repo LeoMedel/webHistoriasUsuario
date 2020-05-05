@@ -504,4 +504,20 @@
 
 		}
 
+		public function cargarTodoMiProyectoControlador($idPro)
+		{
+			$todoMiProyecto = estudianteControlador::cargarTodoMiProyectoModelo($idPro);
+
+			return $todoMiProyecto;
+
+		}
+
+		public function cargarTodoMiEquipoControlador($idEquipo)
+		{
+			$todoMiEquipo = estudianteControlador::cargarTodoMiEquipoModelo($idEquipo);
+
+			return $todoMiEquipo;
+
+		}
+
 	}

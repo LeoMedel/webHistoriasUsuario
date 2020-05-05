@@ -66,7 +66,7 @@
 												<div class="form-group row">
 													<label for="example-datetime-local-input" class="col-2 col-form-label">Inicio del proyecto</label>
 													<div class="col-10">
-													<input class="form-control" type="date" value="<?php echo $datosPro['inicio']; ?>" name="inicio-up" min="2020-04-01" max="2022-04-21">
+													<input class="form-control" type="date" value="<?php echo $datosPro['fecha_inicio']; ?>" name="inicio-up" min="2020-04-01" max="2022-04-21">
 													</div>
 												</div>
 
@@ -77,7 +77,7 @@
 											  	<div class="form-group row">
 													<label for="example-datetime-local-input" class="col-2 col-form-label">Fin del proyecto</label>
 													<div class="col-10">
-													<input class="form-control" type="date" value="<?php echo $datosPro['fin']; ?>" name="fin-up" min="2020-04-01" max="2022-04-21">
+													<input class="form-control" type="date" value="<?php echo $datosPro['fecha_fin']; ?>" name="fin-up" min="2020-04-01" max="2022-04-21">
 													</div>
 												</div>
 											</div>

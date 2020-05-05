@@ -104,6 +104,20 @@
 			</li>
 			<li>
 				<a href="#!" class="btn-sideBar-SubMenu">
+					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> EQUIPOS <i class="zmdi zmdi-caret-down pull-right"></i>
+				</a>
+				<ul class="list-unstyled full-box">
+					<li>
+						<a href="<?php echo SERVERURL; ?>equipolist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Equipos</a>
+					</li>
+					<li>
+						<a href="<?php echo SERVERURL; ?>equipoEstudiantes/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Agregar estudiante al equipo</a>
+					</li>
+					
+				</ul>
+			</li>
+			<li>
+				<a href="#!" class="btn-sideBar-SubMenu">
 					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> PROYECTOS <i class="zmdi zmdi-caret-down pull-right"></i>
 				</a>
 				<ul class="list-unstyled full-box">
@@ -124,7 +138,7 @@
 					<i class="zmdi zmdi-home zmdi-hc-fw"></i> INICIO
 				</a>
 			</li>
-			<?php if($_SESSION['codigo_proyecto_sesion']>0) { ?>
+			<?php if($_SESSION['codigo_proyecto_sesion'] > 0) { ?>
 				<li>
 				<!--a href="<?php echo SERVERURL; ?>equipolist/">
 					<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> EQUIPOS
@@ -134,11 +148,11 @@
 				</a>
 				<ul class="list-unstyled full-box">
 					<li>
-						<a href="<?php echo SERVERURL; ?>equipolist/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Fases</a>
+						<a href="<?php echo SERVERURL; ?>miProyecto/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Mi Proyecto</a>
 					</li>
-					<!--li>
-						<a href="<?php echo SERVERURL; ?>equipoEstudianteslist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Agregar estudiante al equipo</a>
-					</li-->
+					<li>
+						<a href="<?php echo SERVERURL; ?>faselist/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Fases</a>
+					</li>
 				</ul>
 			</li>
 			<?php } ?>
@@ -153,7 +167,7 @@
 				</a>
 				<ul class="list-unstyled full-box">
 					<li>
-						<a href="<?php echo SERVERURL; ?>equipolist/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Responsables</a>
+						<a href="<?php echo SERVERURL; ?>miEquipo/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Mi Equipo</a>
 					</li>
 					<!--li>
 						<a href="<?php echo SERVERURL; ?>equipoEstudianteslist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Agregar estudiante al equipo</a>

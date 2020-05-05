@@ -53,7 +53,7 @@
 
 				$pagina = explode("/", $_GET['views']);
 
-				echo $instanciaProyecto->paginarProyectosControlador($pagina[1], 1, $_SESSION['codigo_cuenta_sesion'], "");
+				echo $instanciaProyecto->paginarProyectosControlador($pagina[1], 6, $_SESSION['codigo_cuenta_sesion'], "");
 			?>
 			
 		</div>

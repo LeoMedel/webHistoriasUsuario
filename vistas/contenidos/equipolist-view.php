@@ -1,5 +1,5 @@
 <?php
-	if ($_SESSION['tipo_sesion'] >=3 || $_SESSION['tipo_sesion'] <=1 ) {
+	if ($_SESSION['tipo_sesion'] != 2 ) {
 		echo $loginControl->forzarCierreSesion();
 	}
 ?>
@@ -53,7 +53,7 @@
 
 				$pagina = explode("/", $_GET['views']);
 
-				echo $instanciaEquipo->paginarEquiposControlador($pagina[1], 5, $_SESSION['codigo_cuenta_sesion'], "");
+				echo $instanciaEquipo->paginarEquiposControlador($pagina[1], 6, $_SESSION['codigo_cuenta_sesion'], "");
 			?>
 			
 		</div>

@@ -85,4 +85,67 @@
 			return $actualizar;
 		}
 
+		protected function cargarTodoMiProyectoModelo($idPro)
+		{
+
+			$proyecto = modeloPrincipal::conectarBD()->prepare("SELECT * FROM proyecto WHERE id_proyecto=:IdPro");
+			$proyecto->bindParam("IdPro", $idPro);
+			$proyecto->execute();
+			$datosPro = $proyecto->fetch();
+
+			$datosProyecto = [
+				"titulo" => $datosPro['titulo'],
+				"fecha_inicio" => $datosPro['fecha_inicio'],
+				"fecha_fin" => $datosPro['fecha_fin'],
+				"metodologia" => "Sin metodologia",//$datosMet['metodologia'],
+				"objetivoMet" => "Objetivo NO definido",//$datos['objetivo'],
+				"descripcionMet" => "Sin descripcion"//$datosMet['descripcion'],
+
+			];
+
+			$infoProyecto = modeloPrincipal::conectarBD()->prepare("SELECT * FROM proyecto_metodologia  WHERE id_proyecto=:Id");
+			$infoProyecto->bindParam("Id", $idPro);
+			$infoProyecto->execute();
+			$datos = $infoProyecto->fetch();
+
+			if ($infoProyecto->rowCount()>0) {
+				$datosProyecto['objetivoMet'] = $datos['objetivo'];
+
+				$metodologia = modeloPrincipal::conectarBD()->prepare("SELECT * FROM metodologia WHERE id_metodologia=:IdMet");
+				$metodologia->bindParam("IdMet", $datos['id_metodologia']);
+				$metodologia->execute();
+				$datosMet = $metodologia->fetch();
+
+				$datosProyecto['metodologia'] = $datosMet['metodologia'];
+				$datosProyecto['descripcionMet'] = $datosMet['descripcion'];
+
+			}
+			
+
+
+			return $datosProyecto;
+
+		}
+
+		protected function cargarTodoMiEquipoModelo($idEquipo)
+		{
+			$infoEquipo = modeloPrincipal::conectarBD()->prepare("SELECT * FROM equipo WHERE id_equipo=:Id");
+			$infoEquipo->bindParam("Id", $idEquipo);
+			$infoEquipo->execute();
+			$datos = $infoEquipo->fetch();
+
+			$equipo = modeloPrincipal::conectarBD()->prepare("SELECT p.PersonaNombre, p.PersonaApellido, c.CuentaEmail FROM cuenta_equipo as ce INNER JOIN cuenta as c ON ce.CuentaCodigo = c.CuentaCodigo INNER JOIN persona p ON p.CuentaCodigo = ce.CuentaCodigo WHERE ce.id_equipo =:Id");
+			$equipo->bindParam("Id", $idEquipo);
+			$equipo->execute();
+
+
+			$datosEquipo = [
+				"equipo" => $datos['equipo'],
+				"integrantes" => $equipo
+
+			];
+
+			return $datosEquipo;
+		}
+
 	}

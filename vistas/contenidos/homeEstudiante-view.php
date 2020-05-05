@@ -1,5 +1,5 @@
 <?php
-    //if ($_SESSION['tipo_sesion'] != "Cliente") {
+    //	if ($_SESSION['tipo_sesion'] != "Cliente") {
         //echo $loginControl->forzarCierreSesion();
         //echo $loginControl->redireccionarUsuarioControlador($_SESSION['tipo_sesion']);
     //}
@@ -44,27 +44,31 @@
 <div class="full-box text-center" style="padding: 30px 10px;">
 	
 	<article class="full-box tile">
-		<div class="full-box tile-title text-center text-titles text-uppercase">
+		<div class="full-box tile-title text-center text-titles text-uppercase" style="background-color: #23A846">
 			"<?php echo $titulo; ?>"
 		</div>
 		<div class="full-box tile-icon text-center">
 			<i class="zmdi zmdi-globe"></i>
 		</div>
 		<div class="full-box tile-number text-titles">
-			<p class="full-box"> XD </p>
+			<p class="full-box"> </p>
+			<br>
+			<br>
 			<small>MI EQUIPO</small>
 		</div>
 	</article>
 
 	<article class="full-box tile">
-		<div class="full-box tile-title text-center text-titles text-uppercase">
+		<div class="full-box tile-title text-center text-titles text-uppercase" style="background-color: #23A846">
 			"<?php echo $nombreEquipo; ?>"
 		</div>
 		<div class="full-box tile-icon text-center">
 			<i class="zmdi zmdi-globe"></i>
 		</div>
 		<div class="full-box tile-number text-titles">
-			<p class="full-box"> XS </p>
+			<p class="full-box"> </p>
+			<br>
+			<br>
 			<small>MI PROYECTO</small>
 		</div>
 	</article>

@@ -36,37 +36,41 @@
 	
 	<a href="<?php echo SERVERURL; ?>proyectolist/">
 		<article class="full-box tile">
-			<div class="full-box tile-title text-center text-titles text-uppercase">
+			<div class="full-box tile-title text-center text-titles text-uppercase" style="background-color: #0E76A7">
 				PROYECTOS
 			</div>
 			<div class="full-box tile-icon text-center">
 				<i class="zmdi zmdi-account"></i>
 			</div>
 			<div class="full-box tile-number text-titles">
-				<p class="full-box"> X	 </p>
-				<small>Registros</small>
+				<p class="full-box">  </p>
+				<br>
+				<br>
+				<small>Informacion de los proyectos</small>
 			</div>
 		</article>
 	</a>
 
 	<a href="<?php echo SERVERURL; ?>metodologialist/">
 		<article class="full-box tile">
-			<div class="full-box tile-title text-center text-titles text-uppercase">
+			<div class="full-box tile-title text-center text-titles text-uppercase" style="background-color: #0E76A7">
 				METODOLOGÍAS
 			</div>
 			<div class="full-box tile-icon text-center">
 				<i class="zmdi zmdi-account"></i>
 			</div>
 			<div class="full-box tile-number text-titles">
-				<p class="full-box"> X	 </p>
-				<small>Registros</small>
+				<p class="full-box"> </p>
+				<br>
+				<br>
+				<small>Informacion de las metodologias</small>
 			</div>
 		</article>
 	</a>
 
 	<a href="<?php echo SERVERURL; ?>proyectoMetodologia/">
 		<article class="full-box tile">
-			<div class="full-box tile-title text-center text-titles text-uppercase">
+			<div class="full-box tile-title text-center text-titles text-uppercase" style="background-color: #0E76A7">
 				ASIGNACIONES
 			</div>
 			<div class="full-box tile-icon text-center">
@@ -74,6 +78,7 @@
 			</div>
 			<div class="full-box tile-number text-titles">
 				<p class="full-box"></p>
+				<br>
 				<small>Asignacion de la metodología empleada en el proyecto</small>
 			</div>
 		</article>
@@ -81,15 +86,17 @@
 
 	<a href="<?php echo SERVERURL; ?>equipolist/">
 		<article class="full-box tile">
-			<div class="full-box tile-title text-center text-titles text-uppercase">
+			<div class="full-box tile-title text-center text-titles text-uppercase" style="background-color: #0E76A7">
 				EQUIPOS
 			</div>
 			<div class="full-box tile-icon text-center">
 				<i class="zmdi zmdi-account"></i>
 			</div>
 			<div class="full-box tile-number text-titles">
-				<p class="full-box"> X </p>
-				<small>Registros</small>
+				<p class="full-box">  </p>
+				<br>
+				<br>
+				<small>Informacion de los equipos</small>
 			</div>
 		</article>
 	</a>

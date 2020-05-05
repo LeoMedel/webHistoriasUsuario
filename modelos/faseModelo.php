@@ -10,24 +10,32 @@
 	}
 
 
-	class proyectoModelo extends modeloPrincipal
+	class faseModelo extends modeloPrincipal
 	{
-		protected function agregarProyectoModelo($datosPro)
+		protected function agregarFaseModelo($datos)
 		{
 			try
 			{
 				$pdo = modeloPrincipal::conectarBD();
 				
 
-				$sql = "INSERT INTO proyecto(titulo, fecha_inicio, fecha_fin, cuentaCreador, created, modified) VALUES(?, ?, ?, ?, now(), now() )";
+				$sql = "INSERT INTO fases(fase, descripcion, fecha_inicio, fecha_fin, objetivo, id_metodologia, id_estado, created, modified) VALUES(?, ?, ?, ?, ?, ?, ?, now(), now() )";
 
-				//print_r("Consulta ".$sql);
+				$idPro = $datos['Proyecto'];
+				$idMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT id_metodologia FROM proyecto_metodologia WHERE id_proyecto='$idPro'");
+				$id = $idMetodologia->fetch();
+				$idMetodologia = $id['id_metodologia'];
+
+				$idEstado = 1;
 
 				$pdo->prepare($sql)->execute([
-					$datosPro['Titulo'], 
-					$datosPro['Inicio'], 
-					$datosPro['Fin'],
-					$datosPro['Cuenta']
+					$datos['Fase'], 
+					$datos['Descripcion'],
+					$datos['Inicio'], 
+					$datos['Fin'],
+					$datos['Objetivo'],
+					$idMetodologia,
+					$idEstado
 				]);
 				
 
@@ -40,34 +48,36 @@
 			}
 		}
 
-		protected function mostrarInfoProyectoModelo($codigo)
+		protected function mostrarInfoFaseModelo($codigo)
 		{
 
-			$proyecto = modeloPrincipal::conectarBD()->prepare("SELECT * FROM proyecto WHERE id_proyecto=:Codigo");
-			$proyecto->bindParam("Codigo", $codigo);
-			$proyecto->execute();
-			return $proyecto;
+			$fase = modeloPrincipal::conectarBD()->prepare("SELECT * FROM fases WHERE id_fase=:Codigo");
+			$fase->bindParam("Codigo", $codigo);
+			$fase->execute();
+			return $fase;
 		}
 
 
-		protected function actualizarProyectoModelo($datos)
+		protected function actualizarFaseModelo($datos)
 		{
-			$actualizar = modeloPrincipal::conectarBD()->prepare("UPDATE proyecto SET titulo=:Titulo, fecha_inicio=:Inicio, fecha_fin=:Fin, modified=now() WHERE id_proyecto=:IdProyecto");
+			$actualizar = modeloPrincipal::conectarBD()->prepare("UPDATE fases SET fase=:Titulo, descripcion=:Descripcion, fecha_inicio=:Inicio, fecha_fin=:Fin, objetivo=:Objetivo, modified=now() WHERE id_fase=:IdFase");
 			
-			$actualizar->bindParam("Titulo", $datos['Titulo']);
+			$actualizar->bindParam("Titulo", $datos['Fase']);
+			$actualizar->bindParam("Descripcion", $datos['Descripcion']);
 			$actualizar->bindParam("Inicio", $datos['Inicio']);
 			$actualizar->bindParam("Fin", $datos['Fin']);
-			$actualizar->bindParam("IdProyecto", $datos['IdProyecto']);
+			$actualizar->bindParam("Objetivo", $datos['Objetivo']);
+			$actualizar->bindParam("IdFase", $datos['IdFase']);
 
 			$actualizar->execute();
 			return $actualizar;
 		}
 
-		protected function eliminarProyectoModelo($id)
+		protected function eliminarFaseModelo($id)
 		{
-			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM proyecto WHERE id=:IdProyecto");
+			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM fases WHERE id_fase=:IdFase");
 
-			$eliminar->bindParam("IdProyecto", $id);
+			$eliminar->bindParam("IdFase", $id);
 
 			$eliminar->execute();
 

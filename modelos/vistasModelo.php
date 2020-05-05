@@ -35,7 +35,12 @@
 				"equipo",
 				"equipoActualizar",
 				"equipoEstudiantes",
-				"equipoEstudianteslist"
+				"equipoEstudianteslist",
+				"miProyecto",
+				"faselist",
+				"fase",
+				"faseActualizar",
+				"miEquipo"
 			];
 			if(in_array($vistas, $listaBlanca))
 			{
