@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-04-2020 a las 08:28:23
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.3
+-- Tiempo de generación: 05-05-2020 a las 02:54:15
+-- Versión del servidor: 10.3.15-MariaDB
+-- Versión de PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -50,6 +50,15 @@ CREATE TABLE `asignacion` (
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+--
+-- Volcado de datos para la tabla `asignacion`
+--
+
+INSERT INTO `asignacion` (`id_asignacion`, `id_proyecto`, `id_equipo`, `id_estado`, `created`, `modified`) VALUES
+(6, 7, 1, 1, '2020-05-04 15:21:32', '2020-05-04 15:21:32'),
+(7, 8, 3, 1, '2020-05-04 18:22:21', '2020-05-04 18:22:21'),
+(9, 5, 4, 1, '2020-05-04 18:58:46', '2020-05-04 18:58:46');
 
 -- --------------------------------------------------------
 
@@ -151,7 +160,116 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (87, 'CB60189-76', '2020-04-23', '12:50:18 am', '12:50:29 am', 'Estudiante', 2020, 'LM55041-4'),
 (88, 'CB56744-77', '2020-04-23', '01:01:39 am', '01:08:19 am', 'Administrador', 2020, 'LM93499-1'),
 (89, 'CB49198-78', '2020-04-23', '01:08:27 am', '01:13:41 am', 'Docente', 2020, 'LM11092-3'),
-(90, 'CB24803-79', '2020-04-23', '01:13:51 am', '01:26:42 am', 'Estudiante', 2020, 'LM55041-4');
+(90, 'CB24803-79', '2020-04-23', '01:13:51 am', '01:26:42 am', 'Estudiante', 2020, 'LM55041-4'),
+(91, 'CB52211-80', '2020-04-23', '02:00:20 am', '02:00:41 am', 'Administrador', 2020, 'LM93499-1'),
+(92, 'CB41660-81', '2020-04-23', '02:00:53 am', '02:01:22 am', 'Docente', 2020, 'LM11092-3'),
+(93, 'CB37267-82', '2020-04-23', '02:01:36 am', '02:01:51 am', 'Estudiante', 2020, 'LM55041-4'),
+(94, 'CB64499-83', '2020-04-23', '06:15:41 am', '06:19:05 am', 'Administrador', 2020, 'LM93499-1'),
+(95, 'CB06782-84', '2020-04-23', '06:19:16 am', '06:19:23 am', 'Docente', 2020, 'LM11092-3'),
+(96, 'CB63283-85', '2020-04-23', '07:03:34 am', '07:12:55 am', 'Administrador', 2020, 'LM93499-1'),
+(98, 'CB82441-87', '2020-04-23', '07:15:13 am', '07:16:45 am', 'Docente', 2020, 'LM11092-3'),
+(99, 'CB78108-88', '2020-04-23', '07:16:51 am', '07:23:59 am', 'Docente', 2020, 'LM73754-5'),
+(100, 'CB55595-89', '2020-04-23', '07:24:56 am', '07:25:52 am', 'Administrador', 2020, 'LM93499-1'),
+(101, 'CB48836-89', '2020-04-24', '08:23:41 pm', '08:23:56 pm', 'Docente', 2020, 'LM11092-3'),
+(102, 'CB93073-90', '2020-04-24', '08:24:12 pm', '08:56:09 pm', 'Administrador', 2020, 'LM93499-1'),
+(103, 'CB96798-91', '2020-04-24', '08:56:17 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(104, 'CB05425-92', '2020-04-24', '11:09:50 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(105, 'CB74282-93', '2020-04-24', '11:10:47 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(106, 'CB52711-94', '2020-04-24', '11:11:08 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(107, 'CB55382-95', '2020-04-25', '12:21:58 am', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(108, 'CB99891-96', '2020-04-27', '05:21:40 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(109, 'CB07969-97', '2020-04-27', '05:54:03 pm', '06:52:43 pm', 'Docente', 2020, 'LM11092-3'),
+(110, 'CB60552-98', '2020-04-27', '06:52:51 pm', '06:53:12 pm', 'Docente', 2020, 'LM73754-5'),
+(111, 'CB91983-99', '2020-04-27', '06:55:29 pm', '07:03:02 pm', 'Docente', 2020, 'LM11092-3'),
+(112, 'CB77918-100', '2020-04-27', '07:03:17 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(113, 'CB85464-101', '2020-04-27', '07:06:07 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(114, 'CB52385-102', '2020-04-27', '07:06:17 pm', '07:22:43 pm', 'Docente', 2020, 'LM11092-3'),
+(115, 'CB65947-103', '2020-05-03', '01:51:33 pm', '01:52:48 pm', 'Docente', 2020, 'LM11092-3'),
+(116, 'CB65595-104', '2020-05-03', '01:52:55 pm', '01:53:56 pm', 'Administrador', 2020, 'LM93499-1'),
+(117, 'CB82232-105', '2020-05-03', '01:54:02 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(118, 'CB28725-106', '2020-05-03', '02:30:49 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(119, 'CB94186-107', '2020-05-03', '02:36:05 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(120, 'CB03542-108', '2020-05-03', '04:30:45 pm', '04:36:00 pm', 'Docente', 2020, 'LM11092-3'),
+(121, 'CB09039-109', '2020-05-03', '04:36:06 pm', '04:37:47 pm', 'Administrador', 2020, 'LM93499-1'),
+(122, 'CB04612-110', '2020-05-03', '04:37:55 pm', '05:59:32 pm', 'Docente', 2020, 'LM11092-3'),
+(123, 'CB59867-111', '2020-05-03', '05:59:41 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(124, 'CB32952-112', '2020-05-03', '05:59:56 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(125, 'CB80881-113', '2020-05-03', '06:00:40 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(126, 'CB14737-114', '2020-05-03', '06:00:48 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(127, 'CB73166-115', '2020-05-03', '06:01:30 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(128, 'CB72442-116', '2020-05-03', '06:02:22 pm', '06:03:24 pm', 'Estudiante', 2020, 'LM55041-4'),
+(129, 'CB82309-117', '2020-05-03', '06:03:31 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(130, 'CB82943-118', '2020-05-03', '06:04:47 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(131, 'CB72532-119', '2020-05-03', '06:05:19 pm', '06:25:52 pm', 'Estudiante', 2020, 'LM55041-4'),
+(132, 'CB74794-120', '2020-05-03', '06:25:58 pm', '06:28:03 pm', 'Docente', 2020, 'LM11092-3'),
+(133, 'CB85758-121', '2020-05-03', '06:28:10 pm', '06:35:23 pm', 'Estudiante', 2020, 'LM55041-4'),
+(134, 'CB50111-122', '2020-05-03', '06:35:31 pm', '06:35:51 pm', 'Docente', 2020, 'LM11092-3'),
+(135, 'CB67717-123', '2020-05-03', '06:36:03 pm', '06:36:17 pm', 'Estudiante', 2020, 'LM55041-4'),
+(136, 'CB15358-124', '2020-05-03', '07:24:06 pm', '07:26:47 pm', 'Estudiante', 2020, 'LM55041-4'),
+(137, 'CB42009-125', '2020-05-03', '07:26:52 pm', '07:27:10 pm', 'Docente', 2020, 'LM11092-3'),
+(138, 'CB31580-126', '2020-05-03', '07:27:17 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(139, 'CB06751-127', '2020-05-03', '07:30:21 pm', '07:30:26 pm', 'Estudiante', 2020, 'LM55041-4'),
+(140, 'CB34993-128', '2020-05-03', '07:30:31 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(141, 'CB68713-129', '2020-05-03', '07:38:42 pm', '08:17:52 pm', 'Docente', 2020, 'LM11092-3'),
+(142, 'CB88117-130', '2020-05-03', '08:17:59 pm', '08:21:29 pm', 'Estudiante', 2020, 'LM55041-4'),
+(143, 'CB10296-131', '2020-05-03', '08:21:35 pm', '08:26:19 pm', 'Estudiante', 2020, 'LM55041-4'),
+(144, 'CB46191-132', '2020-05-03', '08:26:24 pm', '08:26:35 pm', 'Docente', 2020, 'LM11092-3'),
+(145, 'CB48016-133', '2020-05-03', '08:26:41 pm', '08:27:27 pm', 'Estudiante', 2020, 'LM55041-4'),
+(146, 'CB58610-134', '2020-05-03', '08:27:36 pm', '08:28:46 pm', 'Docente', 2020, 'LM11092-3'),
+(147, 'CB63326-135', '2020-05-03', '08:28:53 pm', '08:28:59 pm', 'Estudiante', 2020, 'LM55041-4'),
+(148, 'CB11452-136', '2020-05-03', '08:29:03 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(149, 'CB02692-137', '2020-05-03', '08:29:32 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(150, 'CB01380-138', '2020-05-03', '08:31:41 pm', '08:45:04 pm', 'Docente', 2020, 'LM11092-3'),
+(151, 'CB23330-139', '2020-05-03', '08:45:12 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(152, 'CB27130-140', '2020-05-03', '08:52:00 pm', '08:52:12 pm', 'Docente', 2020, 'LM11092-3'),
+(153, 'CB11861-141', '2020-05-03', '08:52:19 pm', '08:52:32 pm', 'Estudiante', 2020, 'LM55041-4'),
+(154, 'CB85679-142', '2020-05-03', '08:52:37 pm', '08:52:54 pm', 'Docente', 2020, 'LM11092-3'),
+(155, 'CB18950-143', '2020-05-03', '08:53:01 pm', '08:53:58 pm', 'Estudiante', 2020, 'LM55041-4'),
+(156, 'CB15013-144', '2020-05-03', '08:54:03 pm', '08:54:13 pm', 'Docente', 2020, 'LM11092-3'),
+(157, 'CB10109-145', '2020-05-03', '08:54:21 pm', '08:54:41 pm', 'Estudiante', 2020, 'LM55041-4'),
+(158, 'CB04807-146', '2020-05-03', '08:54:47 pm', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(159, 'CB36790-147', '2020-05-04', '02:03:06 pm', '02:03:18 pm', 'Estudiante', 2020, 'LM55041-4'),
+(160, 'CB14718-148', '2020-05-04', '02:03:27 pm', '02:03:56 pm', 'Docente', 2020, 'LM11092-3'),
+(161, 'CB45124-149', '2020-05-04', '02:04:04 pm', '03:20:28 pm', 'Estudiante', 2020, 'LM55041-4'),
+(162, 'CB13447-150', '2020-05-04', '03:20:34 pm', '03:20:45 pm', 'Docente', 2020, 'LM11092-3'),
+(163, 'CB72949-151', '2020-05-04', '03:20:51 pm', '03:21:13 pm', 'Estudiante', 2020, 'LM55041-4'),
+(164, 'CB42993-152', '2020-05-04', '03:21:18 pm', '03:21:40 pm', 'Docente', 2020, 'LM11092-3'),
+(165, 'CB59362-153', '2020-05-04', '03:21:54 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(166, 'CB03710-154', '2020-05-04', '03:24:24 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(167, 'CB14542-155', '2020-05-04', '03:29:14 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(168, 'CB38459-156', '2020-05-04', '03:40:39 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(169, 'CB62146-157', '2020-05-04', '04:01:18 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(170, 'CB10593-158', '2020-05-04', '05:15:55 pm', '06:05:43 pm', 'Estudiante', 2020, 'LM55041-4'),
+(171, 'CB40851-159', '2020-05-04', '06:05:55 pm', '06:08:05 pm', 'Administrador', 2020, 'LM93499-1'),
+(172, 'CB84096-160', '2020-05-04', '06:08:12 pm', '06:12:41 pm', 'Docente', 2020, 'LM11092-3'),
+(173, 'CB35965-161', '2020-05-04', '06:12:45 pm', '06:16:28 pm', 'Estudiante', 2020, 'LM59856-7'),
+(174, 'CB63013-162', '2020-05-04', '06:16:34 pm', '06:16:50 pm', 'Estudiante', 2020, 'LM55041-4'),
+(175, 'CB92951-163', '2020-05-04', '06:16:55 pm', '06:19:56 pm', 'Administrador', 2020, 'LM93499-1'),
+(176, 'CB95619-164', '2020-05-04', '06:20:01 pm', '06:22:30 pm', 'Docente', 2020, 'LM11092-3'),
+(177, 'CB62988-165', '2020-05-04', '06:22:37 pm', '06:41:34 pm', 'Estudiante', 2020, 'LM84603-10'),
+(178, 'CB33375-166', '2020-05-04', '06:41:41 pm', '06:41:50 pm', 'Docente', 2020, 'LM11092-3'),
+(179, 'CB90890-167', '2020-05-04', '06:41:54 pm', '06:44:15 pm', 'Administrador', 2020, 'LM93499-1'),
+(180, 'CB61434-168', '2020-05-04', '06:44:20 pm', '06:50:24 pm', 'Estudiante', 2020, 'LM20551-13'),
+(181, 'CB64353-169', '2020-05-04', '06:50:29 pm', '06:50:39 pm', 'Estudiante', 2020, 'LM20551-13'),
+(182, 'CB35046-170', '2020-05-04', '06:50:44 pm', '06:52:17 pm', 'Docente', 2020, 'LM11092-3'),
+(183, 'CB85284-171', '2020-05-04', '06:52:22 pm', '06:52:39 pm', 'Estudiante', 2020, 'LM20551-13'),
+(184, 'CB72304-172', '2020-05-04', '06:52:42 pm', '06:52:50 pm', 'Estudiante', 2020, 'LM43600-14'),
+(185, 'CB53309-173', '2020-05-04', '06:52:56 pm', '06:53:09 pm', 'Estudiante', 2020, 'LM78816-11'),
+(186, 'CB31613-174', '2020-05-04', '06:53:13 pm', '06:55:03 pm', 'Docente', 2020, 'LM11092-3'),
+(187, 'CB30984-175', '2020-05-04', '06:55:07 pm', '06:55:31 pm', 'Estudiante', 2020, 'LM43600-14'),
+(188, 'CB30595-176', '2020-05-04', '06:55:38 pm', '06:55:54 pm', 'Estudiante', 2020, 'LM55041-4'),
+(189, 'CB58500-177', '2020-05-04', '06:55:59 pm', '06:56:57 pm', 'Estudiante', 2020, 'LM84603-10'),
+(190, 'CB08696-178', '2020-05-04', '06:57:01 pm', '06:57:21 pm', 'Estudiante', 2020, 'LM43600-14'),
+(191, 'CB39885-179', '2020-05-04', '06:57:29 pm', '06:58:49 pm', 'Docente', 2020, 'LM11092-3'),
+(192, 'CB02019-180', '2020-05-04', '06:58:53 pm', '07:08:04 pm', 'Estudiante', 2020, 'LM43600-14'),
+(193, 'CB24408-181', '2020-05-04', '07:09:11 pm', '07:10:38 pm', 'Estudiante', 2020, 'LM43600-14'),
+(194, 'CB96353-182', '2020-05-04', '07:10:43 pm', '07:14:48 pm', 'Docente', 2020, 'LM11092-3'),
+(195, 'CB71808-183', '2020-05-04', '07:14:52 pm', '07:15:28 pm', 'Estudiante', 2020, 'LM43600-14'),
+(196, 'CB10065-184', '2020-05-04', '07:15:38 pm', '07:15:59 pm', 'Estudiante', 2020, 'LM84603-10'),
+(197, 'CB02708-185', '2020-05-04', '07:16:19 pm', '07:25:01 pm', 'Docente', 2020, 'LM11092-3'),
+(198, 'CB89637-186', '2020-05-04', '07:25:06 pm', '07:29:05 pm', 'Estudiante', 2020, 'LM20551-13'),
+(199, 'CB46926-187', '2020-05-04', '07:29:10 pm', '07:41:45 pm', 'Administrador', 2020, 'LM93499-1'),
+(200, 'CB03310-188', '2020-05-04', '07:41:53 pm', '07:51:41 pm', 'Docente', 2020, 'LM11092-3');
 
 -- --------------------------------------------------------
 
@@ -177,11 +295,19 @@ CREATE TABLE `cuenta` (
 
 INSERT INTO `cuenta` (`id`, `CuentaCodigo`, `CuentaUsuario`, `CuentaClave`, `CuentaEmail`, `CuentaEstado`, `CuentaRol`, `CuentaGenero`, `CuentaFoto`) VALUES
 (1, 'LM93499-1', 'admin', 'VlVwVnBIejltRGhKbEI0dEl0bVRMQT09', 'admin@gmail.com', 'Activo', 1, 'Masculino', 'Male3Avatar.png'),
-(9, 'LM88509-2', 'leonel', 'eVJEdTBjaDFjWVZWdjJmV01BcHJWZz09', 'leonel@gmail.com', 'Activo', 1, 'Masculino', 'Male3Avatar.png'),
 (10, 'LM11092-3', 'docente', 'RUprTG9vR2t6amYxQlZkUVE3aWtEQT09', 'docente@gmail.com', 'Activo', 2, 'Femenino', 'Female2Avatar.png'),
 (11, 'LM55041-4', 'estudiante', 'bTBHdTZLVnVxemlzNkdqKzIvbnJ5Zz09', 'estudiante@gmail.com', 'Activo', 3, 'Femenino', 'Female2Avatar.png'),
 (12, 'LM73754-5', 'jorge', 'cU5LRDI2NEFQWk5Nb3R5TXVoL3p5Zz09', 'jorge@gmail.com', 'Activo', 2, 'Masculino', 'Male3Avatar.png'),
-(13, 'LM63637-6', 'jonathan', 'ZWk4a1FmNjFsU0VxbkxJSVJHeWZnQT09', 'jonathan@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png');
+(13, 'LM63637-6', 'jonathan', 'ZWk4a1FmNjFsU0VxbkxJSVJHeWZnQT09', 'jonathan@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
+(17, 'LM87917-6', 'leo', 'NnF1dEQ3dXlXYk5BMHpNclVuQWtHQT09', 'leo@gmail.com', 'Activo', 1, 'Masculino', 'Male3Avatar.png'),
+(18, 'LM59856-7', 'ponce', 'THdTeHkxbE9hWFpobEJRQVRmRjlDZz09', 'lponce@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
+(19, 'LM92282-8', 'hector', 'L3R6b3dMMWNjYytpdmR2UWVGdHpIUT09', 'hetor@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
+(20, 'LM29533-9', 'perez', 'OHoxd29YcFIvaFYxdlRQRS9pU0hIZz09', 'jperez@gmal.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
+(21, 'LM84603-10', 'cristal', 'eFNPc1ZQcU9TOFJpMWZaZTIrWXhNQT09', 'cristal@gmail.com', 'Activo', 3, 'Femenino', 'Female2Avatar.png'),
+(22, 'LM78816-11', 'leticia', 'cFh6Z3NlTG9EcDlDTjFwYlp4M0MyUT09', 'leticia@gmail.com', 'Activo', 3, 'Femenino', 'Female2Avatar.png'),
+(23, 'LM08913-12', 'omarG', 'eFFaUThqUFU2VDVvQzRHMlVKVm9SUT09', 'omarG@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
+(24, 'LM20551-13', 'gabo', 'eVlrNHRacFZ1azlzNHBEdmc5TWhqQT09', 'gabo@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
+(25, 'LM43600-14', 'jair', 'RjRrK215ODAxdGkwT0RvQkFxb29mUT09', 'jair@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png');
 
 -- --------------------------------------------------------
 
@@ -193,9 +319,24 @@ CREATE TABLE `cuenta_equipo` (
   `id_equipo_usuario` int(11) NOT NULL,
   `CuentaCodigo` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `id_equipo` int(11) NOT NULL,
-  `created` datetime NOT NULL DEFAULT current_timestamp(),
-  `modified` datetime DEFAULT NULL
+  `created` date NOT NULL,
+  `modified` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+--
+-- Volcado de datos para la tabla `cuenta_equipo`
+--
+
+INSERT INTO `cuenta_equipo` (`id_equipo_usuario`, `CuentaCodigo`, `id_equipo`, `created`, `modified`) VALUES
+(15, 'LM55041-4', 1, '2020-05-03', '2020-05-03'),
+(16, 'LM59856-7', 1, '2020-05-04', '2020-05-04'),
+(17, 'LM92282-8', 1, '2020-05-04', '2020-05-04'),
+(18, 'LM29533-9', 3, '2020-05-04', '2020-05-04'),
+(19, 'LM84603-10', 3, '2020-05-04', '2020-05-04'),
+(20, 'LM78816-11', 3, '2020-05-04', '2020-05-04'),
+(21, 'LM08913-12', 4, '2020-05-04', '2020-05-04'),
+(22, 'LM20551-13', 4, '2020-05-04', '2020-05-04'),
+(23, 'LM43600-14', 4, '2020-05-04', '2020-05-04');
 
 -- --------------------------------------------------------
 
@@ -206,9 +347,19 @@ CREATE TABLE `cuenta_equipo` (
 CREATE TABLE `equipo` (
   `id_equipo` int(11) NOT NULL,
   `equipo` varchar(20) NOT NULL,
-  `created` datetime NOT NULL DEFAULT current_timestamp(),
-  `modified` datetime DEFAULT NULL
+  `cuentaCreador` varchar(40) NOT NULL,
+  `created` date NOT NULL,
+  `modified` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+--
+-- Volcado de datos para la tabla `equipo`
+--
+
+INSERT INTO `equipo` (`id_equipo`, `equipo`, `cuentaCreador`, `created`, `modified`) VALUES
+(1, 'Equipo uno', 'LM11092-3', '2020-05-03', '2020-05-04'),
+(3, 'Equipo dos', 'LM11092-3', '2020-05-03', '2020-05-03'),
+(4, 'Equipo tres', 'LM11092-3', '2020-05-04', '2020-05-04');
 
 -- --------------------------------------------------------
 
@@ -222,6 +373,13 @@ CREATE TABLE `estado` (
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`id_estado`, `estado`, `created`, `modified`) VALUES
+(1, 'Bueno', '2020-05-03 20:06:00', '2020-05-03 20:06:00');
 
 -- --------------------------------------------------------
 
@@ -238,9 +396,18 @@ CREATE TABLE `fases` (
   `objetivo` varchar(200) NOT NULL,
   `id_metodologia` int(11) NOT NULL,
   `id_estado` int(11) NOT NULL,
-  `created` datetime NOT NULL DEFAULT current_timestamp(),
-  `modified` datetime DEFAULT NULL
+  `created` date NOT NULL,
+  `modified` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+--
+-- Volcado de datos para la tabla `fases`
+--
+
+INSERT INTO `fases` (`id_fase`, `fase`, `descripcion`, `fecha_inicio`, `fecha_fin`, `objetivo`, `id_metodologia`, `id_estado`, `created`, `modified`) VALUES
+(2, 'Fase uno', 'comienzo de la fase uno', '2020-04-20', '2020-04-30', 'Inicio del proyecto a desarrollar', 1, 1, '2020-05-04', '2020-05-04'),
+(3, 'Fase dos', 'desarrollo de la fase dos', '2020-04-24', '2020-05-03', 'Continuar el proyecto', 1, 1, '2020-05-04', '2020-05-04'),
+(4, 'Fase uno con SCRUM', 'inicio con SCRUM', '2020-04-20', '2020-06-20', 'Implementar SCRUM', 2, 1, '2020-05-04', '2020-05-04');
 
 -- --------------------------------------------------------
 
@@ -250,12 +417,21 @@ CREATE TABLE `fases` (
 
 CREATE TABLE `fuente` (
   `id_fuente` int(11) NOT NULL,
-  `url` varchar(30) NOT NULL,
+  `url` varchar(100) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
   `id_metodologia` int(11) NOT NULL,
-  `created` datetime NOT NULL DEFAULT current_timestamp(),
-  `modified` datetime DEFAULT NULL
+  `created` date NOT NULL,
+  `modified` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+--
+-- Volcado de datos para la tabla `fuente`
+--
+
+INSERT INTO `fuente` (`id_fuente`, `url`, `descripcion`, `id_metodologia`, `created`, `modified`) VALUES
+(1, 'https://www.ingenieriaindustrialonline.com/investigacion-de-operaciones/pert-tecnica-de-evaluacion-y', 'fuente 1 de PERT', 1, '2020-04-24', '2020-04-24'),
+(2, 'https://obsbusiness.school/es/blog-project-management/planificacion-de-las-actividades-y-tiempo-de-u', 'Segundo intento', 1, '2020-04-24', '2020-04-24'),
+(3, 'https://es.ccm.net/contents/582-metodo-pert', 'Tercera fuente de PERT', 1, '2020-04-24', '2020-04-24');
 
 -- --------------------------------------------------------
 
@@ -290,7 +466,8 @@ CREATE TABLE `metodologia` (
 --
 
 INSERT INTO `metodologia` (`id_metodologia`, `metodologia`, `descripcion`, `created`, `modified`) VALUES
-(1, 'Pert', 'Pert es una de las metodologías para la gestión de proyectos más utilizadas, en especial porque suele actuar como complemento de CPM y del Diagrama de Gantt.', '2020-04-01 21:32:12', '2020-04-02 04:08:21');
+(1, 'Pert', 'Pert es una de las metodologías para la gestión de proyectos más utilizadas, en especial porque suele actuar como complemento de CPM y del Diagrama de Gantt.', '2020-04-01 21:32:12', '2020-04-02 04:08:21'),
+(2, 'SCRUM', 'Primera metodologia agregada', '2020-04-24 21:11:54', '2020-04-24 21:11:54');
 
 -- --------------------------------------------------------
 
@@ -345,11 +522,18 @@ CREATE TABLE `persona` (
 
 INSERT INTO `persona` (`id`, `PersonaDNI`, `PersonaNombre`, `PersonaApellido`, `PersonaTelefono`, `PersonaDireccion`, `CuentaCodigo`, `PersonaPrivilegio`) VALUES
 (1, '00447711', 'Super', 'ADMINISTRADOR', '2481139051', 'MEXICO', 'LM93499-1', 'Administrador'),
-(9, '8978967968', 'Leonel', 'MEDEL', '987897897', 'PUEBLA, MEXICO', 'LM88509-2', 'Administrador'),
 (10, '987987899', 'docente', 'PRINCIPAL', '89789689', 'MEXICO', 'LM11092-3', 'Docente'),
 (11, '798789798', 'Estudiante', 'ESCOLAR', '98797897', 'COLOMBIA', 'LM55041-4', 'Estudiante'),
-(12, '89789798', 'Jorge', 'CHAVEZ', '89678676576', 'BUCARAMANGA', 'LM73754-5', 'Docente'),
-(13, '897878678', 'Jonathan', 'ACUÑA', '8978687687', 'BUCARAMANGA, COLOMBIA', 'LM63637-6', 'Estudiante');
+(12, '89789798', 'Jorge', 'CHAVEZ', '896786765', 'BUCARAMANGA', 'LM73754-5', 'Docente'),
+(17, '8767', 'Leonel', 'MEDEL', '68768768', 'Calle 11A', 'LM87917-6', 'Administrador'),
+(18, '685856', 'Luis Antonio', 'PONCE', '78676876', 'BUCARAMANGA', 'LM59856-7', 'Estudiante'),
+(19, '976976', 'Hector Jair', 'BENAVIDES', '987697698', 'SAN MARTIN', 'LM92282-8', 'Estudiante'),
+(20, '9868969', 'Jose', 'PEREZ', '968997897', 'CHOLULA', 'LM29533-9', 'Estudiante'),
+(21, '9889789', 'Cristal', 'LOPEZ', '789789786', 'PUEBLA', 'LM84603-10', 'Estudiante'),
+(22, '90980978', 'Leticia', 'HERNANDEZ', '98798698', 'EL VERDE', 'LM78816-11', 'Estudiante'),
+(23, '9878979', 'Omar', 'GARCIA', '877989', 'SANTA CATARINA', 'LM08913-12', 'Estudiante'),
+(24, '897687900', 'Gabriel', 'ALONSO', '87985785', 'SAN LUCAS', 'LM20551-13', 'Estudiante'),
+(25, '8987897', 'Jair', 'SANCHEZ', '89667867', 'PUEBLA', 'LM43600-14', 'Estudiante');
 
 -- --------------------------------------------------------
 
@@ -372,7 +556,10 @@ CREATE TABLE `proyecto` (
 --
 
 INSERT INTO `proyecto` (`id_proyecto`, `titulo`, `fecha_inicio`, `fecha_fin`, `cuentaCreador`, `created`, `modified`) VALUES
-(5, 'Primer proyecto del docente principal', '2020-04-20', '2020-04-22', 'LM11092-3', '2020-04-23', '2020-04-23');
+(5, 'Primer proyecto Prog web', '2020-04-20', '2020-04-23', 'LM11092-3', '2020-04-23', '2020-05-04'),
+(6, 'Proyecto de jorge', '2020-04-20', '2020-05-31', 'LM73754-5', '2020-04-23', '2020-04-23'),
+(7, 'Proyecto web', '2020-04-20', '2020-05-30', 'LM11092-3', '2020-05-03', '2020-05-03'),
+(8, 'Proyecto PHP', '2020-04-20', '2020-08-20', 'LM11092-3', '2020-05-04', '2020-05-04');
 
 -- --------------------------------------------------------
 
@@ -412,6 +599,15 @@ CREATE TABLE `proyecto_metodologia` (
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+--
+-- Volcado de datos para la tabla `proyecto_metodologia`
+--
+
+INSERT INTO `proyecto_metodologia` (`id_proyecto_metodologia`, `id_proyecto`, `id_metodologia`, `objetivo`, `created`, `modified`) VALUES
+(5, 7, 1, 'Relacionar metodologia', '2020-05-03 17:03:33', '2020-05-03 17:03:33'),
+(6, 8, 2, 'Hacer un proyecto con PHP y la metodologia SCRUM', '2020-05-04 18:21:58', '2020-05-04 18:21:58'),
+(7, 5, 2, 'Mostrar la metodologia en el primer Proyecto', '2020-05-04 19:11:22', '2020-05-04 19:11:22');
 
 -- --------------------------------------------------------
 
@@ -645,43 +841,49 @@ ALTER TABLE `actividades`
 -- AUTO_INCREMENT de la tabla `asignacion`
 --
 ALTER TABLE `asignacion`
-  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta`
 --
 ALTER TABLE `cuenta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta_equipo`
 --
 ALTER TABLE `cuenta_equipo`
-  MODIFY `id_equipo_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_equipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `fases`
 --
 ALTER TABLE `fases`
-  MODIFY `id_fase` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_fase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `fuente`
+--
+ALTER TABLE `fuente`
+  MODIFY `id_fuente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `historia`
@@ -693,7 +895,7 @@ ALTER TABLE `historia`
 -- AUTO_INCREMENT de la tabla `metodologia`
 --
 ALTER TABLE `metodologia`
-  MODIFY `id_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `modulo`
@@ -705,13 +907,13 @@ ALTER TABLE `modulo`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
-  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
@@ -723,7 +925,7 @@ ALTER TABLE `proyectos`
 -- AUTO_INCREMENT de la tabla `proyecto_metodologia`
 --
 ALTER TABLE `proyecto_metodologia`
-  MODIFY `id_proyecto_metodologia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_proyecto_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `recursos`
