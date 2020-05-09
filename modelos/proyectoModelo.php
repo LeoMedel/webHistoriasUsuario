@@ -92,7 +92,7 @@
 
 				$sql = "INSERT INTO proyecto_metodologia(id_proyecto, id_metodologia, objetivo, created, modified) VALUES(?, ?, ?, now(), now() )";
 
-				print_r("Consulta ".$sql);
+				//print_r("Consulta ".$sql);
 
 				$pdo->prepare($sql)->execute([
 					$datos['idProyecto'], 

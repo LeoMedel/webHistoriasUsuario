@@ -45,7 +45,7 @@
 	
 	<article class="full-box tile">
 		<div class="full-box tile-title text-center text-titles text-uppercase" style="background-color: #23A846">
-			"<?php echo $titulo; ?>"
+			MI EQUIPO
 		</div>
 		<div class="full-box tile-icon text-center">
 			<i class="zmdi zmdi-globe"></i>
@@ -54,13 +54,13 @@
 			<p class="full-box"> </p>
 			<br>
 			<br>
-			<small>MI EQUIPO</small>
+			<small>"<?php echo $titulo; ?>"</small>
 		</div>
 	</article>
 
 	<article class="full-box tile">
 		<div class="full-box tile-title text-center text-titles text-uppercase" style="background-color: #23A846">
-			"<?php echo $nombreEquipo; ?>"
+			MY PROYECTO
 		</div>
 		<div class="full-box tile-icon text-center">
 			<i class="zmdi zmdi-globe"></i>
@@ -69,7 +69,7 @@
 			<p class="full-box"> </p>
 			<br>
 			<br>
-			<small>MI PROYECTO</small>
+			<small>"<?php echo $nombreEquipo; ?>"</small>
 		</div>
 	</article>
 	

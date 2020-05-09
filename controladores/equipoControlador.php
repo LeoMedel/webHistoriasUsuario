@@ -268,7 +268,7 @@
 				$paginaURL = "adminsearch";
 
 			} else {*/
-				$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM equipo ORDER BY equipo ASC LIMIT $inicio, $noRegistros";
+				$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM equipo WHERE cuentaCreador = '$codigo' ORDER BY equipo ASC LIMIT $inicio, $noRegistros";
 				$paginaURL = "equipolist";
 			//}
 			

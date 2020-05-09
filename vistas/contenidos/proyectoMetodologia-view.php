@@ -85,7 +85,7 @@
 		    				<div class="col-xs-12">
 								<div class="form-group label-floating">
 								  	<label class="control-label">Objetivo</label>
-								  	<textarea name="objetivo-asig" class="form-control" rows="2" maxlength="100" ></textarea>
+								  	<textarea name="objetivo-asig" class="form-control" rows="2" maxlength="100" required=""></textarea>
 								</div>
 		    				</div>
 		    			</div>

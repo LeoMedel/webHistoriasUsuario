@@ -233,6 +233,31 @@
 			$idMetodologia = modeloPrincipal::limpiarCadena($_POST['metodologia-asig']);
 			$objetivo = modeloPrincipal::limpiarCadena($_POST['objetivo-asig']);
 
+			if ($idProyecto == 0) {
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "Seleccione un proyecto.",
+					"Tipo" => "error"
+				];
+
+				return modeloPrincipal::mostrarAlerta($alerta);
+				exit();
+			}
+
+			if ($idMetodologia == 0) {
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "Seleccione una metodologia.",
+					"Tipo" => "error"
+				];
+
+				return modeloPrincipal::mostrarAlerta($alerta);
+				exit();
+			}
+
+
 			$consultaProyecto = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT id_proyecto FROM proyecto_metodologia WHERE id_proyecto='$idProyecto'");
 
 			if ($consultaProyecto->rowCount()>=1)
