@@ -153,7 +153,7 @@
 											"Titulo" => "Registro completo",
 											"Texto" => "Usuario registrado en el sistema. Inicie sesion ahora.",
 											"Tipo" => "success",
-											"Pagina" => "login"
+											"Pagina" => "login/"
 										];
 									} 
 									else

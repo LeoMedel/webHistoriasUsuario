@@ -40,7 +40,10 @@
 				"faselist",
 				"fase",
 				"faseActualizar",
-				"miEquipo"
+				"miEquipo",
+				"salon",
+				"salonlist",
+				"salonActualizar"
 			];
 			if(in_array($vistas, $listaBlanca))
 			{

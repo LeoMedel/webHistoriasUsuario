@@ -74,6 +74,11 @@
 				</a>
 			</li>
 			<li>
+				<a href="<?php echo SERVERURL; ?>salonlist/">
+					<i class="zmdi zmdi-home zmdi-hc-fw"></i> Salones
+				</a>
+			</li>
+			<li>
 				<a href="#!" class="btn-sideBar-SubMenu">
 					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Usuarios <i class="zmdi zmdi-caret-down pull-right"></i>
 				</a>
