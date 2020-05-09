@@ -1,7 +1,7 @@
 
 <?php
-	if ($_SESSION['tipo_sesion'] >=3 || $_SESSION['tipo_sesion'] <=1) {
-		echo $loginControl->forzarCierreSesion();
+	if ($_SESSION['tipo_sesion'] != 2) {
+		echo $loginControl->redireccionarUsuarioControlador($_SESSION['tipo_sesion']);
 	}
 ?>
 

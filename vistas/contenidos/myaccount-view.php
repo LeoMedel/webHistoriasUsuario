@@ -1,3 +1,8 @@
+<?php
+	if ($_SESSION['tipo_sesion'] >=2) {
+		echo $loginControl->redireccionarUsuarioControlador($_SESSION['tipo_sesion']);
+	}
+?>
 
 <div class="container-fluid">
 	<div class="page-header">

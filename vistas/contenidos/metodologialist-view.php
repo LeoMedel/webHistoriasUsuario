@@ -1,9 +1,8 @@
 <?php
-	if ($_SESSION['tipo_sesion'] >=3 || $_SESSION['tipo_sesion'] <=1 ) {
-		echo $loginControl->forzarCierreSesion();
+	if ($_SESSION['tipo_sesion'] != 2) {
+		echo $loginControl->redireccionarUsuarioControlador($_SESSION['tipo_sesion']);
 	}
 ?>
-
 <div class="container-fluid">
 	<div class="page-header">
 	  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> METODOLOGÍAS <small>Listado de metodologías</small></h1>

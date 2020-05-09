@@ -201,13 +201,21 @@
 
 		public function redireccionarUsuarioControlador($tipo)
 		{
-			if($tipo=="Administrador")
+			if($tipo== 1)
 			{
 				$redirect = '<script> window.location.href="'.SERVERURL.'home/"  </script>';
 			}
+			else if($tipo== 2)
+			{
+				$redirect = '<script> window.location.href="'.SERVERURL.'homeDocente/"  </script>';
+			}
+			else if($tipo== 3)
+			{
+				$redirect = '<script> window.location.href="'.SERVERURL.'homeEstudiante/"  </script>';
+			}
 			else
 			{
-				$redirect = '<script> window.location.href="'.SERVERURL.'catalog/"  </script>';
+				$redirect = '<script> window.location.href="'.SERVERURL.'registro/"  </script>';
 			}
 
 			return $redirect;

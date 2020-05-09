@@ -1,10 +1,8 @@
 
 <?php
-    if ($_SESSION['tipo_sesion'] != 2) {
-
-        echo $loginControl->forzarCierreSesion();
-        //echo $loginControl->redireccionarUsuarioControlador($_SESSION['tipo_sesion']);
-    }
+	if ($_SESSION['tipo_sesion'] != 2) {
+		echo $loginControl->redireccionarUsuarioControlador($_SESSION['tipo_sesion']);
+	}
 ?>
 
 
@@ -16,15 +14,6 @@
 </div>
 <div class="full-box text-center" style="padding: 30px 10px;">
     
-
-    <!--?php
-        require "./controladores/administradorControlador.php";
-        $administradorControl = new administradorControlador();
-
-        $conteoAdmin = $administradorControl->mostrarInfoAdministradoresControlador("conteo", 0)
-    ?-->
-
-
 
 
 <div class="container-fluid">
