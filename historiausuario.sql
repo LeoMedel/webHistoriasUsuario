@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2020 a las 02:54:15
+-- Tiempo de generación: 09-05-2020 a las 07:17:20
 -- Versión del servidor: 10.3.15-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -269,7 +269,30 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (197, 'CB02708-185', '2020-05-04', '07:16:19 pm', '07:25:01 pm', 'Docente', 2020, 'LM11092-3'),
 (198, 'CB89637-186', '2020-05-04', '07:25:06 pm', '07:29:05 pm', 'Estudiante', 2020, 'LM20551-13'),
 (199, 'CB46926-187', '2020-05-04', '07:29:10 pm', '07:41:45 pm', 'Administrador', 2020, 'LM93499-1'),
-(200, 'CB03310-188', '2020-05-04', '07:41:53 pm', '07:51:41 pm', 'Docente', 2020, 'LM11092-3');
+(200, 'CB03310-188', '2020-05-04', '07:41:53 pm', '07:51:41 pm', 'Docente', 2020, 'LM11092-3'),
+(201, 'CB85917-189', '2020-05-08', '02:54:30 pm', '02:54:38 pm', 'Administrador', 2020, 'LM93499-1'),
+(202, 'CB45406-190', '2020-05-08', '06:47:51 pm', '06:48:00 pm', 'Administrador', 2020, 'LM93499-1'),
+(203, 'CB12223-191', '2020-05-08', '06:51:57 pm', '06:53:51 pm', 'Docente', 2020, 'LM50866-15'),
+(204, 'CB99945-192', '2020-05-08', '06:53:56 pm', '06:55:15 pm', 'Administrador', 2020, 'LM93499-1'),
+(205, 'CB86267-193', '2020-05-08', '06:55:20 pm', 'Sin registro', 'Docente', 2020, 'LM50866-15'),
+(206, 'CB21214-194', '2020-05-08', '06:56:59 pm', '06:57:17 pm', 'Estudiante', 2020, 'LM52219-16'),
+(207, 'CB06563-195', '2020-05-08', '06:57:26 pm', '06:58:49 pm', 'Estudiante', 2020, 'LM43600-14'),
+(208, 'CB46687-196', '2020-05-08', '06:58:56 pm', '06:59:04 pm', 'Estudiante', 2020, 'LM52219-16'),
+(209, 'CB12086-197', '2020-05-08', '06:59:12 pm', '06:59:19 pm', 'Estudiante', 2020, 'LM84603-10'),
+(210, 'CB88043-198', '2020-05-08', '06:59:24 pm', '06:59:29 pm', 'Estudiante', 2020, 'LM43600-14'),
+(211, 'CB12338-199', '2020-05-08', '06:59:35 pm', '07:09:01 pm', 'Docente', 2020, 'LM50866-15'),
+(212, 'CB76038-200', '2020-05-08', '07:11:08 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
+(213, 'CB98933-201', '2020-05-08', '07:11:20 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
+(214, 'CB45179-202', '2020-05-08', '07:12:06 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
+(215, 'CB92691-203', '2020-05-08', '07:12:24 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
+(216, 'CB27557-204', '2020-05-08', '07:12:43 pm', '07:16:12 pm', 'Administrador', 2020, 'LM93499-1'),
+(217, 'CB52839-205', '2020-05-08', '07:16:18 pm', '07:28:15 pm', 'Docente', 2020, 'LM11092-3'),
+(218, 'CB93470-206', '2020-05-08', '07:28:21 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(219, 'CB64240-207', '2020-05-08', '07:30:52 pm', '07:33:34 pm', 'Estudiante', 2020, 'LM55041-4'),
+(220, 'CB63952-208', '2020-05-08', '07:33:39 pm', '07:35:19 pm', 'Docente', 2020, 'LM11092-3'),
+(221, 'CB72816-209', '2020-05-08', '07:43:30 pm', '08:35:18 pm', 'Administrador', 2020, 'LM93499-1'),
+(222, 'CB56023-210', '2020-05-08', '08:35:25 pm', '08:36:31 pm', 'Docente', 2020, 'LM11092-3'),
+(223, 'CB55065-211', '2020-05-08', '08:36:36 pm', '08:37:16 pm', 'Administrador', 2020, 'LM93499-1');
 
 -- --------------------------------------------------------
 
@@ -307,7 +330,9 @@ INSERT INTO `cuenta` (`id`, `CuentaCodigo`, `CuentaUsuario`, `CuentaClave`, `Cue
 (22, 'LM78816-11', 'leticia', 'cFh6Z3NlTG9EcDlDTjFwYlp4M0MyUT09', 'leticia@gmail.com', 'Activo', 3, 'Femenino', 'Female2Avatar.png'),
 (23, 'LM08913-12', 'omarG', 'eFFaUThqUFU2VDVvQzRHMlVKVm9SUT09', 'omarG@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
 (24, 'LM20551-13', 'gabo', 'eVlrNHRacFZ1azlzNHBEdmc5TWhqQT09', 'gabo@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
-(25, 'LM43600-14', 'jair', 'RjRrK215ODAxdGkwT0RvQkFxb29mUT09', 'jair@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png');
+(25, 'LM43600-14', 'jair', 'RjRrK215ODAxdGkwT0RvQkFxb29mUT09', 'jair@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
+(26, 'LM50866-15', 'corona', 'SmovRjZIQk5ieFo4anJneFNHb3VyQT09', 'corona@gmail.com', 'Activo', 2, 'Masculino', 'Male3Avatar.png'),
+(27, 'LM52219-16', 'cortes', 'anNTUXBqbGgxa254U3BjQU1rQk5oUT09', 'cortes@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png');
 
 -- --------------------------------------------------------
 
@@ -533,7 +558,9 @@ INSERT INTO `persona` (`id`, `PersonaDNI`, `PersonaNombre`, `PersonaApellido`, `
 (22, '90980978', 'Leticia', 'HERNANDEZ', '98798698', 'EL VERDE', 'LM78816-11', 'Estudiante'),
 (23, '9878979', 'Omar', 'GARCIA', '877989', 'SANTA CATARINA', 'LM08913-12', 'Estudiante'),
 (24, '897687900', 'Gabriel', 'ALONSO', '87985785', 'SAN LUCAS', 'LM20551-13', 'Estudiante'),
-(25, '8987897', 'Jair', 'SANCHEZ', '89667867', 'PUEBLA', 'LM43600-14', 'Estudiante');
+(25, '8987897', 'Jair', 'SANCHEZ', '89667867', 'PUEBLA', 'LM43600-14', 'Estudiante'),
+(26, '7869698798', 'Jesus', 'CORONA', '98798789689', 'CDMX', 'LM50866-15', 'Docente'),
+(27, '98798798', 'Javier', 'CORTES', '98686987897', 'Ciudad de Mexico', 'LM52219-16', 'Estudiante');
 
 -- --------------------------------------------------------
 
@@ -559,7 +586,8 @@ INSERT INTO `proyecto` (`id_proyecto`, `titulo`, `fecha_inicio`, `fecha_fin`, `c
 (5, 'Primer proyecto Prog web', '2020-04-20', '2020-04-23', 'LM11092-3', '2020-04-23', '2020-05-04'),
 (6, 'Proyecto de jorge', '2020-04-20', '2020-05-31', 'LM73754-5', '2020-04-23', '2020-04-23'),
 (7, 'Proyecto web', '2020-04-20', '2020-05-30', 'LM11092-3', '2020-05-03', '2020-05-03'),
-(8, 'Proyecto PHP', '2020-04-20', '2020-08-20', 'LM11092-3', '2020-05-04', '2020-05-04');
+(8, 'Proyecto PHP', '2020-04-20', '2020-08-20', 'LM11092-3', '2020-05-04', '2020-05-04'),
+(9, 'App web por CORONA', '2020-04-20', '2020-04-23', 'LM50866-15', '2020-05-08', '2020-05-08');
 
 -- --------------------------------------------------------
 
@@ -661,6 +689,24 @@ INSERT INTO `rol` (`id_rol`, `rol`, `created`, `modified`) VALUES
 (1, 'administrador', '2020-03-27 10:37:02', '0000-00-00 00:00:00'),
 (2, 'maestro', '2020-03-27 17:46:19', NULL),
 (3, 'alumno', '2020-04-12 13:32:41', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `salon`
+--
+
+CREATE TABLE `salon` (
+  `id_salon` int(11) NOT NULL,
+  `Salon` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `salon`
+--
+
+INSERT INTO `salon` (`id_salon`, `Salon`) VALUES
+(4, '4A');
 
 -- --------------------------------------------------------
 
@@ -822,6 +868,12 @@ ALTER TABLE `rol`
   ADD PRIMARY KEY (`id_rol`);
 
 --
+-- Indices de la tabla `salon`
+--
+ALTER TABLE `salon`
+  ADD PRIMARY KEY (`id_salon`);
+
+--
 -- Indices de la tabla `tipo_recurso`
 --
 ALTER TABLE `tipo_recurso`
@@ -847,13 +899,13 @@ ALTER TABLE `asignacion`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta`
 --
 ALTER TABLE `cuenta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta_equipo`
@@ -907,13 +959,13 @@ ALTER TABLE `modulo`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
-  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
@@ -925,7 +977,7 @@ ALTER TABLE `proyectos`
 -- AUTO_INCREMENT de la tabla `proyecto_metodologia`
 --
 ALTER TABLE `proyecto_metodologia`
-  MODIFY `id_proyecto_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_proyecto_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `recursos`
@@ -944,6 +996,12 @@ ALTER TABLE `responsable`
 --
 ALTER TABLE `rol`
   MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `salon`
+--
+ALTER TABLE `salon`
+  MODIFY `id_salon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_recurso`
