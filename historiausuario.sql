@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-05-2020 a las 07:17:20
+-- Tiempo de generación: 10-05-2020 a las 02:59:44
 -- Versión del servidor: 10.3.15-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -292,7 +292,40 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (220, 'CB63952-208', '2020-05-08', '07:33:39 pm', '07:35:19 pm', 'Docente', 2020, 'LM11092-3'),
 (221, 'CB72816-209', '2020-05-08', '07:43:30 pm', '08:35:18 pm', 'Administrador', 2020, 'LM93499-1'),
 (222, 'CB56023-210', '2020-05-08', '08:35:25 pm', '08:36:31 pm', 'Docente', 2020, 'LM11092-3'),
-(223, 'CB55065-211', '2020-05-08', '08:36:36 pm', '08:37:16 pm', 'Administrador', 2020, 'LM93499-1');
+(223, 'CB55065-211', '2020-05-08', '08:36:36 pm', '08:37:16 pm', 'Administrador', 2020, 'LM93499-1'),
+(224, 'CB97641-212', '2020-05-09', '02:56:40 pm', '03:00:48 pm', 'Administrador', 2020, 'LM93499-1'),
+(225, 'CB54118-213', '2020-05-09', '03:03:50 pm', '03:37:11 pm', 'Administrador', 2020, 'LM93499-1'),
+(226, 'CB53270-214', '2020-05-09', '03:49:44 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
+(227, 'CB19621-215', '2020-05-09', '04:51:44 pm', '05:54:08 pm', 'Administrador', 2020, 'LM93499-1'),
+(228, 'CB31018-216', '2020-05-09', '05:54:19 pm', '05:55:01 pm', 'Docente', 2020, 'LM11092-3'),
+(229, 'CB62420-217', '2020-05-09', '05:55:06 pm', '05:55:16 pm', 'Administrador', 2020, 'LM93499-1'),
+(230, 'CB36867-218', '2020-05-09', '05:55:21 pm', '06:13:24 pm', 'Docente', 2020, 'LM11092-3'),
+(231, 'CB77479-219', '2020-05-09', '06:13:39 pm', '06:13:49 pm', 'Docente', 2020, 'LM11092-3'),
+(232, 'CB32643-220', '2020-05-09', '06:15:28 pm', '06:53:47 pm', 'Estudiante', 2020, 'LM55041-4'),
+(233, 'CB15453-221', '2020-05-09', '06:53:59 pm', '06:56:12 pm', 'Docente', 2020, 'LM11092-3'),
+(234, 'CB36895-222', '2020-05-09', '06:56:18 pm', '06:56:25 pm', 'Estudiante', 2020, 'LM43600-14'),
+(235, 'CB72721-223', '2020-05-09', '06:56:43 pm', '06:58:01 pm', 'Docente', 2020, 'LM73754-5'),
+(238, 'CB84376-226', '2020-05-09', '06:59:30 pm', '07:05:20 pm', 'Administrador', 2020, 'LM93499-1'),
+(239, 'CB12433-225', '2020-05-09', '07:05:26 pm', '07:14:51 pm', 'Estudiante', 2020, 'LM52219-16'),
+(240, 'CB84207-226', '2020-05-09', '07:15:14 pm', '07:17:25 pm', 'Administrador', 2020, 'LM93499-1'),
+(241, 'CB44687-227', '2020-05-09', '07:19:15 pm', '07:19:24 pm', 'Administrador', 2020, 'LM93499-1'),
+(242, 'CB31774-228', '2020-05-09', '07:20:41 pm', '07:20:44 pm', 'Docente', 2020, 'LM11092-3'),
+(243, 'CB51092-229', '2020-05-09', '07:20:51 pm', '07:27:47 pm', 'Administrador', 2020, 'LM93499-1'),
+(244, 'CB07929-230', '2020-05-09', '07:27:52 pm', '07:27:56 pm', 'Administrador', 2020, 'LM93499-1'),
+(245, 'CB83708-231', '2020-05-09', '07:28:06 pm', '07:28:09 pm', 'Estudiante', 2020, 'LM84603-10'),
+(246, 'CB43507-232', '2020-05-09', '07:28:19 pm', '07:28:32 pm', 'Docente', 2020, 'LM11092-3'),
+(247, 'CB63137-233', '2020-05-09', '07:28:42 pm', '07:28:46 pm', 'Estudiante', 2020, 'LM52219-16'),
+(248, 'CB93806-234', '2020-05-09', '07:37:11 pm', '07:38:28 pm', 'Estudiante', 2020, 'LM84603-10'),
+(249, 'CB38689-235', '2020-05-09', '07:38:34 pm', '07:38:41 pm', 'Administrador', 2020, 'LM93499-1'),
+(250, 'CB32742-236', '2020-05-09', '07:38:59 pm', '07:39:14 pm', 'Docente', 2020, 'LM11092-3'),
+(251, 'CB61494-237', '2020-05-09', '07:39:21 pm', '07:39:32 pm', 'Docente', 2020, 'LM73754-5'),
+(252, 'CB59836-238', '2020-05-09', '07:39:41 pm', '07:39:52 pm', 'Estudiante', 2020, 'LM55041-4'),
+(253, 'CB08664-239', '2020-05-09', '07:39:57 pm', '07:45:18 pm', 'Estudiante', 2020, 'LM43600-14'),
+(254, 'CB97357-240', '2020-05-09', '07:45:24 pm', '07:46:40 pm', 'Administrador', 2020, 'LM93499-1'),
+(255, 'CB70473-241', '2020-05-09', '07:46:45 pm', '07:47:01 pm', 'Administrador', 2020, 'LM34913-16'),
+(256, 'CB98954-242', '2020-05-09', '07:47:20 pm', '07:47:48 pm', 'Administrador', 2020, 'LM87917-6'),
+(257, 'CB71235-243', '2020-05-09', '07:52:12 pm', '07:56:17 pm', 'Administrador', 2020, 'LM34913-16'),
+(258, 'CB89220-244', '2020-05-09', '07:56:22 pm', '07:56:31 pm', 'Administrador', 2020, 'LM93499-1');
 
 -- --------------------------------------------------------
 
@@ -317,22 +350,22 @@ CREATE TABLE `cuenta` (
 --
 
 INSERT INTO `cuenta` (`id`, `CuentaCodigo`, `CuentaUsuario`, `CuentaClave`, `CuentaEmail`, `CuentaEstado`, `CuentaRol`, `CuentaGenero`, `CuentaFoto`) VALUES
-(1, 'LM93499-1', 'admin', 'VlVwVnBIejltRGhKbEI0dEl0bVRMQT09', 'admin@gmail.com', 'Activo', 1, 'Masculino', 'Male3Avatar.png'),
-(10, 'LM11092-3', 'docente', 'RUprTG9vR2t6amYxQlZkUVE3aWtEQT09', 'docente@gmail.com', 'Activo', 2, 'Femenino', 'Female2Avatar.png'),
-(11, 'LM55041-4', 'estudiante', 'bTBHdTZLVnVxemlzNkdqKzIvbnJ5Zz09', 'estudiante@gmail.com', 'Activo', 3, 'Femenino', 'Female2Avatar.png'),
-(12, 'LM73754-5', 'jorge', 'cU5LRDI2NEFQWk5Nb3R5TXVoL3p5Zz09', 'jorge@gmail.com', 'Activo', 2, 'Masculino', 'Male3Avatar.png'),
-(13, 'LM63637-6', 'jonathan', 'ZWk4a1FmNjFsU0VxbkxJSVJHeWZnQT09', 'jonathan@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
-(17, 'LM87917-6', 'leo', 'NnF1dEQ3dXlXYk5BMHpNclVuQWtHQT09', 'leo@gmail.com', 'Activo', 1, 'Masculino', 'Male3Avatar.png'),
-(18, 'LM59856-7', 'ponce', 'THdTeHkxbE9hWFpobEJRQVRmRjlDZz09', 'lponce@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
-(19, 'LM92282-8', 'hector', 'L3R6b3dMMWNjYytpdmR2UWVGdHpIUT09', 'hetor@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
-(20, 'LM29533-9', 'perez', 'OHoxd29YcFIvaFYxdlRQRS9pU0hIZz09', 'jperez@gmal.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
-(21, 'LM84603-10', 'cristal', 'eFNPc1ZQcU9TOFJpMWZaZTIrWXhNQT09', 'cristal@gmail.com', 'Activo', 3, 'Femenino', 'Female2Avatar.png'),
-(22, 'LM78816-11', 'leticia', 'cFh6Z3NlTG9EcDlDTjFwYlp4M0MyUT09', 'leticia@gmail.com', 'Activo', 3, 'Femenino', 'Female2Avatar.png'),
-(23, 'LM08913-12', 'omarG', 'eFFaUThqUFU2VDVvQzRHMlVKVm9SUT09', 'omarG@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
-(24, 'LM20551-13', 'gabo', 'eVlrNHRacFZ1azlzNHBEdmc5TWhqQT09', 'gabo@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
-(25, 'LM43600-14', 'jair', 'RjRrK215ODAxdGkwT0RvQkFxb29mUT09', 'jair@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png'),
-(26, 'LM50866-15', 'corona', 'SmovRjZIQk5ieFo4anJneFNHb3VyQT09', 'corona@gmail.com', 'Activo', 2, 'Masculino', 'Male3Avatar.png'),
-(27, 'LM52219-16', 'cortes', 'anNTUXBqbGgxa254U3BjQU1rQk5oUT09', 'cortes@gmail.com', 'Activo', 3, 'Masculino', 'Male3Avatar.png');
+(1, 'LM93499-1', 'admin', 'VlVwVnBIejltRGhKbEI0dEl0bVRMQT09', 'admin@gmail.com', 'Activo', 1, 'Masculino', 'adminHombre.png'),
+(10, 'LM11092-3', 'docente', 'RUprTG9vR2t6amYxQlZkUVE3aWtEQT09', 'docente@gmail.com', 'Activo', 2, 'Femenino', 'docenteMujer.png'),
+(11, 'LM55041-4', 'estudiante', 'bTBHdTZLVnVxemlzNkdqKzIvbnJ5Zz09', 'estudiante@gmail.com', 'Activo', 3, 'Femenino', 'estudianteMujer.png'),
+(12, 'LM73754-5', 'jorge', 'cU5LRDI2NEFQWk5Nb3R5TXVoL3p5Zz09', 'jorge@gmail.com', 'Activo', 2, 'Masculino', 'docenteHombre.png'),
+(17, 'LM87917-6', 'leo', 'NnF1dEQ3dXlXYk5BMHpNclVuQWtHQT09', 'leo@gmail.com', 'Activo', 1, 'Masculino', 'adminHombre.png'),
+(18, 'LM59856-7', 'ponce', 'THdTeHkxbE9hWFpobEJRQVRmRjlDZz09', 'lponce@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
+(19, 'LM92282-8', 'hector', 'L3R6b3dMMWNjYytpdmR2UWVGdHpIUT09', 'hetor@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
+(20, 'LM29533-9', 'perez', 'OHoxd29YcFIvaFYxdlRQRS9pU0hIZz09', 'jperez@gmal.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
+(21, 'LM84603-10', 'cristal', 'eFNPc1ZQcU9TOFJpMWZaZTIrWXhNQT09', 'cristal@gmail.com', 'Activo', 3, 'Femenino', 'estudianteMujer.png'),
+(22, 'LM78816-11', 'leticia', 'cFh6Z3NlTG9EcDlDTjFwYlp4M0MyUT09', 'leticia@gmail.com', 'Activo', 3, 'Femenino', 'estudianteMujer.png'),
+(23, 'LM08913-12', 'omarG', 'eFFaUThqUFU2VDVvQzRHMlVKVm9SUT09', 'omarG@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
+(24, 'LM20551-13', 'gabo', 'eVlrNHRacFZ1azlzNHBEdmc5TWhqQT09', 'gabo@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
+(25, 'LM43600-14', 'jair', 'RjRrK215ODAxdGkwT0RvQkFxb29mUT09', 'jair@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
+(26, 'LM50866-15', 'corona', 'SmovRjZIQk5ieFo4anJneFNHb3VyQT09', 'corona@gmail.com', 'Activo', 2, 'Masculino', 'docenteHombre.png'),
+(27, 'LM52219-16', 'cortes', 'anNTUXBqbGgxa254U3BjQU1rQk5oUT09', 'cortes@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
+(29, 'LM34913-16', 'maria', 'aUlqY0pxbWExTFlESkRMZk1KVXdqdz09', 'maria@gmail.com', 'Activo', 1, 'Femenino', 'adminMujer.png');
 
 -- --------------------------------------------------------
 
@@ -560,7 +593,8 @@ INSERT INTO `persona` (`id`, `PersonaDNI`, `PersonaNombre`, `PersonaApellido`, `
 (24, '897687900', 'Gabriel', 'ALONSO', '87985785', 'SAN LUCAS', 'LM20551-13', 'Estudiante'),
 (25, '8987897', 'Jair', 'SANCHEZ', '89667867', 'PUEBLA', 'LM43600-14', 'Estudiante'),
 (26, '7869698798', 'Jesus', 'CORONA', '98798789689', 'CDMX', 'LM50866-15', 'Docente'),
-(27, '98798798', 'Javier', 'CORTES', '98686987897', 'Ciudad de Mexico', 'LM52219-16', 'Estudiante');
+(27, '98798798', 'Javier', 'CORTES', '98686987897', 'Ciudad de Mexico', 'LM52219-16', 'Estudiante'),
+(29, '314134134', 'Maria', 'MENDEZ', '9879879880', 'CDMX', 'LM34913-16', 'Administrador');
 
 -- --------------------------------------------------------
 
@@ -899,13 +933,13 @@ ALTER TABLE `asignacion`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta`
 --
 ALTER TABLE `cuenta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta_equipo`
@@ -959,7 +993,7 @@ ALTER TABLE `modulo`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `proyecto`
