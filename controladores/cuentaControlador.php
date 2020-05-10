@@ -165,11 +165,11 @@
 				
 				if($cuentaGenero=="Masculino")
 				{
-					$cuentaFoto = "Male3Avatar.png";
+					$cuentaFoto = "adminHombre.png";
 				}
 				else
 				{
-					$cuentaFoto = "Female2Avatar.png";
+					$cuentaFoto = "adminMuer.png";
 				}
 
 				$cuentaTipo = 1;
@@ -179,11 +179,11 @@
 				
 				if($cuentaGenero=="Masculino")
 				{
-					$cuentaFoto = "Male3Avatar.png";
+					$cuentaFoto = "docenteHombre.png";
 				}
 				else
 				{
-					$cuentaFoto = "Female2Avatar.png";
+					$cuentaFoto = "docenteMujer.png";
 				}
 
 				$cuentaTipo = 2;
@@ -193,11 +193,11 @@
 				
 				if($cuentaGenero=="Masculino")
 				{
-					$cuentaFoto = "Male3Avatar.png";
+					$cuentaFoto = "estudianteHombre.png";
 				}
 				else
 				{
-					$cuentaFoto = "Female2Avatar.png";
+					$cuentaFoto = "estudianteMujer.png";
 				}
 
 				$cuentaTipo = 3;

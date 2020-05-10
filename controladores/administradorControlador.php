@@ -37,11 +37,11 @@
 
 			if ($genero == "Masculino") 
 			{
-				$foto = "Male3Avatar.png";
+				$foto = "adminHombre.png";
 			} 
 			else 
 			{
-				$foto = "Female2Avatar.png";
+				$foto = "adminMujer.png";
 			}
 
 			if ($password1 != $password2)
@@ -330,7 +330,7 @@
 			if ($total >=1 && $pagina <=$noPaginas) {
 				$tablaAdmin .= '
 							<nav class="text-center">
-								<ul class="pagination pagination-sm">
+								<ul class="pager">
 							';
 
 				if ($pagina==1 ) {
@@ -482,7 +482,7 @@
 		{
 			$codigo = modeloPrincipal::desencriptar($codigo);
 			$tipo = modeloPrincipal::limpiarCadena($tipo);
-			$usuario = modeloPrincipal::limpiarCadena($usuario);
+			//$usuario = modeloPrincipal::limpiarCadena($usuario);
 
 			return administradorModelo::mostrarInfoAdministradoresModelo($tipo, $codigo);
 		}

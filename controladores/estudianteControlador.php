@@ -36,11 +36,11 @@
 
 			if ($genero == "Masculino") 
 			{
-				$foto = "Male3Avatar.png";
+				$foto = "estudianteHombre.png";
 			} 
 			else 
 			{
-				$foto = "Female2Avatar.png";
+				$foto = "estudianteMujer.png";
 			}
 
 			if ($password1 != $password2)
@@ -305,7 +305,7 @@
 			if ($total >=1 && $pagina <=$noPaginas) {
 				$tabla .= '
 							<nav class="text-center">
-								<ul class="pagination pagination-sm">
+								<ul class="pager">
 							';
 
 				if ($pagina==1 ) {

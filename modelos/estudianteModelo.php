@@ -134,7 +134,7 @@
 			$infoEquipo->execute();
 			$datos = $infoEquipo->fetch();
 
-			$equipo = modeloPrincipal::conectarBD()->prepare("SELECT p.PersonaNombre, p.PersonaApellido, c.CuentaEmail FROM cuenta_equipo as ce INNER JOIN cuenta as c ON ce.CuentaCodigo = c.CuentaCodigo INNER JOIN persona p ON p.CuentaCodigo = ce.CuentaCodigo WHERE ce.id_equipo =:Id");
+			$equipo = modeloPrincipal::conectarBD()->prepare("SELECT p.PersonaNombre, p.PersonaApellido, p.PersonaTelefono, c.CuentaEmail FROM cuenta_equipo as ce INNER JOIN cuenta as c ON ce.CuentaCodigo = c.CuentaCodigo INNER JOIN persona p ON p.CuentaCodigo = ce.CuentaCodigo WHERE ce.id_equipo =:Id");
 			$equipo->bindParam("Id", $idEquipo);
 			$equipo->execute();
 

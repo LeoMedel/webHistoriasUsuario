@@ -19,7 +19,7 @@
 			<input type="submit" value="ENTRAR" class="btn btn-info btn-block btn-lg" style="color: #FFF;">
 		</div>
 		<br>
-		<a href="http://localhost:8080/webHistoriasU/registro/"><p class="text-center">Sin cuenta. Quiero registrarme</p> </a>
+		<a href="<?php echo SERVERURL; ?>registro/"><p class="text-center">Ir al registro</p> </a>
 	</form>
 
 </div>

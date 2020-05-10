@@ -8,10 +8,10 @@
         	swal({
             	title: 'Cerrar Sesión',
             	text: "La sesión esta apunto de ser cerrada. ¿Desea salir?",
-            	type: 'warning',
+            	type: 'question',
             	showCancelButton: true,
-            	confirmButtonColor: '#4AB150',
-            	cancelButtonColor: '#F44336',
+            	confirmButtonColor: '#175A8B',
+            	cancelButtonColor: '#BE3D4A',
             	confirmButtonText: 'Salir <i class="zmdi zmdi-run"></i>',
             	cancelButtonText: 'Cancelar <i class="zmdi zmdi-close-circle"></i>'
         	}).then(function () {

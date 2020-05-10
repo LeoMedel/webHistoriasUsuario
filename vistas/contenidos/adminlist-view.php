@@ -52,7 +52,7 @@
 
 				$pagina = explode("/", $_GET['views']);
 
-				echo $instanciaAdministrador->paginarAdministradoresControlador($pagina[1], 1, $_SESSION['tipo_sesion'], $_SESSION['codigo_cuenta_sesion'], "");
+				echo $instanciaAdministrador->paginarAdministradoresControlador($pagina[1], 6, $_SESSION['tipo_sesion'], $_SESSION['codigo_cuenta_sesion'], "");
 			?>
 
 		</div>

@@ -7,7 +7,7 @@
 
 <div class="container-fluid">
 	<div class="page-header">
-	  <h1 class="text-titles"><i class="zmdi zmdi-settings zmdi-hc-fw"></i>MI EQUIPO</small></h1>
+	  <h1 class="text-titles"><i class="zmdi zmdi-settings zmdi-male-female"></i> MI EQUIPO</small></h1>
 	</div>
 	<p class="lead">Datos del equipo</p>
 </div>
@@ -21,11 +21,11 @@ if ($_SESSION['codigo_equipo_sesion'] == 0) {
 	<div class="container-fluid">
 		<div class="panel panel-danger">
 			<div class="panel-heading">
-				<h1>ERROR</h1>
+				<h1>Sin equipo</h1>
 				<!--h3 class="panel-title"><i class="zmdi zmdi-refresh"></i> &nbsp; Información</h3-->
 			</div>
 			<div class="panel-body">
-				<p>Aun no hay un Equipo asignado</p>
+				<p>Aun no hay un Equipo asignado. Consultar con el docente</p>
 			</div>
 		</div>
 		
@@ -45,30 +45,47 @@ else
 
 	<!-- Panel mi cuenta -->
 	<div class="container-fluid">
-		<div class="panel panel-success">
+		<div class="panel panel-info">
 			<div class="panel-heading">
-				<h1>"<?php echo $todoMiEquipo['equipo'];?>"</h1>
+				<h1 align="center">"<?php echo $todoMiEquipo['equipo'];?>"</h1>
 				<!--h3 class="panel-title"><i class="zmdi zmdi-refresh"></i> &nbsp; Información</h3-->
 			</div>
 			<div class="panel-body">
 				<h3>Integrantes del equipo </h3>
 				<br>
-				<ul>
-					<?php 
-						$datosIntegrantes = $todoMiEquipo['integrantes']->fetchAll();
+				<table class="table table-striped table-hover ">
+					<thead>
+					<tr>
+						<th>Nombre completo</th>
+						<th>Correo electronico</th>
+						<th>Telefono</th>
+					</tr>
+					</thead>
+					<tbody>
+						<?php 
+							$datosIntegrantes = $todoMiEquipo['integrantes']->fetchAll();
+							
+							foreach ($datosIntegrantes as $integrante)
+							{
+								echo 
+								'<tr>
+									<td>'.$integrante['PersonaNombre'].' '.$integrante['PersonaApellido'].'</td>
+									<td>'.$integrante['CuentaEmail'].'</td>
+									<td>'.$integrante['PersonaTelefono'].'</td>
+								</tr>';
+								
+							}
+						?>
 						
-						foreach ($datosIntegrantes as $integrante)
-						{
-							echo '<li><h4>'.$integrante['PersonaNombre'].' '.$integrante['PersonaApellido'].' ('.$integrante['CuentaEmail'].')</h4></li> <br>';
-						}
-					?>
-				</ul>
-				
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
 
 	<br>
+
+
 
 	
 <?php

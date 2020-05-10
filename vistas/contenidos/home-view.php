@@ -20,50 +20,31 @@
 
     <div class="full-box text-center" style="padding: 30px 10px;">
 
+
 		<a href="<?php echo SERVERURL; ?>adminlist/">
-			<article class="full-box tile">
-				<div class="full-box tile-title text-center text-titles text-uppercase">
-					ADMINISTRADORES
-				</div>
-				<div class="full-box tile-icon text-center">
-					<i class="zmdi zmdi-account"></i>
-				</div>
-				<div class="full-box tile-number text-titles">
-					<p class="full-box"> <?php echo $conteoAdmin->rowCount(); ?> </p>
-					<small>Registros</small>
-				</div>
-			</article>
-		</a>
+			<article class="tileNew">
+	            <div class="tile-iconNew full-reset"><i class="zmdi zmdi-account"></i></div>
+	            <div class="tile-nameNew all-tittles">ADMINISTRADORES</div>
+	            <div class="tile-numNew full-reset"><?php echo $conteoAdmin->rowCount(); ?></div>
+	        </article>
+    	</a>
 
-		<a href="<?php echo SERVERURL; ?>docentelist/">
-			<article class="full-box tile">
-				<div class="full-box tile-title text-center text-titles text-uppercase">
-					DOCENTES
-				</div>
-				<div class="full-box tile-icon text-center">
-					<i class="zmdi zmdi-account"></i>
-				</div>
-				<div class="full-box tile-number text-titles">
-					<p class="full-box"> <?php echo $conteoDocente->rowCount(); ?> </p>
-					<small>Registros</small>
-				</div>
-			</article>
-		</a>
+    	<a href="<?php echo SERVERURL; ?>docentelist/">
+			<article class="tileNew">
+	            <div class="tile-iconNew full-reset"><i class="zmdi zmdi-account"></i></div>
+	            <div class="tile-nameNew all-tittles">DOCENTES</div>
+	            <div class="tile-numNew full-reset"><?php echo $conteoDocente->rowCount(); ?></div>
+	        </article>
+    	</a>
 
-		<a href="<?php echo SERVERURL; ?>estudiantelist/">
-			<article class="full-box tile">
-				<div class="full-box tile-title text-center text-titles text-uppercase">
-					ESTUDIANTES
-				</div>
-				<div class="full-box tile-icon text-center">
-					<i class="zmdi zmdi-account"></i>
-				</div>
-				<div class="full-box tile-number text-titles">
-					<p class="full-box"> <?php echo $conteoEstudiante->rowCount(); ?> </p>
-					<small>Registros</small>
-				</div>
-			</article>
-		</a>
+    	<a href="<?php echo SERVERURL; ?>estudiantelist/">
+			<article class="tileNew">
+	            <div class="tile-iconNew full-reset"><i class="zmdi zmdi-account"></i></div>
+	            <div class="tile-nameNew all-tittles">ESTUDIANTES</div>
+	            <div class="tile-numNew full-reset"><p><?php echo $conteoEstudiante->rowCount(); ?></p></div>
+	        </article>
+    	</a>
+
 	</div>
 
 </div>

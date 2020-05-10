@@ -103,9 +103,11 @@
 	    	</fieldset>
 	    	<br>
 		    <p class="text-center" style="margin-top: 5px;">
-		    	<button type="submit" class="btn btn-lg" style="color: white;"><i class="zmdi zmdi-floppy"></i> REGISTRARME </button>
+		    	<button type="submit" class="btn btn-lg btn-block" style="color: white;"><i class="zmdi zmdi-floppy"></i> REGISTRARME </button>
 		    </p>
 		    <div class="RespuestaAjax"></div>
+		    <br>
+		<a href="<?php echo SERVERURL; ?>"><p class="text-center">Inicio de Sesión</p> </a>
 		</form>
 	</div>
 </div>

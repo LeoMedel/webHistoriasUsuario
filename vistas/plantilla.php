@@ -59,6 +59,9 @@
 		<!-- Content page -->
 		<?php require_once $vistaRespuesta; ?>
 
+		<!-- Footer -->
+		<?php include "./vistas/modulos/footer.php"; ?>
+
 	</section>
 
 	<?php 

@@ -78,20 +78,21 @@ body, html{
 /*============ LogIn*/
 .login-container{
 	height: 100%;
-	background-image: url(../assets/img/blue3D.png);
+	background-image: url(../assets/img/font-login.png);
 	
 }
 
 .registroForm{
 	position: absolute;
 	color: #fff;
-	top: 50%;
+	top: 45%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 90%;
 	max-width: 1000px;
 	padding: 10px;
-	border: 5px solid rgba(255,255,255,.3);
+	background-color: rgba(5, 53, 63, .7);
+	border: 1px solid rgba(255,255,255,.3);
 	border-radius: 4px;
 }
 .registroForm p, h2,
@@ -105,7 +106,7 @@ body, html{
 /*============ REGISTRO*/
 .registro-container{
 	height: 100%;
-	background-image: url(../assets/img/blue3D.png);
+	background-image: url(../assets/img/font-login.png);
 	
 }
 
@@ -113,19 +114,47 @@ body, html{
 .logInForm{
 	position: absolute;
 	color: #fff;
-	top: 50%;
+	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	background-color: rgba(5, 53, 63, .7);
 	width: 100%;
 	max-width: 500px;
-	padding: 80px;
-	border: 5px solid rgba(255,255,255,.3);
-	border-radius: 4px;
+	padding: 60px;
+	border: 1px solid rgba(255,255,255,.3);
+	border-radius: 5px;
 }
 .logInForm p,
 .logInForm label{
 	color: #FFF;
 }
+
+/*Pie de pagina================*/
+.footer{
+    background-color: #254258;
+    height: auto;
+    color: #fff;
+    padding-top: 20px;
+    margin-top: 326px;
+}
+.footer-copyright{
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    text-align: center;
+    font-size: 17px;
+    background-color: #1C3344;
+}
+.footer-social{
+    cursor: pointer;
+    margin: 0 2px; 
+    transition: all .3s ease-in-out;
+}
+.footer-social:hover{ 
+    color: #FFD054;
+    transform: scale(1.7);
+}
+
 /*============ Partes del dashboard*/
 .dashboard-sideBar,
 .dashboard-contentPage{
@@ -353,6 +382,59 @@ body, html{
 .show-Notification-area > .Notifications-body{
 	transform: translateX(0) !important;
 }
+
+/* ============= Estilos Tarjetas 2 ============= */
+.tileNew{
+    display: inline-block;
+    width: 220px;
+    height: auto;
+    border: 1px solid #E1E1E1;
+    position: relative;
+    cursor: pointer;
+    margin: 10px;
+}
+.tile-iconNew,.tile-numNew{
+    height: 110px;
+    line-height: 110px;
+    position: relative;
+}
+.tile-iconNew{
+    color: black;
+    border-bottom: 1px solid #E1E1E1;
+    font-size: 50px;
+}
+.tile-iconNew i{
+    transition: all .4s ease-in-out;
+}
+.tile-numNew{
+    background-color: #F5F5F5;
+    font-size: 40px;
+}
+.tile-numNew p{
+    transition: all .4s ease-in-out;
+}
+
+.tile-nameNew{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 7;
+    padding: 0 10px;
+    border-radius: 15px;
+    background-color: #fff;
+    border: 3px solid #E1E1E1;
+    max-width: 95%;
+    min-width: 60%;
+    width: auto;
+}
+.tileNew:hover > .tile-iconNew i{
+    transform: scale(1.5);
+    color: #303F9F;
+}
+
+
+
 /*============ Estilos home*/
 .tile{
 	max-width: 300px;
