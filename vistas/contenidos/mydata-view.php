@@ -85,6 +85,32 @@
 											  	<input pattern="[0-9+]{1,15}" class="form-control" type="text" name="telefono-up" value="<?php echo $datosAdmin['PersonaTelefono']; ?>" maxlength="15">
 											</div>
 					    				</div>
+					    				<?php if ($datos[1] == "admin") {
+					    					# code...
+					    				}
+					    				else{ 
+
+					    					require_once "./controladores/salonControlador.php";
+											$claseSalon = new salonControlador();
+											$datosSalon = $claseSalon->cargarSalonesControlador();
+											$datosSalon = $datosSalon->fetchAll();
+
+					    				?>
+					    				<div class="col-xs-12 col-sm-6">
+					    					<div class="form-group label-floating">
+											  	<label class="control-label">Salon(Clase) *</label>
+											  	<select class="form-control" name="salon-up">
+											  		<option value="0">Seleccione el Salon</option>
+													<?php
+													foreach ($datosSalon as $salon)
+													{
+														echo '<option value="'. modeloPrincipal::encriptar($salon['Salon']).'">'.$salon['Salon'].'</option>';
+													}
+													?>
+											  	</select>
+											</div>
+					    				</div>
+					    			<?php }?>
 					    				<div class="col-xs-12">
 											<div class="form-group label-floating">
 											  	<label class="control-label">Dirección</label>

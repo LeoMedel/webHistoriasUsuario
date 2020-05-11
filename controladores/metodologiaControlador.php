@@ -19,6 +19,7 @@
 			//Proyecto
 			$metodologia = modeloPrincipal::limpiarCadena($_POST['metodologia-reg']);
 			$descripcion = modeloPrincipal::limpiarCadena($_POST['descripcion-reg']);
+			$creador = modeloPrincipal::desencriptar($_POST['CodigoCuenta-reg']);
 			
 			$consultaMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT metodologia FROM metodologia WHERE metodologia='$metodologia'");
 
@@ -35,7 +36,8 @@
 			{
 				$datosMetodologia = [
 					"Metodologia" => $metodologia,
-					"Descripcion" => $descripcion
+					"Descripcion" => $descripcion,
+					"Creador" => $creador
 				];
 
 				$metodologiaAgregada = metodologiaModelo::agregarMetodologiaModelo($datosMetodologia);
@@ -58,17 +60,64 @@
 						"Tipo" => "error"
 					];
 				}
-
-			
-					
+		
 			}
-
-
 						
 			return modeloPrincipal::mostrarAlerta($alerta);
 		}
 		/*Fin de Agregar PROYECTO*/
 
+		public function actualizarMetodologiaControlador()
+		{
+			//metodologia id
+			$metodologia = modeloPrincipal::limpiarCadena($_POST['metodologia-up']);
+			$descripcion = modeloPrincipal::limpiarCadena($_POST['descripcion-up']);
+			$idMetodologia = modeloPrincipal::desencriptar($_POST['idMetodologia-up']);
+			
+			$consultaMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT metodologia FROM metodologia WHERE metodologia='$metodologia' AND id_metodologia != $idMetodologia ");
+
+			
+			if ($consultaMetodologia->rowCount()>=1) {
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "La METODOLOGÍA ya esta registrada en el sistema. Verifique nuevamente",
+					"Tipo" => "error"
+				];
+			}
+			else
+			{
+				$datosMetodologia = [
+					"Metodologia" => $metodologia,
+					"Descripcion" => $descripcion,
+					"IdMetodologia" => $idMetodologia
+				];
+
+				$metodologiaActualizada = metodologiaModelo::actualizarMetodologiaModelo($datosMetodologia);
+
+				if($metodologiaActualizada)
+				{
+					$alerta = [
+						"Alerta" => "recargar",
+						"Titulo" => "Éxito",
+						"Texto" => "La Metodologia fue actualizada correctamente",
+						"Tipo" => "success"
+					];	
+				} 
+				else
+				{
+					$alerta = [
+						"Alerta" => "simple",
+						"Titulo" => "Error",
+						"Texto" => "La Metodologia NO fue actualizada",
+						"Tipo" => "error"
+					];
+				}
+		
+			}
+						
+			return modeloPrincipal::mostrarAlerta($alerta);
+		}
 
 		/*Controlador para paginar los PROYECTOS*/
 		public function paginarMetodologiasControlador($pagina, $noRegistros, $codigo, $busqueda)
@@ -89,7 +138,7 @@
 				$paginaURL = "adminsearch";
 
 			} else {*/
-				$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM metodologia ORDER BY metodologia ASC LIMIT $inicio, $noRegistros";
+				$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM metodologia WHERE cuentaCreador ='$codigo' ORDER BY metodologia ASC LIMIT $inicio, $noRegistros";
 				$paginaURL = "metodologialist";
 			//}
 			
@@ -271,113 +320,71 @@
 		}
 		/*FIN Controlador para mostrar la informacion de un PROYECTO*/
 
-		public function actualizarProyectoControlador()
+
+		/*Eliminar METODOLOGIA*/
+		public function eliminarMetodologiaControlador()
 		{
-			//Proyecto
-			$idProyecto = modeloPrincipal::desencriptar($_POST['idProyecto-up']);
-			$titulo = modeloPrincipal::limpiarCadena($_POST['titulo-up']);
-			
-			$inicio = $_POST['inicio-up'];
-			$fin = $_POST['fin-up'];
+			$idMetodologia = modeloPrincipal::desencriptar($_POST['idMetodologia-del']);
 
+			$consultaFases = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM fases WHERE id_metodologia=$idMetodologia");
 
-			$fechaInicio=date_create($inicio);
-			$fechaFin=date_create($fin);
-			$inicio = date_format($fechaInicio,"Y/m/d");
-			$fin = date_format($fechaFin,"Y/m/d");
-
-			$consultaTitulo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT titulo FROM proyecto WHERE titulo='$titulo'");
-
-			
-			if ($consultaTitulo->rowCount()>=1) {
+			if ($consultaFases->rowCount()>0) {
 				$alerta = [
-					"Alerta" => "simple",
-					"Titulo" => "Error",
-					"Texto" => "El TITULO ya esta registrado en el sistema. Verifique nuevamente",
-					"Tipo" => "error"
-				];
-				
-				return modeloPrincipal::mostrarAlerta($alerta);
-				exit();
+						"Alerta" => "simple",
+						"Titulo" => "Fases registradas en la metodologia",
+						"Texto" => "No se puede eliminar la metodologia. La metodologia tiene fases registradas",
+						"Tipo" => "error"
+					];
 			}
 			else
 			{
+				$consultaEquipo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM proyecto_metodologia WHERE id_metodologia=$idMetodologia");
 
-					if( ($inicio > $fin) || ($inicio == $fin) )
-					{
-						$alerta = [
+				if ($consultaEquipo->rowCount()>0) {
+					$alerta = [
 							"Alerta" => "simple",
-							"Titulo" => "Error",
-							"Texto" => "Las fechas NO son validas. Verifique nuevamente",
+							"Titulo" => "Equipo asignado con metodologia",
+							"Texto" => "No se puede eliminar la metodologia. La metodologia tiene un equipo asignado",
 							"Tipo" => "error"
-						];	
-						
-						return modeloPrincipal::mostrarAlerta($alerta);
-						exit();
-					} 
-					else
-					{
-
-						$datosProyecto = [
-							"IdProyecto" => $idProyecto,
-							"Titulo" => $titulo,
-							"Inicio" => $inicio,
-							"Fin" => $fin
 						];
+				}
+				else
+				{
+					$eliminarFuentes = metodologiaModelo::eliminarMetodologiaFuentesModelo($idMetodologia);
 
-						$proyectoActualizado = proyectoModelo::actualizarProyectoModelo($datosProyecto);
+					if ($eliminarFuentes->rowCount()>0)
+					{
+						$eliminarMetodologia = metodologiaModelo::eliminarMetodologiaModelo($idMetodologia);
 
-						if($proyectoActualizado)
+						if ($eliminarMetodologia->rowCount()==1)
 						{
 							$alerta = [
 								"Alerta" => "recargar",
 								"Titulo" => "Éxito",
-								"Texto" => "El proyecto fue actualizado correctamente",
+								"Texto" => "La metodologia fue eliminada correctamente del sistema",
 								"Tipo" => "success"
-							];	
-						} 
-						else
-						{
+							];
+						} else {
 							$alerta = [
 								"Alerta" => "simple",
 								"Titulo" => "Error",
-								"Texto" => "El proyecto NO fue actualizado",
+								"Texto" => "No se elimino la metodologia. Intentelo mas tarde",
 								"Tipo" => "error"
 							];
 						}
 
+					} else {
+						$alerta = [
+							"Alerta" => "simple",
+							"Titulo" => "Error",
+							"Texto" => "No se eliminaron las fuentes. Intentelo mas tarde",
+							"Tipo" => "error"
+						];
 					}
+
 					
-			}
-						
-			return modeloPrincipal::mostrarAlerta($alerta);
-
-		}
-
-
-		/*Eliminar ADMINISTRADORES*/
-		public function eliminarProyectoControlador()
-		{
-			$idProyecto = modeloPrincipal::desencriptar($_POST['idProyecto-del']);
-
-			$eliminarProyecto = proyectoModelo::eliminarProyectoModelo($idProyecto);
-
-				if ($eliminarProyecto->rowCount()==1)
-				{
-					$alerta = [
-						"Alerta" => "recargar",
-						"Titulo" => "Éxito",
-						"Texto" => "El Proyecto fue eliminado correctamente del sistema",
-						"Tipo" => "success"
-					];
-				} else {
-					$alerta = [
-						"Alerta" => "simple",
-						"Titulo" => "Error",
-						"Texto" => "No se elimino el proyecto. Intentelo mas tarde",
-						"Tipo" => "error"
-					];
 				}
+			}
 			
 
 			return modeloPrincipal::mostrarAlerta($alerta);
@@ -385,9 +392,9 @@
 
 		}
 
-		public function cargarMetodologiasControlador()
+		public function cargarMetodologiasControlador($cuenta)
 		{
-			return metodologiaModelo::cargarMetodologiasModelo();
+			return metodologiaModelo::cargarMetodologiasModelo($cuenta);
 		}
 
 

@@ -19,7 +19,7 @@
 				$pdo = modeloPrincipal::conectarBD();
 				
 
-				$sql = "INSERT INTO persona(PersonaDNI, PersonaNombre, PersonaApellido, PersonaTelefono, PersonaDireccion, CuentaCodigo, PersonaPrivilegio) VALUES(?, ?, ?, ?, ?, ?, ?)";
+				$sql = "INSERT INTO persona(PersonaDNI, PersonaNombre, PersonaApellido, PersonaTelefono, PersonaDireccion, CuentaCodigo, PersonaPrivilegio, Salon) VALUES(?, ?, ?, ?, ?, ?, ?, 'Sin salon')";
 
 
 				$pdo->prepare($sql)->execute([

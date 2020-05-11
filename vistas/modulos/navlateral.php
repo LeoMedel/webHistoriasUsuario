@@ -9,7 +9,7 @@
 		<div class="full-box dashboard-sideBar-UserInfo">
 			<figure class="full-box">
 				<img src="<?php echo SERVERURL; ?>vistas/assets/avatars/<?php echo $_SESSION['foto_sesion'];?>" alt="UserIcon">
-				<figcaption class="text-center text-titles"><h4><?php echo $_SESSION['nombre_sesion']; ?> <?php echo $_SESSION['apellido_sesion']; ?></h4></figcaption>
+				<figcaption class="text-center text-titles"><h4><?php echo $_SESSION['nombre_sesion']; ?> <?php echo $_SESSION['apellido_sesion']; ?> (<?php echo $_SESSION['salon_sesion'];?>)</h4></figcaption>
 				<figcaption class="text-center text-titles"><p style="font-size:130%; font: oblique bold 120% cursive;"><?php echo $_SESSION['usuario_sesion']; ?></p></figcaption>
 			</figure>
 
@@ -75,9 +75,14 @@
 				</a>
 			</li>
 			<li>
-				<a href="<?php echo SERVERURL; ?>salonlist/">
-					<i class="zmdi zmdi-home zmdi-hc-fw"></i> Salones
+				<a href="#!" class="btn-sideBar-SubMenu">
+					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Salones <i class="zmdi zmdi-caret-down pull-right"></i>
 				</a>
+				<ul class="list-unstyled full-box">
+					<li>
+						<a href="<?php echo SERVERURL; ?>salonlist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Todos los salones</a>
+					</li>
+				</ul>
 			</li>
 			<li>
 				<a href="#!" class="btn-sideBar-SubMenu">
@@ -104,11 +109,6 @@
 				</a>
 			</li>
 			<li>
-				<a href="<?php echo SERVERURL; ?>metodologialist/">
-					<i class="zmdi zmdi-home zmdi-hc-fw"></i> METODOLOGIAS
-				</a>
-			</li>
-			<li>
 				<a href="#!" class="btn-sideBar-SubMenu">
 					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> EQUIPOS <i class="zmdi zmdi-caret-down pull-right"></i>
 				</a>
@@ -121,6 +121,11 @@
 					</li>
 					
 				</ul>
+			</li>
+			<li>
+				<a href="<?php echo SERVERURL; ?>metodologialist/">
+					<i class="zmdi zmdi-home zmdi-hc-fw"></i> METODOLOGIAS
+				</a>
 			</li>
 			<li>
 				<a href="#!" class="btn-sideBar-SubMenu">

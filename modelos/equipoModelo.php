@@ -71,6 +71,17 @@
 
 		}
 
+		protected function eliminarTodosEstudiantesEquipoModelo()
+		{
+			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM cuenta_equipo WHERE id_equipo=:IdEquipo");
+
+			$eliminar->bindParam("IdEquipo", $idEquipo);
+
+			$eliminar->execute();
+
+			return $eliminar;
+		}
+
 		protected function eliminarEquipoEstudianteModelo($idEquipo)
 		{
 			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM cuenta_equipo WHERE id_equipo_usuario=:IdEquipo");
@@ -97,13 +108,14 @@
 				$pdo = modeloPrincipal::conectarBD();
 				
 
-				$sql = "INSERT INTO cuenta_equipo(CuentaCodigo, id_equipo, created, modified) VALUES(?, ?, now(), now() )";
+				$sql = "INSERT INTO cuenta_equipo(CuentaCodigo, id_equipo, cuentaCreador, created, modified) VALUES(?, ?, ?, now(), now() )";
 
 				//print_r("Consulta ".$sql. " ".$datos['idEquipo']. " ". $datos['cuentaEstudiante']);
 
 				$pdo->prepare($sql)->execute([
 					$datos['cuentaEstudiante'], 
-					$datos['idEquipo']
+					$datos['idEquipo'],
+					$datos['Creador']
 				]);
 				
 

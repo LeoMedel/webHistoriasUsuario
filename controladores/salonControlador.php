@@ -142,6 +142,11 @@
 			return salonModelo::mostrarInfoSalonModelo($codigo);
 		}
 
+		public function cargarSalonesControlador()
+		{
+			return modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM salon");
+		}
+
 		/*Controlador para paginar los SALONES*/
 		public function paginarSalonesControlador($pagina, $noRegistros, $codigo, $busqueda)
 		{

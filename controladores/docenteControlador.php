@@ -224,22 +224,14 @@
 									<thead>
 										<tr>
 											<th class="text-center">#</th>
-											<th class="text-center">DNI</th>
+											<th class="text-center">SALON</th>
+											<th class="text-center">IDENTIFICACION</th>
 											<th class="text-center">NOMBRE(S)</th>
 											<th class="text-center">APELLIDOS</th>
-											<th class="text-center">TELÉFONO</th>';
-			//if ($privilegio <=2) {
-				
-				$tabla .= '			<th class="text-center">CUENTA</th>
-											<th class="text-center">DATOS PERSONALES</th>
-				';
-
-			//}
-
-			//if($privilegio == 1)
-			//{
-				$tabla .= '			<th class="text-center">ELIMINAR</th>
-				';
+											<th class="text-center">TELÉFONO</th>
+											<th class="text-center">CUENTA</th>
+											<th class="text-center">DATOS DEL DOCENTE</th>
+											<th class="text-center">ELIMINAR</th>';
 			//}
 			
 
@@ -255,8 +247,14 @@
 				foreach ($datos as $docente)
 				{
 					$tabla .= '<tr>
-										<td><p>'.$contador.'</p></td>
-										<td><p>'.$docente['PersonaDNI'].'</td>
+										<td><p>'.$contador.'</p></td>';
+										if ($docente['Salon'] == "Sin salon") {
+											$tabla .= '<td><p><b>'.$docente['Salon'].'</b></p></td>';
+										} else {
+											$tabla .= '<td><p>'.$docente['Salon'].'</p></td>';
+										}
+										
+					$tabla.=			'<td><p>'.$docente['PersonaDNI'].'</td>
 										<td><p>'.$docente['PersonaNombre'].'</p></td>
 										<td><p>'.$docente['PersonaApellido'].'</p></td>
 										<td><p>'.$docente['PersonaTelefono'].'</p></td>';

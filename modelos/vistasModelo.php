@@ -30,6 +30,7 @@
 				"metodologialist",
 				"metodologia",
 				"metodologiaInfo",
+				"metodologiaActualizar",
 				"fuentes",
 				"equipolist",
 				"equipo",

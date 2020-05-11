@@ -37,23 +37,30 @@
 			if ($privilegio == "Docente") 
 			{
 				$rol = 2;
+
+				if ($genero == "Masculino") 
+				{
+					$foto = "docenteHombre.png";
+				} 
+				else 
+				{
+					$foto = "docenteMujer.png";
+				}
 			}
 			else
 			{
 				$rol = 3;
+
+				if ($genero == "Masculino") 
+				{
+					$foto = "estudianteHombre.png";
+				} 
+				else 
+				{
+					$foto = "estudianteMujer.png";
+				}
 			}
 			
-			//modeloPrincipal::limpiarCadena($privilegio);
-
-
-			if ($genero == "Masculino") 
-			{
-				$foto = "Male3Avatar.png";
-			} 
-			else 
-			{
-				$foto = "Female2Avatar.png";
-			}
 
 			if ($password1 != $password2)
 			{

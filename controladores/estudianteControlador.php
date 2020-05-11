@@ -222,12 +222,13 @@
 									<thead>
 										<tr>
 											<th class="text-center">#</th>
-											<th class="text-center">DNI</th>
+											<th class="text-center">SALON</th>
+											<th class="text-center">IDENTIFICACION</th>
 											<th class="text-center">NOMBRE(S)</th>
 											<th class="text-center">APELLIDOS</th>
 											<th class="text-center">TELÉFONO</th>
 											<th class="text-center">CUENTA</th>
-											<th class="text-center">DATOS PERSONALES</th>
+											<th class="text-center">DATOS DEL ESTUDIANTE</th>
 											<th class="text-center">ELIMINAR</th>
 										</tr>
 									</thead>
@@ -240,8 +241,14 @@
 				foreach ($datos as $estudiante)
 				{
 					$tabla .= '<tr>
-										<td><p>'.$contador.'</p></td>
-										<td><p>'.$estudiante['PersonaDNI'].'</td>
+										<td><p>'.$contador.'</p></td>';
+										if ($estudiante['Salon'] == "Sin salon") {
+											$tabla .= '<td><p><b>'.$estudiante['Salon'].'</b></p></td>';
+										} else {
+											$tabla .= '<td><p>'.$estudiante['Salon'].'</p></td>';
+										}
+
+					$tabla.=		   '<td><p>'.$estudiante['PersonaDNI'].'</td>
 										<td><p>'.$estudiante['PersonaNombre'].'</p></td>
 										<td><p>'.$estudiante['PersonaApellido'].'</p></td>
 										<td><p>'.$estudiante['PersonaTelefono'].'</p></td>
@@ -481,9 +488,9 @@
 		}
 
 
-		public function cargarEstudiantesControlador()
+		public function cargarEstudiantesControlador($salon)
 		{
-			$estudiantes = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM persona WHERE PersonaPrivilegio='Estudiante'");
+			$estudiantes = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM persona WHERE PersonaPrivilegio='Estudiante' AND Salon = '$salon'");
 
 			return $estudiantes;
 		}

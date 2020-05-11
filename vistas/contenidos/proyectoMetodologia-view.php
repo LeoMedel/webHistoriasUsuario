@@ -6,7 +6,7 @@
 
     require_once "./controladores/metodologiaControlador.php";
 	$claseMetodo = new metodologiaControlador();
-	$datosMeto = $claseMetodo->cargarMetodologiasControlador();
+	$datosMeto = $claseMetodo->cargarMetodologiasControlador($_SESSION['codigo_cuenta_sesion']);
 	$datosMeto = $datosMeto->fetchAll();
 
 	require_once "./controladores/proyectoControlador.php";
@@ -47,8 +47,9 @@
 		</div>
 		<div class="panel-body">
 			<form action="<?php echo SERVERURL; ?>ajax/proyectoAjax.php" method="POST" data-form="save" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data">
+				<input type="hidden" name="CodigoCuenta-asig" value="<?php echo $loginControl->encriptar($_SESSION['codigo_cuenta_sesion']); ?>">
 		    	<fieldset>
-		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información de la metodología</legend>
+		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información de la metodología y el Proyecto</legend>
 		    		<div class="container-fluid">
 		    			<div class="row">
 		    				

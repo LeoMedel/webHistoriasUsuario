@@ -19,12 +19,13 @@
 				$pdo = modeloPrincipal::conectarBD();
 				
 
-				$sql = "INSERT INTO metodologia(metodologia, descripcion, created, modified) VALUES(?, ?, now(), now() )";
+				$sql = "INSERT INTO metodologia(metodologia, descripcion, cuentaCreador, created, modified) VALUES(?, ?, ?, now(), now() )";
 
 
 				$pdo->prepare($sql)->execute([
 					$datosMetodologia['Metodologia'], 
-					$datosMetodologia['Descripcion']
+					$datosMetodologia['Descripcion'],
+					$datosMetodologia['Creador']
 				]);
 				
 
@@ -45,33 +46,46 @@
 			return $metodologia;
 		}
 
-		protected function cargarMetodologiasModelo()
+		protected function cargarMetodologiasModelo($cuenta)
 		{
 
-			$metodologia = modeloPrincipal::conectarBD()->prepare("SELECT * FROM metodologia");
+			$metodologia = modeloPrincipal::conectarBD()->prepare("SELECT * FROM metodologia WHERE cuentaCreador='$cuenta'");
 			$metodologia->execute();
 			return $metodologia;
 		}
 
 
-		protected function actualizarProyectoModelo($datos)
+		protected function actualizarMetodologiaModelo($datos)
 		{
-			$actualizar = modeloPrincipal::conectarBD()->prepare("UPDATE proyecto SET titulo=:Titulo, inicio=:Inicio, fin=:Fin, modified=now() WHERE id=:IdProyecto");
+			$actualizar = modeloPrincipal::conectarBD()->prepare("UPDATE metodologia SET metodologia=:Titulo, descripcion=:Descripcion, modified=now() WHERE id_metodologia=:IdMetodologia");
 			
-			$actualizar->bindParam("Titulo", $datos['Titulo']);
-			$actualizar->bindParam("Inicio", $datos['Inicio']);
-			$actualizar->bindParam("Fin", $datos['Fin']);
-			$actualizar->bindParam("IdProyecto", $datos['IdProyecto']);
+			$actualizar->bindParam("Titulo", $datos['Metodologia']);
+			$actualizar->bindParam("Descripcion", $datos['Descripcion']);
+			$actualizar->bindParam("IdMetodologia", $datos['IdMetodologia']);
+
+			//print_r($datos['Metodologia']." ". $datos['Descripcion']. " ".$datos['IdMetodologia']);
 
 			$actualizar->execute();
 			return $actualizar;
 		}
 
-		protected function eliminarProyectoModelo($id)
+		protected function eliminarMetodologiaModelo($id)
 		{
-			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM proyecto WHERE id=:IdProyecto");
+			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM metodologia WHERE id_metodologia=:IdMetodologia");
 
-			$eliminar->bindParam("IdProyecto", $id);
+			$eliminar->bindParam("IdMetodologia", $id);
+
+			$eliminar->execute();
+
+			return $eliminar;
+
+		}
+
+		protected function eliminarMetodologiaFuentesModelo($id)
+		{
+			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM fuente WHERE id_metodologia=:IdMetodologia");
+
+			$eliminar->bindParam("IdMetodologia", $id);
 
 			$eliminar->execute();
 

@@ -83,8 +83,8 @@ else
 			<div class="panel-body">
 				<h3>Metodología asignada al proyecto:</h3>
 				<br>
-				<br>
 				<h3>"<?php echo $todoMiProyecto['metodologia'];  ?>"</h3>
+				<br>
 				<table class="table table-striped table-hover ">
 					<thead>
 						<tr>

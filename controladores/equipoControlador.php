@@ -127,25 +127,60 @@
 		{
 			$idEquipo = modeloPrincipal::desencriptar($_POST['idEquipo-del']);
 
-			$eliminarEquipo = equipoModelo::eliminarEquipoModelo($idEquipo);
+			$consultaAsignacion = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM asignacion WHERE id_equipo=$idEquipo");
+			
+			if ($consultaAsignacion->rowCount()>0)
+			{
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "No se elimino el equipo. Tiene un proyecto asignado",
+					"Tipo" => "error"
+				];
 
-				if ($eliminarEquipo->rowCount()==1)
+			}
+			else
+			{
+				$consultaEstudiantes = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM cuenta_equipo WHERE id_equipo ='$idEquipo'");
+
+				if ($consultaEstudiantes->rowCount()>0)
 				{
 					$alerta = [
-						"Alerta" => "recargar",
-						"Titulo" => "Éxito",
-						"Texto" => "El Equipo fue eliminado correctamente del sistema",
-						"Tipo" => "success"
-					];
-				} else {
-					$alerta = [
-						"Alerta" => "simple",
-						"Titulo" => "Error",
-						"Texto" => "No se elimino el equipo. Intentelo mas tarde",
-						"Tipo" => "error"
-					];
+							"Alerta" => "simple",
+							"Titulo" => "Error",
+							"Texto" => "No se elimino el equipo, tiene estudiantes asignados. Intentelo mas tarde",
+							"Tipo" => "error"
+						];
+					
 				}
-			
+				else
+				{
+					$eliminarEquipo = equipoModelo::eliminarEquipoModelo($idEquipo);
+
+					if ($eliminarEquipo->rowCount()==1)
+					{
+
+						$alerta = [
+							"Alerta" => "recargar",
+							"Titulo" => "Éxito",
+							"Texto" => "El Equipo fue eliminado correctamente del sistema",
+							"Tipo" => "success"
+						];
+					}
+					else
+					{
+						$alerta = [
+							"Alerta" => "simple",
+							"Titulo" => "Error",
+							"Texto" => "No se elimino el equipo. Intentelo mas tarde",
+							"Tipo" => "error"
+						];
+					}
+				}
+
+				
+			}
+
 
 			return modeloPrincipal::mostrarAlerta($alerta);
 			
@@ -175,6 +210,7 @@
 		{
 			$idEquipo = modeloPrincipal::desencriptar($_POST['equipo-asig']);
 			$cuentaEstudiante = modeloPrincipal::desencriptar($_POST['estudiante-asig']);
+			$creador = modeloPrincipal::desencriptar($_POST['cuentaCreador-asig']);
 
 			$consultaEstudiante = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT CuentaCodigo FROM cuenta_equipo WHERE CuentaCodigo='$cuentaEstudiante'");
 
@@ -191,7 +227,8 @@
 			{
 				$datosEquipoEstudiante = [
 							"idEquipo" => $idEquipo,
-							"cuentaEstudiante" => $cuentaEstudiante
+							"cuentaEstudiante" => $cuentaEstudiante,
+							"Creador" => $creador
 						];
 
 				$estudianteAsignado = equipoModelo::asignarEquipoEstudianteModelo($datosEquipoEstudiante);
@@ -447,7 +484,8 @@
 			$inicio = ($pagina>0) ? (($pagina*$noRegistros)-$noRegistros) : 0;
 
 			
-			$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM cuenta_equipo ORDER BY id_equipo ASC LIMIT $inicio, $noRegistros";
+			$consulta = "SELECT SQL_CALC_FOUND_ROWS ce.id_equipo_usuario, ce.id_equipo, p.PersonaNombre, p.PersonaApellido, e.equipo FROM cuenta_equipo ce INNER JOIN persona p ON ce.CuentaCodigo = p.CuentaCodigo
+INNER JOIN equipo e ON e.id_equipo = ce.id_equipo WHERE ce.cuentaCreador ='$codigo' ORDER BY id_equipo ASC LIMIT $inicio, $noRegistros";
 			$paginaURL = "equipoEstudianteslist";
 			
 			
@@ -469,9 +507,9 @@
 										<tr>
 											<th class="text-center">#</th>
 											<th class="text-center">EQUIPO</th>
-											<th class="text-center">CUENTA DEL ESTUDIANTE</th>
+											<th class="text-center">NOMBRE DEL ESTUDIANTE</th>
 											<!--th class="text-center">ACTUALIZAR</th-->
-											<th class="text-center">ELIMINAR</th>
+											<th class="text-center">ELIMINAR DEL EQUIPO</th>
 										</tr>
 									</thead>
 									<tbody>';
@@ -484,8 +522,8 @@
 				{
 					$tabla .= '		<tr>
 										<td><p>'.$contador.'</p></td>
-										<td><p>'.$equipoEs['id_equipo'].'</td>
-										<td><p>'.$equipoEs['CuentaCodigo'].'</td>';
+										<td><p>'.$equipoEs['equipo'].'</td>
+										<td><p>'.$equipoEs['PersonaNombre'].' '.$equipoEs['PersonaApellido'].'</td>';
 						
 						$tabla .= '		<!--td>
 											<a href="'.SERVERURL.'equipoInfo/'.modeloPrincipal::encriptar($equipoEs['id_equipo_usuario']).'/" class="btn btn-info btn-raised btn-sm">

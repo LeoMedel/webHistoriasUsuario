@@ -6,7 +6,7 @@
 
     require_once "./controladores/estudianteControlador.php";
 	$claseEstudiante = new estudianteControlador();
-	$datosEstudiante = $claseEstudiante->cargarEstudiantesControlador();
+	$datosEstudiante = $claseEstudiante->cargarEstudiantesControlador($_SESSION['salon_sesion']);
 	$datosEstudiante = $datosEstudiante->fetchAll();
 
 	require_once "./controladores/equipoControlador.php";
@@ -47,8 +47,9 @@
 		</div>
 		<div class="panel-body">
 			<form action="<?php echo SERVERURL; ?>ajax/equipoAjax.php" method="POST" data-form="save" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data">
+				<input type="hidden" name="cuentaCreador-asig" value="<?php echo modeloPrincipal::encriptar($_SESSION['codigo_cuenta_sesion']); ?>">
 		    	<fieldset>
-		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información de la metodología</legend>
+		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información del Estudiante y del Equipo</legend>
 		    		<div class="container-fluid">
 		    			<div class="row">
 		    				

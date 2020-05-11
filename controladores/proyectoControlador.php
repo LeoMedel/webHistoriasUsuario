@@ -185,7 +185,22 @@
 		{
 			$idProyecto = modeloPrincipal::desencriptar($_POST['idProyecto-del']);
 
-			$eliminarProyecto = proyectoModelo::eliminarProyectoModelo($idProyecto);
+			$consultaAsignacion = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM asignacion WHERE id_proyecto=$idProyecto");
+
+			if ($consultaAsignacion->rowCount()==1)
+			{
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "No se elimino el proyecto. Tiene un equipo asignado",
+					"Tipo" => "error"
+				];
+
+			}
+			else
+			{
+
+				$eliminarProyecto = proyectoModelo::eliminarProyectoModelo($idProyecto);
 
 				if ($eliminarProyecto->rowCount()==1)
 				{
@@ -203,6 +218,9 @@
 						"Tipo" => "error"
 					];
 				}
+			}
+
+			
 			
 
 			return modeloPrincipal::mostrarAlerta($alerta);
@@ -232,6 +250,7 @@
 			$idProyecto = modeloPrincipal::limpiarCadena($_POST['proyecto-asig']);
 			$idMetodologia = modeloPrincipal::limpiarCadena($_POST['metodologia-asig']);
 			$objetivo = modeloPrincipal::limpiarCadena($_POST['objetivo-asig']);
+			$creador = modeloPrincipal::desencriptar($_POST['CodigoCuenta-asig']);
 
 			if ($idProyecto == 0) {
 				$alerta = [
@@ -274,7 +293,8 @@
 				$datosProyectoMetodo = [
 							"idProyecto" => $idProyecto,
 							"idMetodologia" => $idMetodologia,
-							"Objetivo" => $objetivo
+							"Objetivo" => $objetivo,
+							"Creador" => $creador
 						];
 
 				$proyectoAsignado = proyectoModelo::asignarMetodologiaProyectoModelo($datosProyectoMetodo);
@@ -306,6 +326,7 @@
 		{
 			$idProyecto = modeloPrincipal::desencriptar($_POST['proyectoEq-asig']);
 			$idEquipo = modeloPrincipal::desencriptar($_POST['equipoPro-asig']);
+			$creador = modeloPrincipal::desencriptar($_POST['CodigoCuenta-asig']);
 
 			$consultaEquipo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT id_equipo FROM asignacion WHERE id_equipo='$idEquipo'");
 
@@ -334,7 +355,8 @@
 					$datosProyectoEquipo = [
 							"idProyecto" => $idProyecto,
 							"idEquipo" => $idEquipo,
-							"Estado"  => 1
+							"Estado"  => 1,
+							"Creador" => $creador
 						];
 
 					$proyectoAsignado = proyectoModelo::asignarProyectoEquipoModelo($datosProyectoEquipo);
@@ -636,7 +658,7 @@
 			$inicio = ($pagina>0) ? (($pagina*$noRegistros)-$noRegistros) : 0;
 
 			
-			$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM proyecto_metodologia ORDER BY id_proyecto ASC LIMIT $inicio, $noRegistros";
+			$consulta = "SELECT SQL_CALC_FOUND_ROWS pm.id_proyecto_metodologia, pm.id_proyecto, pm.objetivo, p.titulo, m.metodologia FROM proyecto_metodologia pm INNER JOIN proyecto p ON pm.id_proyecto = p.id_proyecto INNER JOIN metodologia m ON pm.id_metodologia = m.id_metodologia WHERE pm.cuentaCreador='$codigo' ORDER BY id_proyecto ASC LIMIT $inicio, $noRegistros";
 			$paginaURL = "proyectoMetodologialist";
 			
 			
@@ -675,8 +697,8 @@
 				{
 					$tabla .= '		<tr>
 										<td><p>'.$contador.'</p></td>
-										<td><p>'.$proyecto['id_proyecto'].'</td>
-										<td><p>'.$proyecto['id_metodologia'].'</p></td>
+										<td><p>'.$proyecto['titulo'].'</td>
+										<td><p>'.$proyecto['metodologia'].'</p></td>
 										<td><p>'.$proyecto['objetivo'].'</p></td>';
 						
 						$tabla .= '		<!--td>
@@ -825,7 +847,7 @@
 			$inicio = ($pagina>0) ? (($pagina*$noRegistros)-$noRegistros) : 0;
 
 			
-			$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM asignacion ORDER BY id_proyecto ASC LIMIT $inicio, $noRegistros";
+			$consulta = "SELECT SQL_CALC_FOUND_ROWS a.id_asignacion, a.id_proyecto, p.titulo, e.equipo, es.estado FROM asignacion a INNER JOIN proyecto p ON a.id_proyecto = p.id_proyecto INNER JOIN equipo e ON a.id_equipo = e.id_equipo INNER JOIN estado es ON a.id_estado = es.id_estado WHERE a.cuentaCreador='$codigo' ORDER BY id_proyecto ASC LIMIT $inicio, $noRegistros";
 			$paginaURL = "proyectoEquipolist";
 			
 			
@@ -848,6 +870,7 @@
 											<th class="text-center">#</th>
 											<th class="text-center">PROYECTO</th>
 											<th class="text-center">EQUIPO</th>
+											<th class="text-center">ESTADO</th>
 											<!--th class="text-center">CONSULTAR</th>
 											<th class="text-center">ACTUALIZAR</th-->
 											<th class="text-center">ELIMINAR</th>
@@ -863,8 +886,9 @@
 				{
 					$tabla .= '		<tr>
 										<td><p>'.$contador.'</p></td>
-										<td><p>'.$proyecto['id_proyecto'].'</td>
-										<td><p>'.$proyecto['id_equipo'].'</p></td>';
+										<td><p>'.$proyecto['titulo'].'</td>
+										<td><p>'.$proyecto['equipo'].'</p></td>
+										<td><p>'.$proyecto['estado'].'</p></td>';
 						
 						$tabla .= '		<!--td>
 											<a href="'.SERVERURL.'proyectoInfo/'.modeloPrincipal::encriptar($proyecto['id_asignacion']).'/" class="btn btn-info btn-raised btn-sm">

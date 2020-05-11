@@ -41,7 +41,7 @@
 		</div>
 		<div class="panel-body">
 			<form action="<?php echo SERVERURL; ?>ajax/equipoAjax.php" method="POST" data-form="save" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data">
-				<input type="hidden" name="CodigoCuenta-reg" value="<?php echo $loginControl->encriptar($_SESSION['codigo_cuenta_sesion']); ?>"-->
+				<input type="hidden" name="CodigoCuenta-reg" value="<?php echo $loginControl->encriptar($_SESSION['codigo_cuenta_sesion']); ?>">
 		    	<fieldset>
 		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información del equipo</legend>
 		    		<div class="container-fluid">

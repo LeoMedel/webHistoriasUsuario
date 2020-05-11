@@ -19,7 +19,7 @@
 
 <div class="container-fluid">
 	<div class="page-header">
-	  <h1 class="text-titles"><i class="zmdi zmdi-settings zmdi-hc-fw"></i>ASIGNACION DE METODOLOGIA</small></h1>
+	  <h1 class="text-titles"><i class="zmdi zmdi-settings zmdi-hc-fw"></i>ASIGNACION DE EQUIPO Y PROYECTO</small></h1>
 	</div>
 	<p class="lead">Asignación del equipo para el proyecto</p>
 </div>
@@ -47,8 +47,9 @@
 		</div>
 		<div class="panel-body">
 			<form action="<?php echo SERVERURL; ?>ajax/proyectoAjax.php" method="POST" data-form="save" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data">
+				<input type="hidden" name="CodigoCuenta-asig" value="<?php echo $loginControl->encriptar($_SESSION['codigo_cuenta_sesion']); ?>">
 		    	<fieldset>
-		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información del equipo</legend>
+		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información del Equipo y el Proyecto</legend>
 		    		<div class="container-fluid">
 		    			<div class="row">
 		    				

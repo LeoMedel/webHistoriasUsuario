@@ -90,14 +90,15 @@
 				$pdo = modeloPrincipal::conectarBD();
 				
 
-				$sql = "INSERT INTO proyecto_metodologia(id_proyecto, id_metodologia, objetivo, created, modified) VALUES(?, ?, ?, now(), now() )";
+				$sql = "INSERT INTO proyecto_metodologia(id_proyecto, id_metodologia, objetivo, cuentaCreador, created, modified) VALUES(?, ?, ?, ?, now(), now() )";
 
 				//print_r("Consulta ".$sql);
 
 				$pdo->prepare($sql)->execute([
 					$datos['idProyecto'], 
 					$datos['idMetodologia'], 
-					$datos['Objetivo']
+					$datos['Objetivo'],
+					$datos['Creador']
 				]);
 				
 
@@ -116,14 +117,15 @@
 				$pdo = modeloPrincipal::conectarBD();
 				
 
-				$sql = "INSERT INTO asignacion(id_proyecto, id_equipo, id_estado, created, modified) VALUES(?, ?, ?, now(), now() )";
+				$sql = "INSERT INTO asignacion(id_proyecto, id_equipo, id_estado, cuentaCreador, created, modified) VALUES(?, ?, ?, ?, now(), now() )";
 
 				//print_r("Consulta ".$sql);
 
 				$pdo->prepare($sql)->execute([
 					$datos['idProyecto'], 
 					$datos['idEquipo'], 
-					$datos['Estado']
+					$datos['Estado'],
+					$datos['Creador']
 				]);
 				
 

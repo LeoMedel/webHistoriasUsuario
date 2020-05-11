@@ -502,10 +502,23 @@
 			if ($tipo=="admin")
 			{
 				$tipo = "Administrador";
+				$salon = "N/A";
 			}
 			elseif ($tipo=="docente")
 			{
 				$tipo = "Docente";
+				$salon = modeloPrincipal::desencriptar($_POST['salon-up']);
+				if ($salon == 0) {
+					$salon = "Sin salon";
+				}
+			}
+			else
+			{
+				$tipo = "Estudiante";
+				$salon = modeloPrincipal::desencriptar($_POST['salon-up']);
+				if ($salon == 0) {
+					$salon = "Sin salon";
+				}
 			}
 
 			$dni = modeloPrincipal::limpiarCadena($_POST['dni-up']);
@@ -543,7 +556,8 @@
 				"Telefono" => $telefono,
 				"Direccion" => $direccion,
 				"Privilegio" => $tipo,
-				"Codigo" => $cuenta
+				"Codigo" => $cuenta,
+				"Salon" => $salon
 			];
 
 

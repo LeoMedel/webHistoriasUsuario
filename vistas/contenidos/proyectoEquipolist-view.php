@@ -15,7 +15,7 @@
 	<ul class="breadcrumb breadcrumb-tabs">
 		<li>
 	  		<a href="<?php echo SERVERURL; ?>proyectoEquipolist/" class="btn btn-success">
-	  			<i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; LISTA DE PORYECTOS CON EQUIPOS
+	  			<i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; LISTA DE PROYECTOS CON EQUIPOS
 	  		</a>
 	  	</li>
 	  	<li>

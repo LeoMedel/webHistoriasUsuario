@@ -82,6 +82,7 @@
 
 						$_SESSION['nombre_sesion'] = $userDatos['PersonaNombre'];
 						$_SESSION['apellido_sesion'] = $userDatos['PersonaApellido'];
+						$_SESSION['salon_sesion'] = $userDatos['Salon'];
 
 						
 						$_SESSION['usuario_sesion'] = $registro['CuentaUsuario'];
