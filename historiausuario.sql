@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2020 a las 03:52:45
+-- Tiempo de generación: 12-05-2020 a las 01:53:11
 -- Versión del servidor: 10.3.15-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -380,7 +380,24 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (317, 'CB13107-295', '2020-05-10', '08:17:55 pm', '08:21:04 pm', 'Estudiante', 2020, 'LM72734-18'),
 (318, 'CB93742-296', '2020-05-10', '08:21:11 pm', '08:30:23 pm', 'Estudiante', 2020, 'LM55041-4'),
 (319, 'CB83585-297', '2020-05-10', '08:30:29 pm', '08:31:24 pm', 'Docente', 2020, 'LM11092-3'),
-(320, 'CB94673-298', '2020-05-10', '08:31:28 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1');
+(320, 'CB94673-298', '2020-05-10', '08:31:28 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
+(321, 'CB61213-299', '2020-05-11', '05:58:18 pm', '06:02:11 pm', 'Docente', 2020, 'LM11092-3'),
+(322, 'CB74360-300', '2020-05-11', '06:02:27 pm', '06:27:33 pm', 'Estudiante', 2020, 'LM29533-9'),
+(323, 'CB88248-301', '2020-05-11', '06:27:40 pm', '06:27:57 pm', 'Estudiante', 2020, 'LM84603-10'),
+(324, 'CB31928-302', '2020-05-11', '06:28:04 pm', '06:28:20 pm', 'Estudiante', 2020, 'LM55041-4'),
+(325, 'CB24448-303', '2020-05-11', '06:28:26 pm', '06:28:34 pm', 'Estudiante', 2020, 'LM05170-17'),
+(326, 'CB78064-304', '2020-05-11', '06:28:49 pm', '06:31:44 pm', 'Docente', 2020, 'LM11092-3'),
+(327, 'CB26768-305', '2020-05-11', '06:31:51 pm', '06:32:11 pm', 'Estudiante', 2020, 'LM43600-14'),
+(328, 'CB28341-306', '2020-05-11', '06:32:28 pm', '06:33:50 pm', 'Docente', 2020, 'LM11092-3'),
+(329, 'CB59846-307', '2020-05-11', '06:34:08 pm', '06:34:44 pm', 'Estudiante', 2020, 'LM29533-9'),
+(330, 'CB01457-308', '2020-05-11', '06:34:49 pm', '06:47:57 pm', 'Docente', 2020, 'LM73754-5'),
+(331, 'CB58942-309', '2020-05-11', '06:48:01 pm', '06:48:17 pm', 'Administrador', 2020, 'LM34913-16'),
+(332, 'CB11995-310', '2020-05-11', '06:48:25 pm', '06:48:52 pm', 'Administrador', 2020, 'LM93499-1'),
+(333, 'CB57270-311', '2020-05-11', '06:48:57 pm', '06:49:14 pm', 'Estudiante', 2020, 'LM43600-14'),
+(334, 'CB50447-312', '2020-05-11', '06:49:20 pm', '06:49:51 pm', 'Docente', 2020, 'LM11092-3'),
+(335, 'CB00223-313', '2020-05-11', '06:50:00 pm', '06:50:22 pm', 'Estudiante', 2020, 'LM29533-9'),
+(336, 'CB70622-314', '2020-05-11', '06:50:27 pm', '06:50:52 pm', 'Docente', 2020, 'LM11092-3'),
+(337, 'CB62151-315', '2020-05-11', '06:51:02 pm', '06:52:21 pm', 'Estudiante', 2020, 'LM29533-9');
 
 -- --------------------------------------------------------
 
@@ -447,7 +464,6 @@ INSERT INTO `cuenta_equipo` (`id_equipo_usuario`, `CuentaCodigo`, `id_equipo`, `
 (15, 'LM55041-4', 1, 'LM11092-3', '2020-05-03', '2020-05-03'),
 (16, 'LM59856-7', 1, 'LM11092-3', '2020-05-04', '2020-05-04'),
 (17, 'LM92282-8', 1, 'LM11092-3', '2020-05-04', '2020-05-04'),
-(18, 'LM29533-9', 3, 'LM11092-3', '2020-05-04', '2020-05-04'),
 (19, 'LM84603-10', 3, 'LM11092-3', '2020-05-04', '2020-05-04'),
 (20, 'LM78816-11', 3, 'LM11092-3', '2020-05-04', '2020-05-04'),
 (21, 'LM08913-12', 4, 'LM11092-3', '2020-05-04', '2020-05-04'),
@@ -711,7 +727,6 @@ CREATE TABLE `proyecto_metodologia` (
 
 INSERT INTO `proyecto_metodologia` (`id_proyecto_metodologia`, `id_proyecto`, `id_metodologia`, `objetivo`, `cuentaCreador`, `created`, `modified`) VALUES
 (5, 7, 1, 'Relacionar metodologia', 'LM11092-3', '2020-05-03 17:03:33', '2020-05-03 17:03:33'),
-(6, 8, 2, 'Hacer un proyecto con PHP y la metodologia SCRUM', 'LM11092-3', '2020-05-04 18:21:58', '2020-05-04 18:21:58'),
 (7, 5, 2, 'Mostrar la metodologia en el primer Proyecto', 'LM11092-3', '2020-05-04 19:11:22', '2020-05-04 19:11:22');
 
 -- --------------------------------------------------------
@@ -971,7 +986,7 @@ ALTER TABLE `asignacion`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=321;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=338;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta`
@@ -1007,7 +1022,7 @@ ALTER TABLE `fases`
 -- AUTO_INCREMENT de la tabla `fuente`
 --
 ALTER TABLE `fuente`
-  MODIFY `id_fuente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_fuente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `historia`
@@ -1019,7 +1034,7 @@ ALTER TABLE `historia`
 -- AUTO_INCREMENT de la tabla `metodologia`
 --
 ALTER TABLE `metodologia`
-  MODIFY `id_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `modulo`
