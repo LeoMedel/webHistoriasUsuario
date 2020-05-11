@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2020 a las 02:59:44
+-- Tiempo de generación: 11-05-2020 a las 03:52:45
 -- Versión del servidor: 10.3.15-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -47,6 +47,7 @@ CREATE TABLE `asignacion` (
   `id_proyecto` int(11) NOT NULL,
   `id_equipo` int(11) NOT NULL,
   `id_estado` int(11) NOT NULL,
+  `cuentaCreador` varchar(30) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
@@ -55,10 +56,10 @@ CREATE TABLE `asignacion` (
 -- Volcado de datos para la tabla `asignacion`
 --
 
-INSERT INTO `asignacion` (`id_asignacion`, `id_proyecto`, `id_equipo`, `id_estado`, `created`, `modified`) VALUES
-(6, 7, 1, 1, '2020-05-04 15:21:32', '2020-05-04 15:21:32'),
-(7, 8, 3, 1, '2020-05-04 18:22:21', '2020-05-04 18:22:21'),
-(9, 5, 4, 1, '2020-05-04 18:58:46', '2020-05-04 18:58:46');
+INSERT INTO `asignacion` (`id_asignacion`, `id_proyecto`, `id_equipo`, `id_estado`, `cuentaCreador`, `created`, `modified`) VALUES
+(6, 7, 1, 1, 'LM11092-3', '2020-05-04 15:21:32', '2020-05-04 15:21:32'),
+(7, 8, 3, 1, 'LM11092-3', '2020-05-04 18:22:21', '2020-05-04 18:22:21'),
+(9, 5, 4, 1, 'LM11092-3', '2020-05-04 18:58:46', '2020-05-04 18:58:46');
 
 -- --------------------------------------------------------
 
@@ -272,15 +273,12 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (200, 'CB03310-188', '2020-05-04', '07:41:53 pm', '07:51:41 pm', 'Docente', 2020, 'LM11092-3'),
 (201, 'CB85917-189', '2020-05-08', '02:54:30 pm', '02:54:38 pm', 'Administrador', 2020, 'LM93499-1'),
 (202, 'CB45406-190', '2020-05-08', '06:47:51 pm', '06:48:00 pm', 'Administrador', 2020, 'LM93499-1'),
-(203, 'CB12223-191', '2020-05-08', '06:51:57 pm', '06:53:51 pm', 'Docente', 2020, 'LM50866-15'),
 (204, 'CB99945-192', '2020-05-08', '06:53:56 pm', '06:55:15 pm', 'Administrador', 2020, 'LM93499-1'),
-(205, 'CB86267-193', '2020-05-08', '06:55:20 pm', 'Sin registro', 'Docente', 2020, 'LM50866-15'),
 (206, 'CB21214-194', '2020-05-08', '06:56:59 pm', '06:57:17 pm', 'Estudiante', 2020, 'LM52219-16'),
 (207, 'CB06563-195', '2020-05-08', '06:57:26 pm', '06:58:49 pm', 'Estudiante', 2020, 'LM43600-14'),
 (208, 'CB46687-196', '2020-05-08', '06:58:56 pm', '06:59:04 pm', 'Estudiante', 2020, 'LM52219-16'),
 (209, 'CB12086-197', '2020-05-08', '06:59:12 pm', '06:59:19 pm', 'Estudiante', 2020, 'LM84603-10'),
 (210, 'CB88043-198', '2020-05-08', '06:59:24 pm', '06:59:29 pm', 'Estudiante', 2020, 'LM43600-14'),
-(211, 'CB12338-199', '2020-05-08', '06:59:35 pm', '07:09:01 pm', 'Docente', 2020, 'LM50866-15'),
 (212, 'CB76038-200', '2020-05-08', '07:11:08 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
 (213, 'CB98933-201', '2020-05-08', '07:11:20 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
 (214, 'CB45179-202', '2020-05-08', '07:12:06 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
@@ -325,7 +323,64 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (255, 'CB70473-241', '2020-05-09', '07:46:45 pm', '07:47:01 pm', 'Administrador', 2020, 'LM34913-16'),
 (256, 'CB98954-242', '2020-05-09', '07:47:20 pm', '07:47:48 pm', 'Administrador', 2020, 'LM87917-6'),
 (257, 'CB71235-243', '2020-05-09', '07:52:12 pm', '07:56:17 pm', 'Administrador', 2020, 'LM34913-16'),
-(258, 'CB89220-244', '2020-05-09', '07:56:22 pm', '07:56:31 pm', 'Administrador', 2020, 'LM93499-1');
+(258, 'CB89220-244', '2020-05-09', '07:56:22 pm', '07:56:31 pm', 'Administrador', 2020, 'LM93499-1'),
+(259, 'CB04682-245', '2020-05-10', '01:27:43 pm', '01:28:15 pm', 'Administrador', 2020, 'LM93499-1'),
+(260, 'CB95611-246', '2020-05-10', '01:28:23 pm', '01:28:35 pm', 'Administrador', 2020, 'LM34913-16'),
+(261, 'CB49923-247', '2020-05-10', '01:28:40 pm', '01:30:22 pm', 'Docente', 2020, 'LM11092-3'),
+(262, 'CB31952-248', '2020-05-10', '01:30:27 pm', '01:30:39 pm', 'Administrador', 2020, 'LM93499-1'),
+(263, 'CB25532-249', '2020-05-10', '01:30:43 pm', '01:30:53 pm', 'Docente', 2020, 'LM73754-5'),
+(265, 'CB63795-251', '2020-05-10', '01:31:26 pm', '01:34:31 pm', 'Estudiante', 2020, 'LM55041-4'),
+(266, 'CB33718-252', '2020-05-10', '01:34:37 pm', '01:34:56 pm', 'Administrador', 2020, 'LM93499-1'),
+(267, 'CB53953-253', '2020-05-10', '01:35:01 pm', '01:35:26 pm', 'Estudiante', 2020, 'LM52219-16'),
+(268, 'CB30542-254', '2020-05-10', '01:47:24 pm', '02:15:40 pm', 'Docente', 2020, 'LM11092-3'),
+(269, 'CB08538-255', '2020-05-10', '02:15:44 pm', '03:05:09 pm', 'Administrador', 2020, 'LM93499-1'),
+(271, 'CB41027-257', '2020-05-10', '03:07:44 pm', '03:08:26 pm', 'Administrador', 2020, 'LM93499-1'),
+(273, 'CB03530-258', '2020-05-10', '03:09:23 pm', '03:09:42 pm', 'Administrador', 2020, 'LM93499-1'),
+(275, 'CB01978-259', '2020-05-10', '03:10:28 pm', '03:12:27 pm', 'Administrador', 2020, 'LM93499-1'),
+(277, 'CB51957-260', '2020-05-10', '03:13:09 pm', '03:13:21 pm', 'Administrador', 2020, 'LM93499-1'),
+(278, 'CB17001-260', '2020-05-10', '03:13:53 pm', '03:13:55 pm', 'Estudiante', 2020, 'LM40080-17'),
+(279, 'CB90549-261', '2020-05-10', '03:14:02 pm', '03:14:38 pm', 'Administrador', 2020, 'LM93499-1'),
+(280, 'CB36997-258', '2020-05-10', '03:14:43 pm', '03:17:44 pm', 'Docente', 2020, 'LM73754-5'),
+(281, 'CB96791-259', '2020-05-10', '03:17:49 pm', '03:17:52 pm', 'Docente', 2020, 'LM73754-5'),
+(282, 'CB32336-260', '2020-05-10', '03:17:58 pm', '03:18:30 pm', 'Docente', 2020, 'LM11092-3'),
+(283, 'CB99366-261', '2020-05-10', '03:18:51 pm', '03:19:03 pm', 'Docente', 2020, 'LM11092-3'),
+(284, 'CB04587-262', '2020-05-10', '03:19:07 pm', '03:19:17 pm', 'Docente', 2020, 'LM73754-5'),
+(285, 'CB14298-263', '2020-05-10', '03:19:21 pm', '03:19:37 pm', 'Administrador', 2020, 'LM93499-1'),
+(286, 'CB59130-264', '2020-05-10', '03:19:43 pm', '03:19:52 pm', 'Docente', 2020, 'LM11092-3'),
+(287, 'CB76107-265', '2020-05-10', '03:19:59 pm', '03:27:58 pm', 'Docente', 2020, 'LM73754-5'),
+(288, 'CB92990-266', '2020-05-10', '03:28:03 pm', '03:29:50 pm', 'Docente', 2020, 'LM11092-3'),
+(289, 'CB29452-267', '2020-05-10', '03:29:55 pm', '03:30:12 pm', 'Docente', 2020, 'LM73754-5'),
+(290, 'CB08192-268', '2020-05-10', '03:30:16 pm', '03:30:47 pm', 'Administrador', 2020, 'LM93499-1'),
+(291, 'CB16084-269', '2020-05-10', '03:30:53 pm', '03:38:13 pm', 'Docente', 2020, 'LM73754-5'),
+(292, 'CB53560-270', '2020-05-10', '03:38:18 pm', '03:38:27 pm', 'Estudiante', 2020, 'LM40080-17'),
+(293, 'CB34004-271', '2020-05-10', '03:41:00 pm', '03:43:32 pm', 'Docente', 2020, 'LM11092-3'),
+(294, 'CB50270-272', '2020-05-10', '03:43:37 pm', 'Sin registro', 'Docente', 2020, 'LM73754-5'),
+(295, 'CB51682-273', '2020-05-10', '03:52:01 pm', 'Sin registro', 'Docente', 2020, 'LM73754-5'),
+(296, 'CB93264-274', '2020-05-10', '03:53:05 pm', '04:00:39 pm', 'Docente', 2020, 'LM73754-5'),
+(297, 'CB10588-275', '2020-05-10', '04:00:44 pm', '04:01:01 pm', 'Docente', 2020, 'LM11092-3'),
+(298, 'CB84815-276', '2020-05-10', '04:01:05 pm', '04:04:24 pm', 'Docente', 2020, 'LM73754-5'),
+(299, 'CB12993-277', '2020-05-10', '04:04:31 pm', '04:04:51 pm', 'Docente', 2020, 'LM73754-5'),
+(300, 'CB24843-278', '2020-05-10', '04:04:59 pm', '04:34:52 pm', 'Docente', 2020, 'LM11092-3'),
+(301, 'CB00112-279', '2020-05-10', '04:34:56 pm', '04:36:52 pm', 'Docente', 2020, 'LM73754-5'),
+(302, 'CB61834-280', '2020-05-10', '04:36:55 pm', '04:38:05 pm', 'Estudiante', 2020, 'LM40080-17'),
+(303, 'CB11336-281', '2020-05-10', '04:38:13 pm', '04:40:37 pm', 'Docente', 2020, 'LM73754-5'),
+(304, 'CB98233-282', '2020-05-10', '04:40:41 pm', '04:40:54 pm', 'Estudiante', 2020, 'LM40080-17'),
+(305, 'CB07474-283', '2020-05-10', '04:41:00 pm', '05:14:02 pm', 'Docente', 2020, 'LM73754-5'),
+(306, 'CB34820-284', '2020-05-10', '05:19:18 pm', 'Sin registro', 'Docente', 2020, 'LM73754-5'),
+(307, 'CB79998-285', '2020-05-10', '06:34:42 pm', '06:34:50 pm', 'Estudiante', 2020, 'LM05170-17'),
+(308, 'CB32479-286', '2020-05-10', '06:34:55 pm', '06:36:14 pm', 'Administrador', 2020, 'LM93499-1'),
+(309, 'CB26577-287', '2020-05-10', '06:36:20 pm', '06:37:17 pm', 'Docente', 2020, 'LM73754-5'),
+(310, 'CB68408-288', '2020-05-10', '06:37:23 pm', '06:37:45 pm', 'Estudiante', 2020, 'LM05170-17'),
+(311, 'CB40711-289', '2020-05-10', '06:41:56 pm', '06:43:22 pm', 'Administrador', 2020, 'LM93499-1'),
+(312, 'CB70962-290', '2020-05-10', '06:44:39 pm', '07:04:04 pm', 'Administrador', 2020, 'LM93499-1'),
+(313, 'CB68825-291', '2020-05-10', '07:04:13 pm', '07:53:19 pm', 'Docente', 2020, 'LM11092-3'),
+(314, 'CB87156-292', '2020-05-10', '07:53:29 pm', '07:53:39 pm', 'Estudiante', 2020, 'LM55041-4'),
+(315, 'CB60383-293', '2020-05-10', '07:55:09 pm', '08:13:51 pm', 'Docente', 2020, 'LM11092-3'),
+(316, 'CB77590-294', '2020-05-10', '08:14:27 pm', '08:16:41 pm', 'Estudiante', 2020, 'LM55041-4'),
+(317, 'CB13107-295', '2020-05-10', '08:17:55 pm', '08:21:04 pm', 'Estudiante', 2020, 'LM72734-18'),
+(318, 'CB93742-296', '2020-05-10', '08:21:11 pm', '08:30:23 pm', 'Estudiante', 2020, 'LM55041-4'),
+(319, 'CB83585-297', '2020-05-10', '08:30:29 pm', '08:31:24 pm', 'Docente', 2020, 'LM11092-3'),
+(320, 'CB94673-298', '2020-05-10', '08:31:28 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1');
 
 -- --------------------------------------------------------
 
@@ -363,9 +418,11 @@ INSERT INTO `cuenta` (`id`, `CuentaCodigo`, `CuentaUsuario`, `CuentaClave`, `Cue
 (23, 'LM08913-12', 'omarG', 'eFFaUThqUFU2VDVvQzRHMlVKVm9SUT09', 'omarG@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
 (24, 'LM20551-13', 'gabo', 'eVlrNHRacFZ1azlzNHBEdmc5TWhqQT09', 'gabo@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
 (25, 'LM43600-14', 'jair', 'RjRrK215ODAxdGkwT0RvQkFxb29mUT09', 'jair@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
-(26, 'LM50866-15', 'corona', 'SmovRjZIQk5ieFo4anJneFNHb3VyQT09', 'corona@gmail.com', 'Activo', 2, 'Masculino', 'docenteHombre.png'),
 (27, 'LM52219-16', 'cortes', 'anNTUXBqbGgxa254U3BjQU1rQk5oUT09', 'cortes@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
-(29, 'LM34913-16', 'maria', 'aUlqY0pxbWExTFlESkRMZk1KVXdqdz09', 'maria@gmail.com', 'Activo', 1, 'Femenino', 'adminMujer.png');
+(29, 'LM34913-16', 'maria', 'aUlqY0pxbWExTFlESkRMZk1KVXdqdz09', 'maria@gmail.com', 'Activo', 1, 'Femenino', 'adminMujer.png'),
+(36, 'LM40080-17', 'xxx', 'bU5CaHZqaCtsS0xBM0lxMDQ2VXBPUT09', 'xxx@gmail.com', 'Activo', 3, 'Femenino', 'estudianteMujer.png'),
+(37, 'LM05170-17', 'qqq', 'K2NqWHYyOHBDNGp1MVV6akh0eGRLdz09', 'qqq@gmail.com', 'Activo', 3, 'Femenino', 'estudianteMujer.png'),
+(38, 'LM72734-18', 'enrique', 'UndoUDBZWkpxU3ZaZ3RtWjVFenZjZz09', 'enrique@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png');
 
 -- --------------------------------------------------------
 
@@ -377,6 +434,7 @@ CREATE TABLE `cuenta_equipo` (
   `id_equipo_usuario` int(11) NOT NULL,
   `CuentaCodigo` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `id_equipo` int(11) NOT NULL,
+  `cuentaCreador` varchar(30) NOT NULL,
   `created` date NOT NULL,
   `modified` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
@@ -385,16 +443,18 @@ CREATE TABLE `cuenta_equipo` (
 -- Volcado de datos para la tabla `cuenta_equipo`
 --
 
-INSERT INTO `cuenta_equipo` (`id_equipo_usuario`, `CuentaCodigo`, `id_equipo`, `created`, `modified`) VALUES
-(15, 'LM55041-4', 1, '2020-05-03', '2020-05-03'),
-(16, 'LM59856-7', 1, '2020-05-04', '2020-05-04'),
-(17, 'LM92282-8', 1, '2020-05-04', '2020-05-04'),
-(18, 'LM29533-9', 3, '2020-05-04', '2020-05-04'),
-(19, 'LM84603-10', 3, '2020-05-04', '2020-05-04'),
-(20, 'LM78816-11', 3, '2020-05-04', '2020-05-04'),
-(21, 'LM08913-12', 4, '2020-05-04', '2020-05-04'),
-(22, 'LM20551-13', 4, '2020-05-04', '2020-05-04'),
-(23, 'LM43600-14', 4, '2020-05-04', '2020-05-04');
+INSERT INTO `cuenta_equipo` (`id_equipo_usuario`, `CuentaCodigo`, `id_equipo`, `cuentaCreador`, `created`, `modified`) VALUES
+(15, 'LM55041-4', 1, 'LM11092-3', '2020-05-03', '2020-05-03'),
+(16, 'LM59856-7', 1, 'LM11092-3', '2020-05-04', '2020-05-04'),
+(17, 'LM92282-8', 1, 'LM11092-3', '2020-05-04', '2020-05-04'),
+(18, 'LM29533-9', 3, 'LM11092-3', '2020-05-04', '2020-05-04'),
+(19, 'LM84603-10', 3, 'LM11092-3', '2020-05-04', '2020-05-04'),
+(20, 'LM78816-11', 3, 'LM11092-3', '2020-05-04', '2020-05-04'),
+(21, 'LM08913-12', 4, 'LM11092-3', '2020-05-04', '2020-05-04'),
+(22, 'LM20551-13', 4, 'LM11092-3', '2020-05-04', '2020-05-04'),
+(23, 'LM43600-14', 4, 'LM11092-3', '2020-05-04', '2020-05-04'),
+(26, 'LM40080-17', 6, 'LM73754-5', '2020-05-10', '2020-05-10'),
+(27, 'LM05170-17', 7, 'LM73754-5', '2020-05-10', '2020-05-10');
 
 -- --------------------------------------------------------
 
@@ -416,8 +476,10 @@ CREATE TABLE `equipo` (
 
 INSERT INTO `equipo` (`id_equipo`, `equipo`, `cuentaCreador`, `created`, `modified`) VALUES
 (1, 'Equipo uno', 'LM11092-3', '2020-05-03', '2020-05-04'),
-(3, 'Equipo dos', 'LM11092-3', '2020-05-03', '2020-05-03'),
-(4, 'Equipo tres', 'LM11092-3', '2020-05-04', '2020-05-04');
+(3, 'Equipo dos', 'LM11092-3', '2020-05-03', '2020-05-10'),
+(4, 'Equipo tres', 'LM11092-3', '2020-05-04', '2020-05-04'),
+(6, 'Equipo XX', 'LM73754-5', '2020-05-10', '2020-05-10'),
+(7, 'Equipo dosXX', 'LM73754-5', '2020-05-10', '2020-05-10');
 
 -- --------------------------------------------------------
 
@@ -437,7 +499,7 @@ CREATE TABLE `estado` (
 --
 
 INSERT INTO `estado` (`id_estado`, `estado`, `created`, `modified`) VALUES
-(1, 'Bueno', '2020-05-03 20:06:00', '2020-05-03 20:06:00');
+(1, 'Correcto', '2020-05-03 20:06:00', '2020-05-03 20:06:00');
 
 -- --------------------------------------------------------
 
@@ -515,6 +577,7 @@ CREATE TABLE `metodologia` (
   `id_metodologia` int(11) NOT NULL,
   `metodologia` varchar(50) NOT NULL,
   `descripcion` varchar(200) NOT NULL,
+  `cuentaCreador` varchar(30) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
@@ -523,9 +586,9 @@ CREATE TABLE `metodologia` (
 -- Volcado de datos para la tabla `metodologia`
 --
 
-INSERT INTO `metodologia` (`id_metodologia`, `metodologia`, `descripcion`, `created`, `modified`) VALUES
-(1, 'Pert', 'Pert es una de las metodologías para la gestión de proyectos más utilizadas, en especial porque suele actuar como complemento de CPM y del Diagrama de Gantt.', '2020-04-01 21:32:12', '2020-04-02 04:08:21'),
-(2, 'SCRUM', 'Primera metodologia agregada', '2020-04-24 21:11:54', '2020-04-24 21:11:54');
+INSERT INTO `metodologia` (`id_metodologia`, `metodologia`, `descripcion`, `cuentaCreador`, `created`, `modified`) VALUES
+(1, 'PERT', 'Herramienta en la organizacion de tiempo', 'LM11092-3', '2020-04-01 21:32:12', '2020-05-10 19:43:49'),
+(2, 'SCRUM', 'Primera metodologia agregada', 'LM11092-3', '2020-04-24 21:11:54', '2020-04-24 21:11:54');
 
 -- --------------------------------------------------------
 
@@ -571,30 +634,33 @@ CREATE TABLE `persona` (
   `PersonaTelefono` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `PersonaDireccion` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
   `CuentaCodigo` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `PersonaPrivilegio` varchar(30) COLLATE latin1_spanish_ci NOT NULL
+  `PersonaPrivilegio` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `Salon` varchar(30) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`id`, `PersonaDNI`, `PersonaNombre`, `PersonaApellido`, `PersonaTelefono`, `PersonaDireccion`, `CuentaCodigo`, `PersonaPrivilegio`) VALUES
-(1, '00447711', 'Super', 'ADMINISTRADOR', '2481139051', 'MEXICO', 'LM93499-1', 'Administrador'),
-(10, '987987899', 'docente', 'PRINCIPAL', '89789689', 'MEXICO', 'LM11092-3', 'Docente'),
-(11, '798789798', 'Estudiante', 'ESCOLAR', '98797897', 'COLOMBIA', 'LM55041-4', 'Estudiante'),
-(12, '89789798', 'Jorge', 'CHAVEZ', '896786765', 'BUCARAMANGA', 'LM73754-5', 'Docente'),
-(17, '8767', 'Leonel', 'MEDEL', '68768768', 'Calle 11A', 'LM87917-6', 'Administrador'),
-(18, '685856', 'Luis Antonio', 'PONCE', '78676876', 'BUCARAMANGA', 'LM59856-7', 'Estudiante'),
-(19, '976976', 'Hector Jair', 'BENAVIDES', '987697698', 'SAN MARTIN', 'LM92282-8', 'Estudiante'),
-(20, '9868969', 'Jose', 'PEREZ', '968997897', 'CHOLULA', 'LM29533-9', 'Estudiante'),
-(21, '9889789', 'Cristal', 'LOPEZ', '789789786', 'PUEBLA', 'LM84603-10', 'Estudiante'),
-(22, '90980978', 'Leticia', 'HERNANDEZ', '98798698', 'EL VERDE', 'LM78816-11', 'Estudiante'),
-(23, '9878979', 'Omar', 'GARCIA', '877989', 'SANTA CATARINA', 'LM08913-12', 'Estudiante'),
-(24, '897687900', 'Gabriel', 'ALONSO', '87985785', 'SAN LUCAS', 'LM20551-13', 'Estudiante'),
-(25, '8987897', 'Jair', 'SANCHEZ', '89667867', 'PUEBLA', 'LM43600-14', 'Estudiante'),
-(26, '7869698798', 'Jesus', 'CORONA', '98798789689', 'CDMX', 'LM50866-15', 'Docente'),
-(27, '98798798', 'Javier', 'CORTES', '98686987897', 'Ciudad de Mexico', 'LM52219-16', 'Estudiante'),
-(29, '314134134', 'Maria', 'MENDEZ', '9879879880', 'CDMX', 'LM34913-16', 'Administrador');
+INSERT INTO `persona` (`id`, `PersonaDNI`, `PersonaNombre`, `PersonaApellido`, `PersonaTelefono`, `PersonaDireccion`, `CuentaCodigo`, `PersonaPrivilegio`, `Salon`) VALUES
+(1, '00447711', 'Super', 'ADMINISTRADOR', '2481139051', 'MEXICO', 'LM93499-1', 'Administrador', 'N/A'),
+(10, '987987899', 'docente', 'PRINCIPAL', '89789689', 'MEXICO', 'LM11092-3', 'Docente', '4A'),
+(11, '798789798', 'Estudiante', 'ESCOLAR', '98797897', 'COLOMBIA', 'LM55041-4', 'Estudiante', '4A'),
+(12, '89789798', 'Jorge', 'CHAVEZ', '896786765', 'BUCARAMANGA', 'LM73754-5', 'Docente', '5LA'),
+(17, '8767', 'Leonel', 'MEDEL', '68768768', 'Calle 11A', 'LM87917-6', 'Administrador', 'N/A'),
+(18, '685856', 'Luis Antonio', 'PONCE', '78676876', 'BUCARAMANGA', 'LM59856-7', 'Estudiante', '4A'),
+(19, '976976', 'Hector Jair', 'BENAVIDES', '987697698', 'SAN MARTIN', 'LM92282-8', 'Estudiante', '4A'),
+(20, '9868969', 'Jose', 'PEREZ', '968997897', 'CHOLULA', 'LM29533-9', 'Estudiante', '4A'),
+(21, '9889789', 'Maria Cristal', 'LOPEZ', '789789786', 'HUEJOTZINGO', 'LM84603-10', 'Estudiante', '4A'),
+(22, '90980978', 'Leticia', 'HERNANDEZ', '98798698', 'EL VERDE', 'LM78816-11', 'Estudiante', '4A'),
+(23, '9878979', 'Omar', 'GARCIA', '877989', 'SANTA CATARINA', 'LM08913-12', 'Estudiante', '4A'),
+(24, '897687900', 'Gabriel', 'ALONSO', '87985785', 'SAN LUCAS', 'LM20551-13', 'Estudiante', '4A'),
+(25, '8987897', 'Jair', 'SANCHEZ', '89667867', 'PUEBLA', 'LM43600-14', 'Estudiante', '4A'),
+(27, '98798798', 'Javier', 'CORTES', '98686987897', 'Ciudad de Mexico', 'LM52219-16', 'Estudiante', '4A'),
+(29, '314134134', 'Maria', 'MENDEZ', '9879879880', 'CDMX', 'LM34913-16', 'Administrador', 'N/A'),
+(36, '98789798', 'oikhioioho', 'iohohiog', '7879798789', 'ubgjuogo', 'LM40080-17', 'Estudiante', '5LA'),
+(37, '8978978', 'hbhbhjb', 'jhbhjbhjbj', '998789797', 'uihhiuhu', 'LM05170-17', 'Estudiante', '5LA'),
+(38, '79789798', 'Enrique', 'HERNANDEZ', '6786789899', 'PUEBLA', 'LM72734-18', 'Estudiante', 'Sin salon');
 
 -- --------------------------------------------------------
 
@@ -626,30 +692,6 @@ INSERT INTO `proyecto` (`id_proyecto`, `titulo`, `fecha_inicio`, `fecha_fin`, `c
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proyectos`
---
-
-CREATE TABLE `proyectos` (
-  `id` int(11) NOT NULL,
-  `titulo` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `inicio` date NOT NULL,
-  `fin` date NOT NULL,
-  `cuentaCreador` varchar(30) COLLATE latin1_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
---
--- Volcado de datos para la tabla `proyectos`
---
-
-INSERT INTO `proyectos` (`id`, `titulo`, `inicio`, `fin`, `cuentaCreador`) VALUES
-(4, 'prueba fechas', '2020-04-20', '2020-04-21', 'LM47586-3'),
-(5, 'Proyecto de Jorge Chavez A', '2020-04-21', '2020-05-28', 'LM84314-4'),
-(6, 'Creado por Chavez', '2020-04-20', '2020-04-30', 'LM47586-3'),
-(7, 'creado por leo', '2020-04-20', '2020-04-21', 'LM64652-7');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `proyecto_metodologia`
 --
 
@@ -658,6 +700,7 @@ CREATE TABLE `proyecto_metodologia` (
   `id_proyecto` int(11) NOT NULL,
   `id_metodologia` int(11) NOT NULL,
   `objetivo` varchar(200) NOT NULL,
+  `cuentaCreador` varchar(30) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
@@ -666,10 +709,10 @@ CREATE TABLE `proyecto_metodologia` (
 -- Volcado de datos para la tabla `proyecto_metodologia`
 --
 
-INSERT INTO `proyecto_metodologia` (`id_proyecto_metodologia`, `id_proyecto`, `id_metodologia`, `objetivo`, `created`, `modified`) VALUES
-(5, 7, 1, 'Relacionar metodologia', '2020-05-03 17:03:33', '2020-05-03 17:03:33'),
-(6, 8, 2, 'Hacer un proyecto con PHP y la metodologia SCRUM', '2020-05-04 18:21:58', '2020-05-04 18:21:58'),
-(7, 5, 2, 'Mostrar la metodologia en el primer Proyecto', '2020-05-04 19:11:22', '2020-05-04 19:11:22');
+INSERT INTO `proyecto_metodologia` (`id_proyecto_metodologia`, `id_proyecto`, `id_metodologia`, `objetivo`, `cuentaCreador`, `created`, `modified`) VALUES
+(5, 7, 1, 'Relacionar metodologia', 'LM11092-3', '2020-05-03 17:03:33', '2020-05-03 17:03:33'),
+(6, 8, 2, 'Hacer un proyecto con PHP y la metodologia SCRUM', 'LM11092-3', '2020-05-04 18:21:58', '2020-05-04 18:21:58'),
+(7, 5, 2, 'Mostrar la metodologia en el primer Proyecto', 'LM11092-3', '2020-05-04 19:11:22', '2020-05-04 19:11:22');
 
 -- --------------------------------------------------------
 
@@ -720,9 +763,9 @@ CREATE TABLE `rol` (
 --
 
 INSERT INTO `rol` (`id_rol`, `rol`, `created`, `modified`) VALUES
-(1, 'administrador', '2020-03-27 10:37:02', '0000-00-00 00:00:00'),
-(2, 'maestro', '2020-03-27 17:46:19', NULL),
-(3, 'alumno', '2020-04-12 13:32:41', NULL);
+(1, 'Administrador', '2020-03-27 10:37:02', '0000-00-00 00:00:00'),
+(2, 'Docente', '2020-03-27 17:46:19', NULL),
+(3, 'Estudiante', '2020-04-12 13:32:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -740,7 +783,8 @@ CREATE TABLE `salon` (
 --
 
 INSERT INTO `salon` (`id_salon`, `Salon`) VALUES
-(4, '4A');
+(4, '4A'),
+(5, '5LA');
 
 -- --------------------------------------------------------
 
@@ -866,12 +910,6 @@ ALTER TABLE `proyecto`
   ADD PRIMARY KEY (`id_proyecto`);
 
 --
--- Indices de la tabla `proyectos`
---
-ALTER TABLE `proyectos`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `proyecto_metodologia`
 --
 ALTER TABLE `proyecto_metodologia`
@@ -927,31 +965,31 @@ ALTER TABLE `actividades`
 -- AUTO_INCREMENT de la tabla `asignacion`
 --
 ALTER TABLE `asignacion`
-  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=321;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta`
 --
 ALTER TABLE `cuenta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta_equipo`
 --
 ALTER TABLE `cuenta_equipo`
-  MODIFY `id_equipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_equipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -963,13 +1001,13 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `fases`
 --
 ALTER TABLE `fases`
-  MODIFY `id_fase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_fase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `fuente`
 --
 ALTER TABLE `fuente`
-  MODIFY `id_fuente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_fuente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `historia`
@@ -981,7 +1019,7 @@ ALTER TABLE `historia`
 -- AUTO_INCREMENT de la tabla `metodologia`
 --
 ALTER TABLE `metodologia`
-  MODIFY `id_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `modulo`
@@ -993,7 +1031,7 @@ ALTER TABLE `modulo`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `proyecto`
@@ -1002,16 +1040,10 @@ ALTER TABLE `proyecto`
   MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `proyectos`
---
-ALTER TABLE `proyectos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT de la tabla `proyecto_metodologia`
 --
 ALTER TABLE `proyecto_metodologia`
-  MODIFY `id_proyecto_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_proyecto_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `recursos`
@@ -1035,7 +1067,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `salon`
 --
 ALTER TABLE `salon`
-  MODIFY `id_salon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_salon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_recurso`
