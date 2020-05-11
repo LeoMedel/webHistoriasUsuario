@@ -28,6 +28,11 @@
 	  			<i class="zmdi zmdi-search"></i> &nbsp; AGREGAR ESTUDIANTE AL EQUIPO
 	  		</a>
 	  	</li>
+	  	<li>
+	  		<a href="<?php echo SERVERURL; ?>equipoEstudianteslist/" class="btn btn-primary">
+	  			<i class="zmdi zmdi-male-female"></i> &nbsp; VER INTEGRANTES DE LOS EQUIPOS
+	  		</a>
+	  	</li>
 	</ul>
 </div>
 

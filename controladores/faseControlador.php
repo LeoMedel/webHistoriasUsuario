@@ -234,7 +234,13 @@
 		}
 		/*FIN Controlador para mostrar la informacion FASE*/
 
-
+		public function buscarDatosdeAccesoFasesControlador($idPro)
+		{
+			$idMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT id_metodologia FROM proyecto_metodologia WHERE id_proyecto='$idPro'");
+			//$id = $idMetodologia->fetch();
+			//$idMetodologia = $id['id_metodologia'];
+			return $idMetodologia;
+		}
 		
 		/*Controlador para paginar FASES*/
 		public function paginarFasesControlador($pagina, $noRegistros, $codigoProyecto, $busqueda)

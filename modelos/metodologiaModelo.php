@@ -83,13 +83,22 @@
 
 		protected function eliminarMetodologiaFuentesModelo($id)
 		{
-			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM fuente WHERE id_metodologia=:IdMetodologia");
+			$noFuentes = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM fuente WHERE id_metodologia=$id");
 
-			$eliminar->bindParam("IdMetodologia", $id);
+			if ($noFuentes->rowCount() == 0) {
+				return true;
+			} else {
+				$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM fuente WHERE id_metodologia=:IdMetodologia");
 
-			$eliminar->execute();
+				$eliminar->bindParam("IdMetodologia", $id);
 
-			return $eliminar;
+				$eliminar->execute();
+
+				return true;
+			}
+			
+
+			
 
 		}
 

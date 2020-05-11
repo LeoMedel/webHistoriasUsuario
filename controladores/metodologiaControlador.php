@@ -21,9 +21,8 @@
 			$descripcion = modeloPrincipal::limpiarCadena($_POST['descripcion-reg']);
 			$creador = modeloPrincipal::desencriptar($_POST['CodigoCuenta-reg']);
 			
-			$consultaMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT metodologia FROM metodologia WHERE metodologia='$metodologia'");
-
-			
+			//$consultaMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT metodologia FROM metodologia WHERE metodologia='$metodologia'");
+			/*
 			if ($consultaMetodologia->rowCount()>=1) {
 				$alerta = [
 					"Alerta" => "simple",
@@ -34,33 +33,36 @@
 			}
 			else
 			{
-				$datosMetodologia = [
-					"Metodologia" => $metodologia,
-					"Descripcion" => $descripcion,
-					"Creador" => $creador
-				];
-
-				$metodologiaAgregada = metodologiaModelo::agregarMetodologiaModelo($datosMetodologia);
-
-				if($metodologiaAgregada)
-				{
-					$alerta = [
-						"Alerta" => "limpiar",
-						"Titulo" => "Éxito",
-						"Texto" => "La Metodologia fue agregada correctamente",
-						"Tipo" => "success"
-					];	
-				} 
-				else
-				{
-					$alerta = [
-						"Alerta" => "simple",
-						"Titulo" => "Error",
-						"Texto" => "La Metodologia NO fue agregada",
-						"Tipo" => "error"
-					];
-				}
+				
 		
+			}
+			*/
+
+			$datosMetodologia = [
+				"Metodologia" => $metodologia,
+				"Descripcion" => $descripcion,
+				"Creador" => $creador
+			];
+
+			$metodologiaAgregada = metodologiaModelo::agregarMetodologiaModelo($datosMetodologia);
+
+			if($metodologiaAgregada)
+			{
+				$alerta = [
+					"Alerta" => "limpiar",
+					"Titulo" => "Éxito",
+					"Texto" => "La Metodologia fue agregada correctamente",
+					"Tipo" => "success"
+				];	
+			} 
+			else
+			{
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "La Metodologia NO fue agregada",
+					"Tipo" => "error"
+				];
 			}
 						
 			return modeloPrincipal::mostrarAlerta($alerta);
@@ -74,9 +76,8 @@
 			$descripcion = modeloPrincipal::limpiarCadena($_POST['descripcion-up']);
 			$idMetodologia = modeloPrincipal::desencriptar($_POST['idMetodologia-up']);
 			
-			$consultaMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT metodologia FROM metodologia WHERE metodologia='$metodologia' AND id_metodologia != $idMetodologia ");
-
-			
+			//$consultaMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT metodologia FROM metodologia WHERE metodologia='$metodologia' AND id_metodologia != $idMetodologia ");
+			/*
 			if ($consultaMetodologia->rowCount()>=1) {
 				$alerta = [
 					"Alerta" => "simple",
@@ -87,33 +88,33 @@
 			}
 			else
 			{
-				$datosMetodologia = [
-					"Metodologia" => $metodologia,
-					"Descripcion" => $descripcion,
-					"IdMetodologia" => $idMetodologia
+			}
+			*/
+			$datosMetodologia = [
+				"Metodologia" => $metodologia,
+				"Descripcion" => $descripcion,
+				"IdMetodologia" => $idMetodologia
+			];
+
+			$metodologiaActualizada = metodologiaModelo::actualizarMetodologiaModelo($datosMetodologia);
+
+			if($metodologiaActualizada)
+			{
+				$alerta = [
+					"Alerta" => "recargar",
+					"Titulo" => "Éxito",
+					"Texto" => "La Metodologia fue actualizada correctamente",
+					"Tipo" => "success"
+				];	
+			} 
+			else
+			{
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "La Metodologia NO fue actualizada",
+					"Tipo" => "error"
 				];
-
-				$metodologiaActualizada = metodologiaModelo::actualizarMetodologiaModelo($datosMetodologia);
-
-				if($metodologiaActualizada)
-				{
-					$alerta = [
-						"Alerta" => "recargar",
-						"Titulo" => "Éxito",
-						"Texto" => "La Metodologia fue actualizada correctamente",
-						"Tipo" => "success"
-					];	
-				} 
-				else
-				{
-					$alerta = [
-						"Alerta" => "simple",
-						"Titulo" => "Error",
-						"Texto" => "La Metodologia NO fue actualizada",
-						"Tipo" => "error"
-					];
-				}
-		
 			}
 						
 			return modeloPrincipal::mostrarAlerta($alerta);
@@ -352,7 +353,7 @@
 				{
 					$eliminarFuentes = metodologiaModelo::eliminarMetodologiaFuentesModelo($idMetodologia);
 
-					if ($eliminarFuentes->rowCount()>0)
+					if ($eliminarFuentes)
 					{
 						$eliminarMetodologia = metodologiaModelo::eliminarMetodologiaModelo($idMetodologia);
 

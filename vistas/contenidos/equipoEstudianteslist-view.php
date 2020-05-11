@@ -23,11 +23,11 @@
 	  			<i class="zmdi zmdi-plus"></i> &nbsp; NUEVA ASIGNACION
 	  		</a>
 	  	</li>
-	  	<!--li>
-	  		<a href="<?php echo SERVERURL; ?>equipoEstudiantes/" class="btn btn-primary">
-	  			<i class="zmdi zmdi-search"></i> &nbsp; AGREGAR ESTUDIANTE AL EQUIPO
+	  	<li>
+	  		<a href="<?php echo SERVERURL; ?>equipolist/" class="btn btn-primary">
+	  			<i class="zmdi zmdi-male-female"></i> &nbsp; VER LOS EQUIPOS
 	  		</a>
-	  	</li-->
+	  	</li>
 	</ul>
 </div>
 

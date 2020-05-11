@@ -1,10 +1,22 @@
 
 <?php
-	if ($_SESSION['tipo_sesion'] != 3) {
-		echo $loginControl->redireccionarUsuarioControlador($_SESSION['tipo_sesion']);
-	}
-?>
+if ($_SESSION['tipo_sesion'] != 3) {
+	echo $loginControl->redireccionarUsuarioControlador($_SESSION['tipo_sesion']);
+}
 
+if ($_SESSION['codigo_proyecto_sesion'] != 0)
+{
+
+	require_once "./controladores/faseControlador.php";
+
+	$insFases = new faseControlador();
+
+	$idMetodologia = $insFases->buscarDatosdeAccesoFasesControlador($_SESSION['codigo_proyecto_sesion']);
+
+	if ($idMetodologia->rowCount()>0)
+	{
+
+?>
 <div class="container-fluid">
 	<div class="page-header">
 	  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> FASES <small>Nueva fase</small></h1>
@@ -112,3 +124,59 @@
 		</div>
 	</div>
 </div>
+<?php
+	} 
+	else
+	{
+?>
+<div class="container-fluid">
+	<div class="page-header">
+	  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> FASES <small>Nueva fase</small></h1>
+	</div>
+	<p class="lead">Agregar un nueva FASE</p>
+</div>
+
+<!-- Panel nuevo administrador -->
+<div class="container-fluid">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; SIN METODOLOGIA</h3>
+		</div>
+		<div class="panel-body">
+			<p>No puedes crear ninguna face hasta que haya una metodologia definida. Consultar con el docente</p>
+		</div>
+	</div>
+</div>
+
+
+
+<?php
+
+	}
+} 
+else 
+{
+?>
+<div class="container-fluid">
+	<div class="page-header">
+	  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> FASES <small>Nueva fase</small></h1>
+	</div>
+	<p class="lead">Agregar un nueva FASE</p>
+</div>
+
+<!-- Panel nuevo administrador -->
+<div class="container-fluid">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; SIN INFORMACION (Equipo, Proyecto, Metodología)</h3>
+		</div>
+		<div class="panel-body">
+			<p>No se puede mostrar la información solicitada. Consultar con el docente</p>
+		</div>
+	</div>
+</div>
+<?php
+}
+
+
+?>
