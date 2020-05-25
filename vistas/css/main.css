@@ -78,20 +78,53 @@ body, html{
 /*============ LogIn*/
 .login-container{
 	height: 100%;
-	background-image: url(../assets/img/font-login.png);
+	background-image: url(../assets/img/desktopLogin.jpg);
 	
 }
 
+.logInForm{
+	position: absolute;
+	color: #fff;
+	top: 55%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/*background-color: rgba(5, 53, 63, .7);*/
+	background-color: rgba(0, 74, 124, 0.3);
+	width: 100%;
+	max-width: 500px;
+	padding: 60px;
+	border: 2px solid rgba(255,255,255,.3);
+	border-radius: 5px;
+}
+.logInForm p,
+.logInForm label{
+	color: #FFF;
+}
+
+.loginImg
+{
+	position: absolute;
+	color: #fff;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 700px;
+	height: 180px;
+
+}
+
+/*----------  Registro  ----------*/
 .registroForm{
 	position: absolute;
 	color: #fff;
-	top: 45%;
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 90%;
 	max-width: 1000px;
 	padding: 10px;
-	background-color: rgba(5, 53, 63, .7);
+	/*background-color: rgba(5, 53, 63, .7);*/
+	background-color: rgba(0, 74, 124, 0.3);
 	border: 1px solid rgba(255,255,255,.3);
 	border-radius: 4px;
 }
@@ -99,6 +132,11 @@ body, html{
 .registroForm label{
 	color: #FFF;
 }
+.registroForm select,
+option {
+  color: #ADC2DD;
+}
+
 .registro{
 	color: #FFF;
 }
@@ -106,28 +144,12 @@ body, html{
 /*============ REGISTRO*/
 .registro-container{
 	height: 100%;
-	background-image: url(../assets/img/font-login.png);
+	background-image: url(../assets/img/desktopLogin.jpg);
 	
 }
 
 
-.logInForm{
-	position: absolute;
-	color: #fff;
-	top: 40%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: rgba(5, 53, 63, .7);
-	width: 100%;
-	max-width: 500px;
-	padding: 60px;
-	border: 1px solid rgba(255,255,255,.3);
-	border-radius: 5px;
-}
-.logInForm p,
-.logInForm label{
-	color: #FFF;
-}
+
 
 /*Pie de pagina================*/
 .footer{
@@ -171,7 +193,7 @@ body, html{
 .dashboard-sideBar{
 	left: 0;
 	z-index: 2;
-	background-image: url('../assets/img/colores.jpg');
+	background-image: url('../assets/img/random.jpg');
 	border-right: 1px solid rgba(255, 255, 255, .7);
 	overflow: hidden;
 }

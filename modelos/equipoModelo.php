@@ -123,7 +123,7 @@
 
 			} catch (Exception $e) 
 			{
-				print_r("ERROR ". $e);
+				//print_r("ERROR ". $e);
 				return false;
 			}
 		}

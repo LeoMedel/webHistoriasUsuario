@@ -65,7 +65,7 @@
 
 		protected function eliminarProyectoModelo($id)
 		{
-			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM proyecto WHERE id=:IdProyecto");
+			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM proyecto WHERE id_proyecto=:IdProyecto");
 
 			$eliminar->bindParam("IdProyecto", $id);
 
@@ -133,7 +133,7 @@
 
 			} catch (Exception $e) 
 			{
-				print_r("ERROR: ". $e);
+				//print_r("ERROR: ". $e);
 				return false;
 			}
 

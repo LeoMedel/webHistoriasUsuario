@@ -1,4 +1,7 @@
+
+
 <div class="full-box login-container cover">
+	<img class="loginImg" src="<?php echo SERVERURL;?>vistas/assets/img/udi.png">
 	<form action="" method="POST" autocomplete="off" class="logInForm">
 		<p class="text-center text-muted"><i class="zmdi zmdi-desktop-windows zmdi-hc-5x"></i></p>
 		<p class="text-center text-muted text-uppercase">Iniciar sesión</p>
