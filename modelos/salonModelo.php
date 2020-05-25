@@ -67,5 +67,16 @@
 			return $eliminar;
 		}
 
+		protected function asignarSalonModelo($datos)
+		{
+			$asignar = modeloPrincipal::conectarBD()->prepare("UPDATE persona SET Salon=:Salon WHERE CuentaCodigo=:codigo");
+			
+			$asignar->bindParam("Salon", $datos['IdSalon']);
+			$asignar->bindParam("codigo", $datos['CuentaUsuario']);
+
+			$asignar->execute();
+			return $asignar;
+		}
+
 
 	}

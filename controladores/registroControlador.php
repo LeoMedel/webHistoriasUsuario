@@ -162,6 +162,8 @@
 											"Tipo" => "success",
 											"Pagina" => "login/"
 										];
+
+										return modeloPrincipal::mostrarAlertaRedireccion($alerta);
 									} 
 									else
 									{
@@ -197,8 +199,8 @@
 			
 			
 			
+			return modeloPrincipal::mostrarAlerta($alerta);
 			
-			return modeloPrincipal::mostrarAlertaRedireccion($alerta);
 		}
 		/*Fin de Agregar CUENTA*/
 

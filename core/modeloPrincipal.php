@@ -14,7 +14,7 @@
 		protected function conectarBD()
 		{
 			try {
-		    	$pdo = new PDO(SGBD, "root", "");
+		    	$pdo = new PDO(SGBD, USER, PASS);
 		    	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
 	        
 		    	return $pdo;

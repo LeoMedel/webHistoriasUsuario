@@ -22,14 +22,14 @@
                 </ul>
                 <ul class="list-unstyled">
                     <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; Jorge CHAVEZ AGUIRRE    
-                        <a href=""><i class="zmdi zmdi-facebook zmdi-hc-fw footer-social"></a></i>
-                        <a href=""><i class="zmdi zmdi-instagram zmdi-hc-fw footer-social"></i></a>
+                        <a href="https://www.facebook.com/jorge.chavez.14811"><i class="zmdi zmdi-facebook zmdi-hc-fw footer-social"></a></i>
+                        <!--a href=""><i class="zmdi zmdi-instagram zmdi-hc-fw footer-social"></i></a-->
                     </li>
                 </ul>
                 <ul class="list-unstyled">
                     <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; Jonathan ACUÑA LEÓN    
-                        <a href=""><i class="zmdi zmdi-facebook zmdi-hc-fw footer-social"></a></i>
-                        <a href=""><i class="zmdi zmdi-instagram zmdi-hc-fw footer-social"></i></a>
+                        <!--a href=""><i class="zmdi zmdi-facebook zmdi-hc-fw footer-social"></a></i>
+                        <a href=""><i class="zmdi zmdi-instagram zmdi-hc-fw footer-social"></i></a-->
                     </li>
                 </ul>
             </div>

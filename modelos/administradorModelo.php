@@ -19,7 +19,7 @@
 				$pdo = modeloPrincipal::conectarBD();
 				
 
-				$sql = "INSERT INTO persona(PersonaDNI, PersonaNombre, PersonaApellido, PersonaTelefono, PersonaDireccion, CuentaCodigo, PersonaPrivilegio) VALUES(?, ?, ?, ?, ?, ?, ?)";
+				$sql = "INSERT INTO persona(PersonaDNI, PersonaNombre, PersonaApellido, PersonaTelefono, PersonaDireccion, CuentaCodigo, PersonaPrivilegio, Salon) VALUES(?, ?, ?, ?, ?, ?, ?, '7')";
 
 
 				$pdo->prepare($sql)->execute([
@@ -37,6 +37,7 @@
 
 			} catch (Exception $e) 
 			{
+				print_r("ERROR ". $e);
 				return false;
 			}
 		}
@@ -92,7 +93,7 @@
 
 		protected function actualizarAdministradorModelo($datos)
 		{
-			$actualizar = modeloPrincipal::conectarBD()->prepare("UPDATE persona SET PersonaDNI=:DNI, PersonaNombre=:Nombre, PersonaApellido=:Apellido, PersonaTelefono=:Telefono, PersonaDireccion=:Direccion, PersonaPrivilegio=:Privilegio, Salon=:Salon WHERE CuentaCodigo=:Codigo");
+			$actualizar = modeloPrincipal::conectarBD()->prepare("UPDATE persona SET PersonaDNI=:DNI, PersonaNombre=:Nombre, PersonaApellido=:Apellido, PersonaTelefono=:Telefono, PersonaDireccion=:Direccion, PersonaPrivilegio=:Privilegio /*Salon=:Salon*/ WHERE CuentaCodigo=:Codigo");
 			
 			$actualizar->bindParam("DNI", $datos['DNI']);
 			$actualizar->bindParam("Nombre", $datos['Nombre']);
@@ -100,7 +101,7 @@
 			$actualizar->bindParam("Telefono", $datos['Telefono']);
 			$actualizar->bindParam("Direccion", $datos['Direccion']);
 			$actualizar->bindParam("Privilegio", $datos['Privilegio']);
-			$actualizar->bindParam("Salon", $datos['Salon']);
+			//$actualizar->bindParam("Salon", $datos['Salon']);
 			$actualizar->bindParam("Codigo", $datos['Codigo']);
 
 			$actualizar->execute();

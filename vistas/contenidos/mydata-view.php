@@ -90,7 +90,7 @@
 					    				}
 					    				else{ 
 
-					    					require_once "./controladores/salonControlador.php";
+					    					/*require_once "./controladores/salonControlador.php";
 											$claseSalon = new salonControlador();
 											$datosSalon = $claseSalon->cargarSalonesControlador();
 											$datosSalon = $datosSalon->fetchAll();
@@ -110,7 +110,7 @@
 											  	</select>
 											</div>
 					    				</div>
-					    			<?php }?>
+					    			<?php */} ?>
 					    				<div class="col-xs-12">
 											<div class="form-group label-floating">
 											  	<label class="control-label">Dirección</label>

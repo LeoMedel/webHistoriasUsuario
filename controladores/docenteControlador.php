@@ -202,7 +202,7 @@
 				$paginaURL = "docentesearch";
 
 			} else {
-				$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM persona WHERE PersonaPrivilegio='Docente' AND CuentaCodigo!='$codigo' ORDER BY PersonaNombre ASC LIMIT $inicio, $noRegistros";
+				$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM persona p JOIN salon s ON p.Salon=s.id_salon WHERE p.PersonaPrivilegio='Docente' AND p.CuentaCodigo!='$codigo' ORDER BY p.PersonaNombre ASC LIMIT $inicio, $noRegistros";
 				
 				$paginaURL = "docentelist";
 			}
@@ -229,6 +229,7 @@
 											<th class="text-center">NOMBRE(S)</th>
 											<th class="text-center">APELLIDOS</th>
 											<th class="text-center">TELÉFONO</th>
+											<th class="text-center">SALON DE CLASE</th>
 											<th class="text-center">CUENTA</th>
 											<th class="text-center">DATOS DEL DOCENTE</th>
 											<th class="text-center">ELIMINAR</th>';
@@ -259,6 +260,14 @@
 										<td><p>'.$docente['PersonaApellido'].'</p></td>
 										<td><p>'.$docente['PersonaTelefono'].'</p></td>';
 					//if ($privilegio <=2) {
+
+						$tabla .= '		<td>
+											<a href="'.SERVERURL.'asignarSalon/'.modeloPrincipal::encriptar($docente['CuentaCodigo']).'/Docente/" class="btn btn-warning btn-raised btn-sm">
+												<i class="zmdi zmdi-account-box"></i>
+											</a>
+										</td>';
+
+						
 						
 						$tabla .= '<td>
 											<a href="'.SERVERURL.'myaccount/docente/'.modeloPrincipal::encriptar($docente['CuentaCodigo']).'/" class="btn btn-success btn-raised btn-sm">

@@ -200,7 +200,7 @@
 				$paginaURL = "estudiantesearch";
 
 			} else {
-				$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM persona WHERE PersonaPrivilegio='Estudiante' AND CuentaCodigo!='$codigo' ORDER BY PersonaNombre ASC LIMIT $inicio, $noRegistros";
+				$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM persona p JOIN salon s ON p.Salon=s.id_salon WHERE p.PersonaPrivilegio='Estudiante' AND p.CuentaCodigo!='$codigo' ORDER BY p.PersonaNombre ASC LIMIT $inicio, $noRegistros";
 				
 				$paginaURL = "estudiantelist";
 			}
@@ -227,6 +227,7 @@
 											<th class="text-center">NOMBRE(S)</th>
 											<th class="text-center">APELLIDOS</th>
 											<th class="text-center">TELÉFONO</th>
+											<th class="text-center">ASIGNAR SALON</th>
 											<th class="text-center">CUENTA</th>
 											<th class="text-center">DATOS DEL ESTUDIANTE</th>
 											<th class="text-center">ELIMINAR</th>
@@ -252,6 +253,12 @@
 										<td><p>'.$estudiante['PersonaNombre'].'</p></td>
 										<td><p>'.$estudiante['PersonaApellido'].'</p></td>
 										<td><p>'.$estudiante['PersonaTelefono'].'</p></td>
+
+										<td>
+											<a href="'.SERVERURL.'asignarSalon/'.modeloPrincipal::encriptar($estudiante['CuentaCodigo']).'/Estudiante" class="btn btn-warning btn-raised btn-sm">
+												<i class="zmdi zmdi-account-box"></i>
+											</a>
+										</td>
 
 										<td>
 											<a href="'.SERVERURL.'myaccount/estudiante/'.modeloPrincipal::encriptar($estudiante['CuentaCodigo']).'/" class="btn btn-success btn-raised btn-sm">

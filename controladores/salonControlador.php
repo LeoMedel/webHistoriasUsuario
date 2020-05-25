@@ -144,7 +144,81 @@
 
 		public function cargarSalonesControlador()
 		{
-			return modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM salon");
+			return modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM salon WHERE Salon != 'Sin salon' AND Salon !='N/A' ");
+		}
+
+		public function asignarSalonUsuarioControlador()
+		{
+			$salon = modeloPrincipal::desencriptar($_POST['salon-asig']);
+			$cuentaUsuario = modeloPrincipal::desencriptar($_POST['codigoUsuarioSalon-up']);
+
+			if ($salon == 0) {
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "Seleccione un salon. Intentelo nuevamente",
+					"Tipo" => "error"
+				];
+
+				return modeloPrincipal::mostrarAlerta($alerta);
+
+			}
+			else
+			{
+				$infoUsuario = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM persona WHERE CuentaCodigo = '$cuentaUsuario'");
+				$usuario = $infoUsuario->fetchAll();
+				//print_r($usuario);
+
+				if ($usuario[0]['PersonaPrivilegio'] == "Docente") {
+
+					$consultaUsuario = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM persona WHERE PersonaPrivilegio='Docente' AND Salon='$salon'");
+
+					if ($consultaUsuario->rowCount() > 0) {
+						$alerta = [
+						"Alerta" => "simple",
+						"Titulo" => "Error",
+						"Texto" => "El salon ya tiene un docente. Intentelo nuevamente",
+						"Tipo" => "error"
+						];
+
+						return modeloPrincipal::mostrarAlerta($alerta);
+						exit();
+					}
+				}
+
+				$datosSalon = [
+				"IdSalon" => $salon,
+				"CuentaUsuario" => $cuentaUsuario
+				];
+
+				$salonAsignado = salonModelo::asignarSalonModelo($datosSalon);
+
+				if($salonAsignado)
+				{
+					$alerta = [
+						"Alerta" => "simple",
+						"Titulo" => "Éxito",
+						"Texto" => "El salón fue asignado correctamente",
+						"Tipo" => "success"
+					];	
+
+					return modeloPrincipal::mostrarAlerta($alerta);
+
+				}
+				else
+				{
+					$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "El salon NO fue asignado. Intentelo nuevamente",
+					"Tipo" => "error"
+					];
+
+					return modeloPrincipal::mostrarAlerta($alerta);
+
+				}
+			}
+			
 		}
 
 		/*Controlador para paginar los SALONES*/
@@ -166,7 +240,7 @@
 				$paginaURL = "adminsearch";
 
 			} else {*/
-				$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM salon ORDER BY Salon ASC LIMIT $inicio, $noRegistros";
+				$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM salon WHERE Salon != 'Sin salon' AND Salon!= 'N/A' ORDER BY Salon ASC LIMIT $inicio, $noRegistros";
 				$paginaURL = "salonlist";
 			//}
 			

@@ -44,7 +44,8 @@
 				"miEquipo",
 				"salon",
 				"salonlist",
-				"salonActualizar"
+				"salonActualizar",
+				"asignarSalon"
 			];
 			if(in_array($vistas, $listaBlanca))
 			{

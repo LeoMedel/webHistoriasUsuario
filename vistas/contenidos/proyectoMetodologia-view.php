@@ -52,6 +52,17 @@
 		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información de la metodología y el Proyecto</legend>
 		    		<div class="container-fluid">
 		    			<div class="row">
+		    				<!--div class="col-xs-12">
+		    					<div class="btn-group">
+							    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							    Metodologia <span class="caret"></span></button>
+							    <ul class="dropdown-menu" role="menu">
+							      <li><a href="#" onclick=";">Actualizar</a></li>
+							      <li><a href="#" onclick="">Borrar</a></li>
+
+							    </ul>
+							  </div>
+		    				</div-->
 		    				
 		    				<div class="col-xs-12">
 		    					<p>NOMBRE DE LA METODOLOGIA: </p>

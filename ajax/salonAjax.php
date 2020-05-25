@@ -4,7 +4,7 @@
 
 	require_once "../core/configGeneral.php";
 
-	if (isset($_POST['salon-reg'] ) || isset($_POST['idSalon-del'] ) || isset($_POST['idSalon-up'] ) )
+	if (isset($_POST['salon-reg'] ) || isset($_POST['idSalon-del'] ) || isset($_POST['idSalon-up'] ) || isset($_POST['codigoUsuarioSalon-up'] ) )
 	{
 		
 		require_once "../controladores/salonControlador.php";
@@ -26,6 +26,12 @@
 		if (isset($_POST['idSalon-up']))
 		{
 			echo $insSalon->actualizarSalonControlador();
+		}
+
+		if (isset($_POST['codigoUsuarioSalon-up'] )) {
+			
+			echo $insSalon->asignarSalonUsuarioControlador();
+			
 		}
 
 	} 
