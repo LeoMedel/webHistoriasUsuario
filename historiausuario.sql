@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-05-2020 a las 01:53:11
+-- Tiempo de generación: 26-05-2020 a las 01:22:41
 -- Versión del servidor: 10.3.15-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -338,7 +338,6 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (273, 'CB03530-258', '2020-05-10', '03:09:23 pm', '03:09:42 pm', 'Administrador', 2020, 'LM93499-1'),
 (275, 'CB01978-259', '2020-05-10', '03:10:28 pm', '03:12:27 pm', 'Administrador', 2020, 'LM93499-1'),
 (277, 'CB51957-260', '2020-05-10', '03:13:09 pm', '03:13:21 pm', 'Administrador', 2020, 'LM93499-1'),
-(278, 'CB17001-260', '2020-05-10', '03:13:53 pm', '03:13:55 pm', 'Estudiante', 2020, 'LM40080-17'),
 (279, 'CB90549-261', '2020-05-10', '03:14:02 pm', '03:14:38 pm', 'Administrador', 2020, 'LM93499-1'),
 (280, 'CB36997-258', '2020-05-10', '03:14:43 pm', '03:17:44 pm', 'Docente', 2020, 'LM73754-5'),
 (281, 'CB96791-259', '2020-05-10', '03:17:49 pm', '03:17:52 pm', 'Docente', 2020, 'LM73754-5'),
@@ -352,7 +351,6 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (289, 'CB29452-267', '2020-05-10', '03:29:55 pm', '03:30:12 pm', 'Docente', 2020, 'LM73754-5'),
 (290, 'CB08192-268', '2020-05-10', '03:30:16 pm', '03:30:47 pm', 'Administrador', 2020, 'LM93499-1'),
 (291, 'CB16084-269', '2020-05-10', '03:30:53 pm', '03:38:13 pm', 'Docente', 2020, 'LM73754-5'),
-(292, 'CB53560-270', '2020-05-10', '03:38:18 pm', '03:38:27 pm', 'Estudiante', 2020, 'LM40080-17'),
 (293, 'CB34004-271', '2020-05-10', '03:41:00 pm', '03:43:32 pm', 'Docente', 2020, 'LM11092-3'),
 (294, 'CB50270-272', '2020-05-10', '03:43:37 pm', 'Sin registro', 'Docente', 2020, 'LM73754-5'),
 (295, 'CB51682-273', '2020-05-10', '03:52:01 pm', 'Sin registro', 'Docente', 2020, 'LM73754-5'),
@@ -362,22 +360,17 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (299, 'CB12993-277', '2020-05-10', '04:04:31 pm', '04:04:51 pm', 'Docente', 2020, 'LM73754-5'),
 (300, 'CB24843-278', '2020-05-10', '04:04:59 pm', '04:34:52 pm', 'Docente', 2020, 'LM11092-3'),
 (301, 'CB00112-279', '2020-05-10', '04:34:56 pm', '04:36:52 pm', 'Docente', 2020, 'LM73754-5'),
-(302, 'CB61834-280', '2020-05-10', '04:36:55 pm', '04:38:05 pm', 'Estudiante', 2020, 'LM40080-17'),
 (303, 'CB11336-281', '2020-05-10', '04:38:13 pm', '04:40:37 pm', 'Docente', 2020, 'LM73754-5'),
-(304, 'CB98233-282', '2020-05-10', '04:40:41 pm', '04:40:54 pm', 'Estudiante', 2020, 'LM40080-17'),
 (305, 'CB07474-283', '2020-05-10', '04:41:00 pm', '05:14:02 pm', 'Docente', 2020, 'LM73754-5'),
 (306, 'CB34820-284', '2020-05-10', '05:19:18 pm', 'Sin registro', 'Docente', 2020, 'LM73754-5'),
-(307, 'CB79998-285', '2020-05-10', '06:34:42 pm', '06:34:50 pm', 'Estudiante', 2020, 'LM05170-17'),
 (308, 'CB32479-286', '2020-05-10', '06:34:55 pm', '06:36:14 pm', 'Administrador', 2020, 'LM93499-1'),
 (309, 'CB26577-287', '2020-05-10', '06:36:20 pm', '06:37:17 pm', 'Docente', 2020, 'LM73754-5'),
-(310, 'CB68408-288', '2020-05-10', '06:37:23 pm', '06:37:45 pm', 'Estudiante', 2020, 'LM05170-17'),
 (311, 'CB40711-289', '2020-05-10', '06:41:56 pm', '06:43:22 pm', 'Administrador', 2020, 'LM93499-1'),
 (312, 'CB70962-290', '2020-05-10', '06:44:39 pm', '07:04:04 pm', 'Administrador', 2020, 'LM93499-1'),
 (313, 'CB68825-291', '2020-05-10', '07:04:13 pm', '07:53:19 pm', 'Docente', 2020, 'LM11092-3'),
 (314, 'CB87156-292', '2020-05-10', '07:53:29 pm', '07:53:39 pm', 'Estudiante', 2020, 'LM55041-4'),
 (315, 'CB60383-293', '2020-05-10', '07:55:09 pm', '08:13:51 pm', 'Docente', 2020, 'LM11092-3'),
 (316, 'CB77590-294', '2020-05-10', '08:14:27 pm', '08:16:41 pm', 'Estudiante', 2020, 'LM55041-4'),
-(317, 'CB13107-295', '2020-05-10', '08:17:55 pm', '08:21:04 pm', 'Estudiante', 2020, 'LM72734-18'),
 (318, 'CB93742-296', '2020-05-10', '08:21:11 pm', '08:30:23 pm', 'Estudiante', 2020, 'LM55041-4'),
 (319, 'CB83585-297', '2020-05-10', '08:30:29 pm', '08:31:24 pm', 'Docente', 2020, 'LM11092-3'),
 (320, 'CB94673-298', '2020-05-10', '08:31:28 pm', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
@@ -385,7 +378,6 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (322, 'CB74360-300', '2020-05-11', '06:02:27 pm', '06:27:33 pm', 'Estudiante', 2020, 'LM29533-9'),
 (323, 'CB88248-301', '2020-05-11', '06:27:40 pm', '06:27:57 pm', 'Estudiante', 2020, 'LM84603-10'),
 (324, 'CB31928-302', '2020-05-11', '06:28:04 pm', '06:28:20 pm', 'Estudiante', 2020, 'LM55041-4'),
-(325, 'CB24448-303', '2020-05-11', '06:28:26 pm', '06:28:34 pm', 'Estudiante', 2020, 'LM05170-17'),
 (326, 'CB78064-304', '2020-05-11', '06:28:49 pm', '06:31:44 pm', 'Docente', 2020, 'LM11092-3'),
 (327, 'CB26768-305', '2020-05-11', '06:31:51 pm', '06:32:11 pm', 'Estudiante', 2020, 'LM43600-14'),
 (328, 'CB28341-306', '2020-05-11', '06:32:28 pm', '06:33:50 pm', 'Docente', 2020, 'LM11092-3'),
@@ -397,7 +389,43 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (334, 'CB50447-312', '2020-05-11', '06:49:20 pm', '06:49:51 pm', 'Docente', 2020, 'LM11092-3'),
 (335, 'CB00223-313', '2020-05-11', '06:50:00 pm', '06:50:22 pm', 'Estudiante', 2020, 'LM29533-9'),
 (336, 'CB70622-314', '2020-05-11', '06:50:27 pm', '06:50:52 pm', 'Docente', 2020, 'LM11092-3'),
-(337, 'CB62151-315', '2020-05-11', '06:51:02 pm', '06:52:21 pm', 'Estudiante', 2020, 'LM29533-9');
+(337, 'CB62151-315', '2020-05-11', '06:51:02 pm', '06:52:21 pm', 'Estudiante', 2020, 'LM29533-9'),
+(338, 'CB01562-316', '2020-05-12', '10:40:53 am', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
+(339, 'CB66445-317', '2020-05-19', '06:07:51 am', '06:08:09 am', 'Administrador', 2020, 'LM93499-1'),
+(340, 'CB58900-318', '2020-05-19', '06:08:16 am', 'Sin registro', 'Docente', 2020, 'LM73754-5'),
+(341, 'CB49246-319', '2020-05-19', '06:14:19 am', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
+(342, 'CB12058-320', '2020-05-19', '06:14:40 am', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
+(343, 'CB60639-321', '2020-05-19', '06:15:47 am', '06:32:03 am', 'Administrador', 2020, 'LM93499-1'),
+(344, 'CB04955-322', '2020-05-19', '07:08:45 am', '07:28:19 am', 'Administrador', 2020, 'LM93499-1'),
+(345, 'CB56011-323', '2020-05-19', '07:28:26 am', 'Sin registro', 'Docente', 2020, 'LM73754-5'),
+(346, 'CB53039-324', '2020-05-21', '07:30:48 am', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
+(347, 'CB38465-325', '2020-05-21', '07:32:05 am', 'Sin registro', 'Docente', 2020, 'LM11092-3'),
+(348, 'CB22337-326', '2020-05-21', '07:32:57 am', 'Sin registro', 'Administrador', 2020, 'LM93499-1'),
+(349, 'CB53799-327', '2020-05-25', '02:15:52 pm', '03:51:06 pm', 'Administrador', 2020, 'LM93499-1'),
+(351, 'CB21863-329', '2020-05-25', '03:51:36 pm', '03:55:35 pm', 'Administrador', 2020, 'LM93499-1'),
+(352, 'CB34639-330', '2020-05-25', '03:55:47 pm', '03:56:10 pm', 'Administrador', 2020, 'LM93499-1'),
+(354, 'CB70830-332', '2020-05-25', '04:06:30 pm', '04:07:39 pm', 'Administrador', 2020, 'LM93499-1'),
+(357, 'CB52936-335', '2020-05-25', '04:08:51 pm', '04:11:08 pm', 'Administrador', 2020, 'LM93499-1'),
+(359, 'CB00834-337', '2020-05-25', '04:12:17 pm', '04:28:09 pm', 'Administrador', 2020, 'LM93499-1'),
+(360, 'CB48796-337', '2020-05-25', '04:28:13 pm', '04:29:17 pm', 'Docente', 2020, 'LM73754-5'),
+(361, 'CB14434-338', '2020-05-25', '04:29:23 pm', '04:29:39 pm', 'Administrador', 2020, 'LM97744-21'),
+(362, 'CB96015-339', '2020-05-25', '04:29:44 pm', '04:30:39 pm', 'Administrador', 2020, 'LM93499-1'),
+(363, 'CB32619-339', '2020-05-25', '04:30:44 pm', '04:38:35 pm', 'Docente', 2020, 'LM11092-3'),
+(364, 'CB23426-340', '2020-05-25', '04:40:48 pm', '04:48:52 pm', 'Docente', 2020, 'LM73754-5'),
+(365, 'CB32343-341', '2020-05-25', '04:48:57 pm', '04:49:52 pm', 'Administrador', 2020, 'LM93499-1'),
+(367, 'CB68906-336', '2020-05-25', '04:50:11 pm', '04:51:35 pm', 'Docente', 2020, 'LM11092-3'),
+(369, 'CB23793-338', '2020-05-25', '04:51:59 pm', '04:53:39 pm', 'Administrador', 2020, 'LM93499-1'),
+(370, 'CB18045-333', '2020-05-25', '04:53:43 pm', '04:54:20 pm', 'Docente', 2020, 'LM11092-3'),
+(371, 'CB78795-334', '2020-05-25', '04:54:26 pm', '04:54:47 pm', 'Administrador', 2020, 'LM93499-1'),
+(372, 'CB13756-335', '2020-05-25', '04:54:51 pm', '04:55:22 pm', 'Docente', 2020, 'LM73754-5'),
+(373, 'CB20901-336', '2020-05-25', '04:55:27 pm', '04:56:33 pm', 'Administrador', 2020, 'LM93499-1'),
+(374, 'CB58931-337', '2020-05-25', '04:56:48 pm', '04:56:52 pm', 'Estudiante', 2020, 'LM60620-17'),
+(375, 'CB23235-338', '2020-05-25', '04:56:57 pm', '05:00:30 pm', 'Docente', 2020, 'LM73754-5'),
+(376, 'CB15052-339', '2020-05-25', '05:01:15 pm', '05:01:19 pm', 'Administrador', 2020, 'LM93499-1'),
+(377, 'CB03037-340', '2020-05-25', '05:01:27 pm', '05:03:15 pm', 'Docente', 2020, 'LM73754-5'),
+(378, 'CB58073-341', '2020-05-25', '05:42:32 pm', '05:42:37 pm', 'Administrador', 2020, 'LM93499-1'),
+(379, 'CB58123-342', '2020-05-25', '06:06:52 pm', '06:11:22 pm', 'Administrador', 2020, 'LM93499-1'),
+(380, 'CB10411-343', '2020-05-25', '06:13:48 pm', '06:17:33 pm', 'Administrador', 2020, 'LM93499-1');
 
 -- --------------------------------------------------------
 
@@ -437,9 +465,8 @@ INSERT INTO `cuenta` (`id`, `CuentaCodigo`, `CuentaUsuario`, `CuentaClave`, `Cue
 (25, 'LM43600-14', 'jair', 'RjRrK215ODAxdGkwT0RvQkFxb29mUT09', 'jair@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
 (27, 'LM52219-16', 'cortes', 'anNTUXBqbGgxa254U3BjQU1rQk5oUT09', 'cortes@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
 (29, 'LM34913-16', 'maria', 'aUlqY0pxbWExTFlESkRMZk1KVXdqdz09', 'maria@gmail.com', 'Activo', 1, 'Femenino', 'adminMujer.png'),
-(36, 'LM40080-17', 'xxx', 'bU5CaHZqaCtsS0xBM0lxMDQ2VXBPUT09', 'xxx@gmail.com', 'Activo', 3, 'Femenino', 'estudianteMujer.png'),
-(37, 'LM05170-17', 'qqq', 'K2NqWHYyOHBDNGp1MVV6akh0eGRLdz09', 'qqq@gmail.com', 'Activo', 3, 'Femenino', 'estudianteMujer.png'),
-(38, 'LM72734-18', 'enrique', 'UndoUDBZWkpxU3ZaZ3RtWjVFenZjZz09', 'enrique@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png');
+(47, 'LM97744-21', 'josej', 'a0NiS1dSWGtZb1JUcVN1eEtGQklZdz09', 'jj@gmail.com', 'Activo', 1, 'Masculino', 'adminHombre.png'),
+(50, 'LM60620-17', 'enrique', 'UndoUDBZWkpxU3ZaZ3RtWjVFenZjZz09', 'enriqueh@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png');
 
 -- --------------------------------------------------------
 
@@ -468,9 +495,7 @@ INSERT INTO `cuenta_equipo` (`id_equipo_usuario`, `CuentaCodigo`, `id_equipo`, `
 (20, 'LM78816-11', 3, 'LM11092-3', '2020-05-04', '2020-05-04'),
 (21, 'LM08913-12', 4, 'LM11092-3', '2020-05-04', '2020-05-04'),
 (22, 'LM20551-13', 4, 'LM11092-3', '2020-05-04', '2020-05-04'),
-(23, 'LM43600-14', 4, 'LM11092-3', '2020-05-04', '2020-05-04'),
-(26, 'LM40080-17', 6, 'LM73754-5', '2020-05-10', '2020-05-10'),
-(27, 'LM05170-17', 7, 'LM73754-5', '2020-05-10', '2020-05-10');
+(23, 'LM43600-14', 4, 'LM11092-3', '2020-05-04', '2020-05-04');
 
 -- --------------------------------------------------------
 
@@ -493,9 +518,7 @@ CREATE TABLE `equipo` (
 INSERT INTO `equipo` (`id_equipo`, `equipo`, `cuentaCreador`, `created`, `modified`) VALUES
 (1, 'Equipo uno', 'LM11092-3', '2020-05-03', '2020-05-04'),
 (3, 'Equipo dos', 'LM11092-3', '2020-05-03', '2020-05-10'),
-(4, 'Equipo tres', 'LM11092-3', '2020-05-04', '2020-05-04'),
-(6, 'Equipo XX', 'LM73754-5', '2020-05-10', '2020-05-10'),
-(7, 'Equipo dosXX', 'LM73754-5', '2020-05-10', '2020-05-10');
+(4, 'Equipo tres', 'LM11092-3', '2020-05-04', '2020-05-04');
 
 -- --------------------------------------------------------
 
@@ -659,24 +682,23 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`id`, `PersonaDNI`, `PersonaNombre`, `PersonaApellido`, `PersonaTelefono`, `PersonaDireccion`, `CuentaCodigo`, `PersonaPrivilegio`, `Salon`) VALUES
-(1, '00447711', 'Super', 'ADMINISTRADOR', '2481139051', 'MEXICO', 'LM93499-1', 'Administrador', 'N/A'),
-(10, '987987899', 'docente', 'PRINCIPAL', '89789689', 'MEXICO', 'LM11092-3', 'Docente', '4A'),
-(11, '798789798', 'Estudiante', 'ESCOLAR', '98797897', 'COLOMBIA', 'LM55041-4', 'Estudiante', '4A'),
-(12, '89789798', 'Jorge', 'CHAVEZ', '896786765', 'BUCARAMANGA', 'LM73754-5', 'Docente', '5LA'),
-(17, '8767', 'Leonel', 'MEDEL', '68768768', 'Calle 11A', 'LM87917-6', 'Administrador', 'N/A'),
-(18, '685856', 'Luis Antonio', 'PONCE', '78676876', 'BUCARAMANGA', 'LM59856-7', 'Estudiante', '4A'),
-(19, '976976', 'Hector Jair', 'BENAVIDES', '987697698', 'SAN MARTIN', 'LM92282-8', 'Estudiante', '4A'),
-(20, '9868969', 'Jose', 'PEREZ', '968997897', 'CHOLULA', 'LM29533-9', 'Estudiante', '4A'),
-(21, '9889789', 'Maria Cristal', 'LOPEZ', '789789786', 'HUEJOTZINGO', 'LM84603-10', 'Estudiante', '4A'),
-(22, '90980978', 'Leticia', 'HERNANDEZ', '98798698', 'EL VERDE', 'LM78816-11', 'Estudiante', '4A'),
-(23, '9878979', 'Omar', 'GARCIA', '877989', 'SANTA CATARINA', 'LM08913-12', 'Estudiante', '4A'),
-(24, '897687900', 'Gabriel', 'ALONSO', '87985785', 'SAN LUCAS', 'LM20551-13', 'Estudiante', '4A'),
-(25, '8987897', 'Jair', 'SANCHEZ', '89667867', 'PUEBLA', 'LM43600-14', 'Estudiante', '4A'),
-(27, '98798798', 'Javier', 'CORTES', '98686987897', 'Ciudad de Mexico', 'LM52219-16', 'Estudiante', '4A'),
-(29, '314134134', 'Maria', 'MENDEZ', '9879879880', 'CDMX', 'LM34913-16', 'Administrador', 'N/A'),
-(36, '98789798', 'oikhioioho', 'iohohiog', '7879798789', 'ubgjuogo', 'LM40080-17', 'Estudiante', '5LA'),
-(37, '8978978', 'hbhbhjb', 'jhbhjbhjbj', '998789797', 'uihhiuhu', 'LM05170-17', 'Estudiante', '5LA'),
-(38, '79789798', 'Enrique', 'HERNANDEZ', '6786789899', 'PUEBLA', 'LM72734-18', 'Estudiante', 'Sin salon');
+(1, '00447711', 'Super', 'ADMINISTRADOR', '2481139051', 'MEXICO', 'LM93499-1', 'Administrador', '7'),
+(10, '987987899', 'docente', 'PRINCIPAL', '89789689', 'MEXICO', 'LM11092-3', 'Docente', '6'),
+(11, '798789798', 'Estudiante', 'ESCOLAR', '98797897', 'COLOMBIA', 'LM55041-4', 'Estudiante', '6'),
+(12, '89789798', 'Jorge', 'CHAVEZ', '896786765', 'BUCARAMANGA', 'LM73754-5', 'Docente', '5'),
+(17, '8767', 'Leonel', 'MEDEL', '68768768', 'Calle 11A', 'LM87917-6', 'Administrador', '7'),
+(18, '685856', 'Luis Antonio', 'PONCE', '78676876', 'BUCARAMANGA', 'LM59856-7', 'Estudiante', '6'),
+(19, '976976', 'Hector Jair', 'BENAVIDES', '987697698', 'SAN MARTIN', 'LM92282-8', 'Estudiante', '6'),
+(20, '9868969', 'Jose', 'PEREZ', '968997897', 'CHOLULA', 'LM29533-9', 'Estudiante', '6'),
+(21, '9889789', 'Maria Cristal', 'LOPEZ', '789789786', 'HUEJOTZINGO', 'LM84603-10', 'Estudiante', '6'),
+(22, '90980978', 'Leticia', 'HERNANDEZ', '98798698', 'EL VERDE', 'LM78816-11', 'Estudiante', '6'),
+(23, '9878979', 'Omar', 'GARCIA', '877989', 'SANTA CATARINA', 'LM08913-12', 'Estudiante', '6'),
+(24, '897687900', 'Gabriel', 'ALONSO', '87985785', 'SAN LUCAS', 'LM20551-13', 'Estudiante', '6'),
+(25, '8987897', 'Jair', 'SANCHEZ', '89667867', 'PUEBLA', 'LM43600-14', 'Estudiante', '6'),
+(27, '98798798', 'Javier', 'CORTES', '98686987897', 'Ciudad de Mexico', 'LM52219-16', 'Estudiante', '6'),
+(29, '314134134', 'Maria', 'MENDEZ', '9879879880', 'CDMX', 'LM34913-16', 'Administrador', '7'),
+(44, '987987', 'jose', 'jimenez', '879878', 'ohoihyoihi', 'LM97744-21', 'Administrador', '7'),
+(47, '6989698', 'Enrique', 'Hernandez', '8998787', 'ilhilhli', 'LM60620-17', 'Estudiante', '5');
 
 -- --------------------------------------------------------
 
@@ -700,7 +722,6 @@ CREATE TABLE `proyecto` (
 
 INSERT INTO `proyecto` (`id_proyecto`, `titulo`, `fecha_inicio`, `fecha_fin`, `cuentaCreador`, `created`, `modified`) VALUES
 (5, 'Primer proyecto Prog web', '2020-04-20', '2020-04-23', 'LM11092-3', '2020-04-23', '2020-05-04'),
-(6, 'Proyecto de jorge', '2020-04-20', '2020-05-31', 'LM73754-5', '2020-04-23', '2020-04-23'),
 (7, 'Proyecto web', '2020-04-20', '2020-05-30', 'LM11092-3', '2020-05-03', '2020-05-03'),
 (8, 'Proyecto PHP', '2020-04-20', '2020-08-20', 'LM11092-3', '2020-05-04', '2020-05-04'),
 (9, 'App web por CORONA', '2020-04-20', '2020-04-23', 'LM50866-15', '2020-05-08', '2020-05-08');
@@ -798,8 +819,10 @@ CREATE TABLE `salon` (
 --
 
 INSERT INTO `salon` (`id_salon`, `Salon`) VALUES
-(4, '4A'),
-(5, '5LA');
+(4, 'Sin salon'),
+(5, '5LA'),
+(6, '4A'),
+(7, 'N/A');
 
 -- --------------------------------------------------------
 
@@ -980,31 +1003,31 @@ ALTER TABLE `actividades`
 -- AUTO_INCREMENT de la tabla `asignacion`
 --
 ALTER TABLE `asignacion`
-  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=338;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta`
 --
 ALTER TABLE `cuenta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta_equipo`
 --
 ALTER TABLE `cuenta_equipo`
-  MODIFY `id_equipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_equipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -1046,7 +1069,7 @@ ALTER TABLE `modulo`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `proyecto`
@@ -1082,7 +1105,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `salon`
 --
 ALTER TABLE `salon`
-  MODIFY `id_salon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_salon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_recurso`
