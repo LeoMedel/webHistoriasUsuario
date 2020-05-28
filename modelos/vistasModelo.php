@@ -45,7 +45,10 @@
 				"salon",
 				"salonlist",
 				"salonActualizar",
-				"asignarSalon"
+				"asignarSalon",
+				"moduloFase",
+				"modulo",
+				"moduloActualizar"
 			];
 			if(in_array($vistas, $listaBlanca))
 			{

@@ -259,7 +259,7 @@
 			$id = $idMetodologia->fetch();
 			$idMetodologia = $id['id_metodologia'];
 			
-			$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM fases WHERE id_metodologia='$idMetodologia' ORDER BY fase ASC LIMIT $inicio, $noRegistros";
+			$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM fases f JOIN metodologia m ON m.id_metodologia=f.id_metodologia JOIN estado e ON f.id_estado=e.id_estado WHERE f.id_metodologia='$idMetodologia' ORDER BY f.fase ASC LIMIT $inicio, $noRegistros";
 			$paginaURL = "faselist";
 
 			
@@ -285,8 +285,9 @@
 											<th class="text-center">FECHA DE INICIO</th>
 											<th class="text-center">FECHA FIN</th>
 											<th class="text-center">OBJETIVO</th>
-											<th class="text-center">ID METODOLOGIA</th>
-											<th class="text-center">ID ESTADO</th>
+											<th class="text-center">METODOLOGIA</th>
+											<th class="text-center">ESTADO</th>
+											<th class="text-center">MODULO</th>
 											<th class="text-center">ACTUALIZAR</th>
 											<th class="text-center">ELIMINAR</th>
 										</tr>
@@ -306,14 +307,14 @@
 										<td><p>'.$fase['fecha_inicio'].'</p></td>
 										<td><p>'.$fase['fecha_fin'].'</p></td>
 										<td><p>'.$fase['objetivo'].'</p></td>
-										<td><p>'.$fase['id_metodologia'].'</p></td>
-										<td><p>'.$fase['id_estado'].'</p></td>';
+										<td><p>'.$fase['metodologia'].'</p></td>
+										<td><p>'.$fase['estado'].'</p></td>';
 						
-						$tabla .= '		<!--td>
-											<a href="'.SERVERURL.'proyectoInfo/'.modeloPrincipal::encriptar($fase['id_fase']).'/" class="btn btn-info btn-raised btn-sm">
+						$tabla .= '		<td>
+											<a href="'.SERVERURL.'moduloFase/'.modeloPrincipal::encriptar($fase['id_fase']).'/" class="btn btn-info btn-raised btn-sm">
 												<i class="zmdi zmdi-file"></i>
 											</a>
-										</td-->
+										</td>
 										<td>
 											<a href="'.SERVERURL.'faseActualizar/'.modeloPrincipal::encriptar($fase['id_fase']).'/" class="btn btn-success btn-raised btn-sm">
 												<i class="zmdi zmdi-file"></i>
