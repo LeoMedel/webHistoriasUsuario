@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2020 a las 01:22:41
+-- Tiempo de generación: 30-05-2020 a las 03:48:42
 -- Versión del servidor: 10.3.15-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -425,7 +425,16 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (377, 'CB03037-340', '2020-05-25', '05:01:27 pm', '05:03:15 pm', 'Docente', 2020, 'LM73754-5'),
 (378, 'CB58073-341', '2020-05-25', '05:42:32 pm', '05:42:37 pm', 'Administrador', 2020, 'LM93499-1'),
 (379, 'CB58123-342', '2020-05-25', '06:06:52 pm', '06:11:22 pm', 'Administrador', 2020, 'LM93499-1'),
-(380, 'CB10411-343', '2020-05-25', '06:13:48 pm', '06:17:33 pm', 'Administrador', 2020, 'LM93499-1');
+(380, 'CB10411-343', '2020-05-25', '06:13:48 pm', '06:17:33 pm', 'Administrador', 2020, 'LM93499-1'),
+(381, 'CB64400-344', '2020-05-28', '03:47:13 pm', '03:47:23 pm', 'Administrador', 2020, 'LM93499-1'),
+(382, 'CB46610-345', '2020-05-28', '03:47:30 pm', '03:47:47 pm', 'Docente', 2020, 'LM11092-3'),
+(383, 'CB22764-346', '2020-05-28', '03:47:54 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(384, 'CB77107-347', '2020-05-28', '05:04:26 pm', '05:04:29 pm', 'Docente', 2020, 'LM11092-3'),
+(385, 'CB03061-348', '2020-05-28', '05:04:37 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(386, 'CB38529-349', '2020-05-28', '05:37:59 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(387, 'CB19886-350', '2020-05-28', '05:48:54 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(388, 'CB82757-351', '2020-05-29', '08:45:30 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(389, 'CB56011-352', '2020-05-29', '08:47:52 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4');
 
 -- --------------------------------------------------------
 
@@ -641,9 +650,16 @@ CREATE TABLE `modulo` (
   `descripcion` varchar(100) NOT NULL,
   `observacion` varchar(200) NOT NULL,
   `id_fase` int(11) NOT NULL,
-  `created` datetime NOT NULL DEFAULT current_timestamp(),
-  `modified` datetime DEFAULT NULL
+  `created` date NOT NULL,
+  `modified` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+--
+-- Volcado de datos para la tabla `modulo`
+--
+
+INSERT INTO `modulo` (`id_modulo`, `titulo`, `descripcion`, `observacion`, `id_fase`, `created`, `modified`) VALUES
+(3, 'Modulo Uno', 'Modulo UNO en la fase DOS', 'Ninguna por el momento', 3, '2020-05-28', '2020-05-28');
 
 -- --------------------------------------------------------
 
@@ -1009,7 +1025,7 @@ ALTER TABLE `asignacion`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=390;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta`
@@ -1063,7 +1079,7 @@ ALTER TABLE `metodologia`
 -- AUTO_INCREMENT de la tabla `modulo`
 --
 ALTER TABLE `modulo`
-  MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`

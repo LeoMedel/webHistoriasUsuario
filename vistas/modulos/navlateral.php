@@ -164,6 +164,9 @@
 					<li>
 						<a href="<?php echo SERVERURL; ?>faselist/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Fases</a>
 					</li>
+					<li>
+						<!--a href="<?php echo SERVERURL; ?>faselist/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Nuevas Actividades</a-->
+					</li>
 				</ul>
 			</li>
 			<?php } ?>
@@ -180,9 +183,6 @@
 					<li>
 						<a href="<?php echo SERVERURL; ?>miEquipo/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Mi Equipo</a>
 					</li>
-					<!--li>
-						<a href="<?php echo SERVERURL; ?>equipoEstudianteslist/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Agregar estudiante al equipo</a>
-					</li-->
 				</ul>
 			</li>
 			<?php } ?>
