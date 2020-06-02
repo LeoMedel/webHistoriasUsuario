@@ -49,6 +49,48 @@
 			return $proyecto;
 		}
 
+		protected function mostrarProyectoEquipoModelo($codigo)
+		{
+			try {
+
+				$proyecto = modeloPrincipal::conectarBD()->prepare("SELECT equipo FROM asignacion a JOIN equipo e ON a.id_equipo=e.id_equipo WHERE id_proyecto=:Codigo");
+				$proyecto->bindParam("Codigo", $codigo);
+				$proyecto->execute();
+
+				if ($proyecto->rowCount() > 0) {
+
+					$equipo = $proyecto->fetch();
+					$info = "<h1>\"".$equipo['equipo']."\"</h1>";
+
+					$proyecto = modeloPrincipal::conectarBD()->prepare("SELECT metodologia FROM proyecto_metodologia pm JOIN metodologia m ON pm.id_metodologia=m.id_metodologia WHERE pm.id_proyecto=:Codigo");
+					$proyecto->bindParam("Codigo", $codigo);
+					$proyecto->execute();
+
+					if ($proyecto->rowCount() > 0) {
+						$metodologia = $proyecto->fetch();
+						$info .= "<br> <h1> Metodología:  \"".$metodologia['metodologia']."\"</h1>";
+						
+					} else {
+						$info .= "<p> Sin informacion de la metodologia </p>";	
+					}
+					
+
+
+					$info .= "";
+
+				} else {
+					$info = "<p> Sin informacion del proyecto:  ".$codigo." </p>";
+				}
+				
+
+			} catch (Exception $e) {
+				$info = "Error:  ". $e;
+			}
+			
+
+			return $info;
+		}
+
 
 		protected function actualizarProyectoModelo($datos)
 		{

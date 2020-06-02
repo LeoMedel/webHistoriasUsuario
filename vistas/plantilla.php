@@ -70,6 +70,7 @@
 	endif; ?>
 	
 	<script src="<?php echo SERVERURL; ?>vistas/js/alertas.js" ></script>
+	<script src="<?php echo SERVERURL; ?>vistas/js/proyectos.js" ></script>
 	<script>
 		$.material.init();
 	</script>

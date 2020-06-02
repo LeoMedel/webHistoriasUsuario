@@ -27,6 +27,7 @@
 				"proyectoMetodologialist",
 				"proyectoEquipolist",
 				"proyectoEquipo",
+				"proyectoConsultar",
 				"metodologialist",
 				"metodologia",
 				"metodologiaInfo",

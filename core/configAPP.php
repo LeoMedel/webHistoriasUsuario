@@ -5,7 +5,10 @@
 	//const DB = "biblioteca_publica";
 	const USER = "root";
 	const PASS = "";
-	const SGBD = "mysql:host=localhost;dbname=historiausuario;charset=utf8";
+	const BD = "historiausuario";
+	const HOST = "localhost:3307";
+
+	const SGBD = "mysql:host=".HOST.";dbname=".BD.";charset=utf8";
 
 
 	const METHOD = "AES-256-CBC";

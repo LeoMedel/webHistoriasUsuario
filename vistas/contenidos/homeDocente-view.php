@@ -46,4 +46,14 @@
             <div class="tile-numNew full-reset"><p style="font-size:40%;">Información de Equipos</p></div>
         </article>
 	</a>
+
+    <a href="<?php echo SERVERURL; ?>proyectoConsultar/">
+        <article class="tileNew">
+            <div class="tile-iconNew full-reset"><i class="zmdi zmdi-search"></i></div>
+            <div class="tile-nameNew all-tittles">CONSULTAR</div>
+            <div class="tile-numNew full-reset"><p style="font-size:40%;">Consultar un Proyecto</p></div>
+        </article>
+    </a>
+
+
 </div>

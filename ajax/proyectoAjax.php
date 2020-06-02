@@ -5,7 +5,7 @@
 	require_once "../core/configGeneral.php";
 
 	
-	if (isset($_POST['titulo-reg']) || isset($_POST['idProyecto-up']) || isset($_POST['idProyecto-del']) || isset($_POST['proyecto-asig']) || isset($_POST['idProyectoMet-del']) || isset($_POST['proyectoEq-asig']) || isset($_POST['idProyectoEq-del']) )
+	if (isset($_POST['titulo-reg']) || isset($_POST['idProyecto-up']) || isset($_POST['idProyecto-del']) || isset($_POST['proyecto-asig']) || isset($_POST['idProyectoMet-del']) || isset($_POST['proyectoEq-asig']) || isset($_POST['idProyectoEq-del']) || isset($_POST['idProyecto_consultar']) )
 	{
 		
 		require_once "../controladores/proyectoControlador.php";
@@ -51,6 +51,12 @@
 		if (isset($_POST['idProyectoEq-del']) )
 		{
 			echo $insProyecto->eliminarProyectoEquipoControlador();
+		}
+
+		//mostrar equipo
+		if (isset($_POST['idProyecto_consultar']) )
+		{
+			echo $insProyecto->mostrarProyectoEquipoControlador();
 		}
 
 	} 

@@ -150,7 +150,7 @@
 				</a>
 			</li>
 			<?php if($_SESSION['codigo_proyecto_sesion'] > 0) { ?>
-				<li>
+			<li>
 				<!--a href="<?php echo SERVERURL; ?>equipolist/">
 					<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> EQUIPOS
 				</a-->
@@ -162,11 +162,25 @@
 						<a href="<?php echo SERVERURL; ?>miProyecto/"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Mi Proyecto</a>
 					</li>
 					<li>
-						<a href="<?php echo SERVERURL; ?>faselist/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Fases</a>
+						<a href="<?php echo SERVERURL; ?>faselist/">
+							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> FASES
+						</a>
+					</li>
+					<!--li>
+						<a href="<?php echo SERVERURL; ?>faselist/">
+							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> MODULOS
+						</a>
 					</li>
 					<li>
-						<!--a href="<?php echo SERVERURL; ?>faselist/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Nuevas Actividades</a-->
+						<a href="<?php echo SERVERURL; ?>faselist/">
+							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> ACTIVIDADES
+						</a>
 					</li>
+					<li>
+						<a href="<?php echo SERVERURL; ?>faselist/">
+							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> HISTORIAS
+						</a>
+					</li-->
 				</ul>
 			</li>
 			<?php } ?>

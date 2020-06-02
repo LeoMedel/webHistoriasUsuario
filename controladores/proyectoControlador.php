@@ -449,6 +449,15 @@
 		/*FIN de Eliminar ADMINISTRADORES*/
 
 
+		/*Controlador para mostrar la informacion de un PROYECTO*/
+		public function mostrarProyectoEquipoControlador()
+		{
+			$codigo = modeloPrincipal::desencriptar($_POST['idProyecto_consultar']);
+
+			return proyectoModelo::mostrarProyectoEquipoModelo($codigo);
+		}
+
+
 		
 		/*Controlador para paginar los PROYECTOS*/
 		public function paginarProyectosControlador($pagina, $noRegistros, $codigo, $busqueda)
