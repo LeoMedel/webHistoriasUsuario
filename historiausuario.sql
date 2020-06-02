@@ -2,8 +2,8 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2020 a las 03:48:42
+-- Servidor: 127.0.0.1:3307
+-- Tiempo de generación: 02-06-2020 a las 07:31:21
 -- Versión del servidor: 10.3.15-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -434,7 +434,21 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (386, 'CB38529-349', '2020-05-28', '05:37:59 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
 (387, 'CB19886-350', '2020-05-28', '05:48:54 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
 (388, 'CB82757-351', '2020-05-29', '08:45:30 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
-(389, 'CB56011-352', '2020-05-29', '08:47:52 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4');
+(389, 'CB56011-352', '2020-05-29', '08:47:52 pm', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(390, 'CB16364-353', '2020-05-29', '11:14:30 pm', '11:14:47 pm', 'Administrador', 2020, 'LM93499-1'),
+(391, 'CB39057-354', '2020-05-29', '11:14:56 pm', '11:15:05 pm', 'Docente', 2020, 'LM11092-3'),
+(392, 'CB29829-355', '2020-05-29', '11:15:17 pm', '11:17:05 pm', 'Estudiante', 2020, 'LM55041-4'),
+(393, 'CB37693-356', '2020-06-01', '04:23:08 pm', '04:24:15 pm', 'Administrador', 2020, 'LM93499-1'),
+(394, 'CB85370-357', '2020-06-01', '04:24:22 pm', '04:25:14 pm', 'Docente', 2020, 'LM11092-3'),
+(395, 'CB52907-358', '2020-06-01', '04:25:28 pm', '04:26:56 pm', 'Estudiante', 2020, 'LM55041-4'),
+(396, 'CB66337-359', '2020-06-01', '08:45:25 pm', '08:45:49 pm', 'Administrador', 2020, 'LM93499-1'),
+(397, 'CB27010-360', '2020-06-01', '08:45:55 pm', '08:46:04 pm', 'Docente', 2020, 'LM11092-3'),
+(398, 'CB78679-361', '2020-06-01', '08:46:11 pm', '08:46:32 pm', 'Estudiante', 2020, 'LM55041-4'),
+(399, 'CB72894-362', '2020-06-01', '09:17:14 pm', '09:17:17 pm', 'Administrador', 2020, 'LM93499-1'),
+(400, 'CB57237-363', '2020-06-01', '09:18:52 pm', '09:26:10 pm', 'Estudiante', 2020, 'LM55041-4'),
+(401, 'CB14347-364', '2020-06-01', '09:26:16 pm', '10:04:23 pm', 'Docente', 2020, 'LM11092-3'),
+(402, 'CB35709-365', '2020-06-01', '10:04:35 pm', '10:04:45 pm', 'Estudiante', 2020, 'LM55041-4'),
+(403, 'CB69247-366', '2020-06-01', '10:04:57 pm', '10:35:37 pm', 'Docente', 2020, 'LM11092-3');
 
 -- --------------------------------------------------------
 
@@ -527,7 +541,8 @@ CREATE TABLE `equipo` (
 INSERT INTO `equipo` (`id_equipo`, `equipo`, `cuentaCreador`, `created`, `modified`) VALUES
 (1, 'Equipo uno', 'LM11092-3', '2020-05-03', '2020-05-04'),
 (3, 'Equipo dos', 'LM11092-3', '2020-05-03', '2020-05-10'),
-(4, 'Equipo tres', 'LM11092-3', '2020-05-04', '2020-05-04');
+(4, 'Equipo tres', 'LM11092-3', '2020-05-04', '2020-05-04'),
+(9, 'Equipo cuatro', 'LM11092-3', '2020-06-01', '2020-06-01');
 
 -- --------------------------------------------------------
 
@@ -1025,7 +1040,7 @@ ALTER TABLE `asignacion`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=390;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=404;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta`
@@ -1043,7 +1058,7 @@ ALTER TABLE `cuenta_equipo`
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -1079,7 +1094,7 @@ ALTER TABLE `metodologia`
 -- AUTO_INCREMENT de la tabla `modulo`
 --
 ALTER TABLE `modulo`
-  MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
