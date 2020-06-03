@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 02-06-2020 a las 07:31:21
+-- Tiempo de generación: 03-06-2020 a las 17:49:43
 -- Versión del servidor: 10.3.15-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -32,9 +32,17 @@ CREATE TABLE `actividades` (
   `id_actividad` int(11) NOT NULL,
   `actividad` varchar(50) NOT NULL,
   `id_modulo` int(11) NOT NULL,
-  `created` datetime NOT NULL DEFAULT current_timestamp(),
-  `modified` datetime DEFAULT NULL
+  `id_equipo` int(11) NOT NULL,
+  `created` date NOT NULL,
+  `modified` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+--
+-- Volcado de datos para la tabla `actividades`
+--
+
+INSERT INTO `actividades` (`id_actividad`, `actividad`, `id_modulo`, `id_equipo`, `created`, `modified`) VALUES
+(4, 'Actividad Z', 9, 10, '2020-06-03', '2020-06-03');
 
 -- --------------------------------------------------------
 
@@ -59,7 +67,8 @@ CREATE TABLE `asignacion` (
 INSERT INTO `asignacion` (`id_asignacion`, `id_proyecto`, `id_equipo`, `id_estado`, `cuentaCreador`, `created`, `modified`) VALUES
 (6, 7, 1, 1, 'LM11092-3', '2020-05-04 15:21:32', '2020-05-04 15:21:32'),
 (7, 8, 3, 1, 'LM11092-3', '2020-05-04 18:22:21', '2020-05-04 18:22:21'),
-(9, 5, 4, 1, 'LM11092-3', '2020-05-04 18:58:46', '2020-05-04 18:58:46');
+(9, 5, 4, 1, 'LM11092-3', '2020-05-04 18:58:46', '2020-05-04 18:58:46'),
+(14, 10, 10, 1, 'LM73754-5', '2020-06-03 10:19:36', '2020-06-03 10:19:36');
 
 -- --------------------------------------------------------
 
@@ -448,7 +457,27 @@ INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraIn
 (400, 'CB57237-363', '2020-06-01', '09:18:52 pm', '09:26:10 pm', 'Estudiante', 2020, 'LM55041-4'),
 (401, 'CB14347-364', '2020-06-01', '09:26:16 pm', '10:04:23 pm', 'Docente', 2020, 'LM11092-3'),
 (402, 'CB35709-365', '2020-06-01', '10:04:35 pm', '10:04:45 pm', 'Estudiante', 2020, 'LM55041-4'),
-(403, 'CB69247-366', '2020-06-01', '10:04:57 pm', '10:35:37 pm', 'Docente', 2020, 'LM11092-3');
+(403, 'CB69247-366', '2020-06-01', '10:04:57 pm', '10:35:37 pm', 'Docente', 2020, 'LM11092-3'),
+(404, 'CB75073-367', '2020-06-03', '08:26:25 am', '08:26:34 am', 'Administrador', 2020, 'LM93499-1'),
+(405, 'CB86671-368', '2020-06-03', '08:26:41 am', '08:27:44 am', 'Docente', 2020, 'LM11092-3'),
+(406, 'CB70284-369', '2020-06-03', '08:27:56 am', 'Sin registro', 'Estudiante', 2020, 'LM55041-4'),
+(407, 'CB13552-370', '2020-06-03', '09:17:36 am', '10:09:30 am', 'Estudiante', 2020, 'LM55041-4'),
+(408, 'CB65469-371', '2020-06-03', '10:09:38 am', '10:09:42 am', 'Estudiante', 2020, 'LM60620-17'),
+(409, 'CB82009-372', '2020-06-03', '10:09:49 am', '10:10:19 am', 'Docente', 2020, 'LM73754-5'),
+(410, 'CB19014-373', '2020-06-03', '10:10:25 am', '10:11:06 am', 'Administrador', 2020, 'LM93499-1'),
+(411, 'CB44823-374', '2020-06-03', '10:11:20 am', '10:12:30 am', 'Estudiante', 2020, 'LM60620-17'),
+(412, 'CB74109-375', '2020-06-03', '10:12:36 am', '10:13:27 am', 'Docente', 2020, 'LM73754-5'),
+(413, 'CB11300-376', '2020-06-03', '10:13:34 am', '10:13:40 am', 'Estudiante', 2020, 'LM60620-17'),
+(414, 'CB15133-377', '2020-06-03', '10:13:46 am', '10:19:41 am', 'Docente', 2020, 'LM73754-5'),
+(415, 'CB53565-378', '2020-06-03', '10:19:54 am', '10:30:56 am', 'Estudiante', 2020, 'LM60620-17'),
+(416, 'CB47978-379', '2020-06-03', '10:31:03 am', '10:31:32 am', 'Estudiante', 2020, 'LM55041-4'),
+(417, 'CB19590-380', '2020-06-03', '10:31:43 am', '10:34:46 am', 'Estudiante', 2020, 'LM59856-7'),
+(418, 'CB81780-381', '2020-06-03', '10:34:56 am', '10:37:15 am', 'Estudiante', 2020, 'LM60620-17'),
+(419, 'CB38623-382', '2020-06-03', '10:38:15 am', '10:38:30 am', 'Estudiante', 2020, 'LM33292-18'),
+(420, 'CB58802-383', '2020-06-03', '10:38:38 am', '10:39:09 am', 'Administrador', 2020, 'LM93499-1'),
+(421, 'CB71060-384', '2020-06-03', '10:39:15 am', '10:39:18 am', 'Estudiante', 2020, 'LM33292-18'),
+(422, 'CB32582-385', '2020-06-03', '10:39:24 am', '10:39:40 am', 'Docente', 2020, 'LM73754-5'),
+(423, 'CB62921-386', '2020-06-03', '10:39:45 am', 'Sin registro', 'Estudiante', 2020, 'LM33292-18');
 
 -- --------------------------------------------------------
 
@@ -489,7 +518,8 @@ INSERT INTO `cuenta` (`id`, `CuentaCodigo`, `CuentaUsuario`, `CuentaClave`, `Cue
 (27, 'LM52219-16', 'cortes', 'anNTUXBqbGgxa254U3BjQU1rQk5oUT09', 'cortes@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
 (29, 'LM34913-16', 'maria', 'aUlqY0pxbWExTFlESkRMZk1KVXdqdz09', 'maria@gmail.com', 'Activo', 1, 'Femenino', 'adminMujer.png'),
 (47, 'LM97744-21', 'josej', 'a0NiS1dSWGtZb1JUcVN1eEtGQklZdz09', 'jj@gmail.com', 'Activo', 1, 'Masculino', 'adminHombre.png'),
-(50, 'LM60620-17', 'enrique', 'UndoUDBZWkpxU3ZaZ3RtWjVFenZjZz09', 'enriqueh@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png');
+(50, 'LM60620-17', 'enrique', 'UndoUDBZWkpxU3ZaZ3RtWjVFenZjZz09', 'enriqueh@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png'),
+(51, 'LM33292-18', 'juan', 'bE1USTFDZHJRSVpNV2txVDRGdERIUT09', 'juan@gmail.com', 'Activo', 3, 'Masculino', 'estudianteHombre.png');
 
 -- --------------------------------------------------------
 
@@ -518,7 +548,9 @@ INSERT INTO `cuenta_equipo` (`id_equipo_usuario`, `CuentaCodigo`, `id_equipo`, `
 (20, 'LM78816-11', 3, 'LM11092-3', '2020-05-04', '2020-05-04'),
 (21, 'LM08913-12', 4, 'LM11092-3', '2020-05-04', '2020-05-04'),
 (22, 'LM20551-13', 4, 'LM11092-3', '2020-05-04', '2020-05-04'),
-(23, 'LM43600-14', 4, 'LM11092-3', '2020-05-04', '2020-05-04');
+(23, 'LM43600-14', 4, 'LM11092-3', '2020-05-04', '2020-05-04'),
+(33, 'LM60620-17', 10, 'LM73754-5', '2020-06-03', '2020-06-03'),
+(34, 'LM33292-18', 10, 'LM73754-5', '2020-06-03', '2020-06-03');
 
 -- --------------------------------------------------------
 
@@ -542,7 +574,8 @@ INSERT INTO `equipo` (`id_equipo`, `equipo`, `cuentaCreador`, `created`, `modifi
 (1, 'Equipo uno', 'LM11092-3', '2020-05-03', '2020-05-04'),
 (3, 'Equipo dos', 'LM11092-3', '2020-05-03', '2020-05-10'),
 (4, 'Equipo tres', 'LM11092-3', '2020-05-04', '2020-05-04'),
-(9, 'Equipo cuatro', 'LM11092-3', '2020-06-01', '2020-06-01');
+(9, 'Equipo cuatro', 'LM11092-3', '2020-06-01', '2020-06-01'),
+(10, 'Equipo del prof Jorg', 'LM73754-5', '2020-06-03', '2020-06-03');
 
 -- --------------------------------------------------------
 
@@ -590,7 +623,8 @@ CREATE TABLE `fases` (
 INSERT INTO `fases` (`id_fase`, `fase`, `descripcion`, `fecha_inicio`, `fecha_fin`, `objetivo`, `id_metodologia`, `id_estado`, `created`, `modified`) VALUES
 (2, 'Fase uno', 'comienzo de la fase uno', '2020-04-20', '2020-04-30', 'Inicio del proyecto a desarrollar', 1, 1, '2020-05-04', '2020-05-04'),
 (3, 'Fase dos', 'desarrollo de la fase dos', '2020-04-24', '2020-05-03', 'Continuar el proyecto', 1, 1, '2020-05-04', '2020-05-04'),
-(4, 'Fase uno con SCRUM', 'inicio con SCRUM', '2020-04-20', '2020-06-20', 'Implementar SCRUM', 2, 1, '2020-05-04', '2020-05-04');
+(4, 'Fase uno con SCRUM', 'inicio con SCRUM', '2020-04-20', '2020-06-20', 'Implementar SCRUM', 2, 1, '2020-05-04', '2020-05-04'),
+(6, 'Fase principal', 'Fase uno del proyecto Z', '2020-04-21', '2020-04-24', 'Comenzar con la introduccion del proyecto', 7, 1, '2020-06-03', '2020-06-03');
 
 -- --------------------------------------------------------
 
@@ -651,7 +685,8 @@ CREATE TABLE `metodologia` (
 
 INSERT INTO `metodologia` (`id_metodologia`, `metodologia`, `descripcion`, `cuentaCreador`, `created`, `modified`) VALUES
 (1, 'PERT', 'Herramienta en la organizacion de tiempo', 'LM11092-3', '2020-04-01 21:32:12', '2020-05-10 19:43:49'),
-(2, 'SCRUM', 'Primera metodologia agregada', 'LM11092-3', '2020-04-24 21:11:54', '2020-04-24 21:11:54');
+(2, 'SCRUM', 'Primera metodologia agregada', 'LM11092-3', '2020-04-24 21:11:54', '2020-04-24 21:11:54'),
+(7, 'SCRUM', 'Metodologia SCRUM dirigida por el Docente JORGE', 'LM73754-5', '2020-06-03 10:17:17', '2020-06-03 10:17:17');
 
 -- --------------------------------------------------------
 
@@ -665,6 +700,7 @@ CREATE TABLE `modulo` (
   `descripcion` varchar(100) NOT NULL,
   `observacion` varchar(200) NOT NULL,
   `id_fase` int(11) NOT NULL,
+  `id_equipo` int(11) NOT NULL,
   `created` date NOT NULL,
   `modified` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
@@ -673,8 +709,10 @@ CREATE TABLE `modulo` (
 -- Volcado de datos para la tabla `modulo`
 --
 
-INSERT INTO `modulo` (`id_modulo`, `titulo`, `descripcion`, `observacion`, `id_fase`, `created`, `modified`) VALUES
-(3, 'Modulo Uno', 'Modulo UNO en la fase DOS', 'Ninguna por el momento', 3, '2020-05-28', '2020-05-28');
+INSERT INTO `modulo` (`id_modulo`, `titulo`, `descripcion`, `observacion`, `id_fase`, `id_equipo`, `created`, `modified`) VALUES
+(3, 'Modulo Uno', 'Modulo UNO en la fase DOS', 'Ninguna por el momento', 3, 1, '2020-05-28', '2020-05-28'),
+(8, 'Modulo X', 'Modulo UNO en la Fase UNO', 'N/A', 2, 1, '2020-06-03', '2020-06-03'),
+(9, 'Modulo Z', 'Modulo UNO del proyecto Z', 'Ninguna observacion', 6, 10, '2020-06-03', '2020-06-03');
 
 -- --------------------------------------------------------
 
@@ -729,7 +767,8 @@ INSERT INTO `persona` (`id`, `PersonaDNI`, `PersonaNombre`, `PersonaApellido`, `
 (27, '98798798', 'Javier', 'CORTES', '98686987897', 'Ciudad de Mexico', 'LM52219-16', 'Estudiante', '6'),
 (29, '314134134', 'Maria', 'MENDEZ', '9879879880', 'CDMX', 'LM34913-16', 'Administrador', '7'),
 (44, '987987', 'jose', 'jimenez', '879878', 'ohoihyoihi', 'LM97744-21', 'Administrador', '7'),
-(47, '6989698', 'Enrique', 'Hernandez', '8998787', 'ilhilhli', 'LM60620-17', 'Estudiante', '5');
+(47, '6989698', 'Enrique', 'Hernandez', '8998787', 'ilhilhli', 'LM60620-17', 'Estudiante', '5'),
+(48, '8768768', 'Juan', 'VAZQUEZ', '896897987', 'Calle 12', 'LM33292-18', 'Estudiante', '5');
 
 -- --------------------------------------------------------
 
@@ -755,7 +794,8 @@ INSERT INTO `proyecto` (`id_proyecto`, `titulo`, `fecha_inicio`, `fecha_fin`, `c
 (5, 'Primer proyecto Prog web', '2020-04-20', '2020-04-23', 'LM11092-3', '2020-04-23', '2020-05-04'),
 (7, 'Proyecto web', '2020-04-20', '2020-05-30', 'LM11092-3', '2020-05-03', '2020-05-03'),
 (8, 'Proyecto PHP', '2020-04-20', '2020-08-20', 'LM11092-3', '2020-05-04', '2020-05-04'),
-(9, 'App web por CORONA', '2020-04-20', '2020-04-23', 'LM50866-15', '2020-05-08', '2020-05-08');
+(9, 'App web por CORONA', '2020-04-20', '2020-04-23', 'LM50866-15', '2020-05-08', '2020-05-08'),
+(10, 'PROYECTO Z', '2020-03-01', '2020-07-20', 'LM73754-5', '2020-06-03', '2020-06-03');
 
 -- --------------------------------------------------------
 
@@ -779,7 +819,8 @@ CREATE TABLE `proyecto_metodologia` (
 
 INSERT INTO `proyecto_metodologia` (`id_proyecto_metodologia`, `id_proyecto`, `id_metodologia`, `objetivo`, `cuentaCreador`, `created`, `modified`) VALUES
 (5, 7, 1, 'Relacionar metodologia', 'LM11092-3', '2020-05-03 17:03:33', '2020-05-03 17:03:33'),
-(7, 5, 2, 'Mostrar la metodologia en el primer Proyecto', 'LM11092-3', '2020-05-04 19:11:22', '2020-05-04 19:11:22');
+(7, 5, 2, 'Mostrar la metodologia en el primer Proyecto', 'LM11092-3', '2020-05-04 19:11:22', '2020-05-04 19:11:22'),
+(15, 10, 7, 'Desarrollo del proyecto Z con la metodologia SCRUM', 'LM73754-5', '2020-06-03 10:19:16', '2020-06-03 10:19:16');
 
 -- --------------------------------------------------------
 
@@ -1028,37 +1069,37 @@ ALTER TABLE `tipo_recurso`
 -- AUTO_INCREMENT de la tabla `actividades`
 --
 ALTER TABLE `actividades`
-  MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `asignacion`
 --
 ALTER TABLE `asignacion`
-  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=404;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=424;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta`
 --
 ALTER TABLE `cuenta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta_equipo`
 --
 ALTER TABLE `cuenta_equipo`
-  MODIFY `id_equipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_equipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -1070,7 +1111,7 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `fases`
 --
 ALTER TABLE `fases`
-  MODIFY `id_fase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_fase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `fuente`
@@ -1088,31 +1129,31 @@ ALTER TABLE `historia`
 -- AUTO_INCREMENT de la tabla `metodologia`
 --
 ALTER TABLE `metodologia`
-  MODIFY `id_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `modulo`
 --
 ALTER TABLE `modulo`
-  MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
-  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `proyecto_metodologia`
 --
 ALTER TABLE `proyecto_metodologia`
-  MODIFY `id_proyecto_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_proyecto_metodologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `recursos`
