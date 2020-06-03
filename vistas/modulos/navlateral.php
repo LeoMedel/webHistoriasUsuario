@@ -9,7 +9,7 @@
 		<div class="full-box dashboard-sideBar-UserInfo">
 			<figure class="full-box">
 				<img src="<?php echo SERVERURL; ?>vistas/assets/avatars/<?php echo $_SESSION['foto_sesion'];?>" alt="UserIcon">
-				<figcaption class="text-center text-titles"><h4><?php echo $_SESSION['nombre_sesion']; ?> <?php echo $_SESSION['apellido_sesion']; /*?> <?php echo $_SESSION['salon_sesion'];*/?></h4></figcaption>
+				<figcaption class="text-center text-titles"><h4><?php echo $_SESSION['nombre_sesion']; ?> <?php echo $_SESSION['apellido_sesion']; ?> <?php echo $_SESSION['codigo_equipo_sesion'];?></h4></figcaption>
 				<figcaption class="text-center text-titles"><p style="font-size:130%; font: oblique bold 120% cursive;"><?php echo $_SESSION['usuario_sesion']; ?></p></figcaption>
 			</figure>
 
@@ -166,16 +166,17 @@
 							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> FASES
 						</a>
 					</li>
+					<li>
+						<a href="<?php echo SERVERURL; ?>actividadeslist/">
+							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> ACTIVIDADES
+						</a>
+					</li>
 					<!--li>
 						<a href="<?php echo SERVERURL; ?>faselist/">
 							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> MODULOS
 						</a>
 					</li>
-					<li>
-						<a href="<?php echo SERVERURL; ?>faselist/">
-							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> ACTIVIDADES
-						</a>
-					</li>
+					
 					<li>
 						<a href="<?php echo SERVERURL; ?>faselist/">
 							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> HISTORIAS
@@ -186,18 +187,12 @@
 			<?php } ?>
 
 			<?php if($_SESSION['codigo_equipo_sesion']>0) { ?>
+				
 				<li>
-				<!--a href="<?php echo SERVERURL; ?>equipolist/">
-					<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> EQUIPOS
-				</a-->
-				<a href="#!" class="btn-sideBar-SubMenu">
-					<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> EQUIPO <i class="zmdi zmdi-caret-down pull-right"></i>
-				</a>
-				<ul class="list-unstyled full-box">
-					<li>
-						<a href="<?php echo SERVERURL; ?>miEquipo/"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Mi Equipo</a>
-					</li>
-				</ul>
+					<a href="<?php echo SERVERURL; ?>miEquipo/">
+						<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> MI EQUIPO
+					</a>
+				</li>
 			</li>
 			<?php } ?>
 

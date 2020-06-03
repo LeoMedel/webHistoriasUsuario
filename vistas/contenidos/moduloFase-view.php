@@ -29,6 +29,15 @@
 
 
 ?>
+			<div class="container-fluid">
+				<ul class="breadcrumb breadcrumb-tabs">
+					<li>
+						<a href="<?php echo SERVERURL;?>faselist/<?php echo $datos[1]?>" class="btn btn-info">
+							<i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; LISTA DE FASES
+						</a>
+					</li>
+				</ul>
+			</div>
 
 			<!-- Panel mi cuenta -->
 			<div class="container-fluid">

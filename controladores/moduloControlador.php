@@ -22,12 +22,15 @@
 			$descripcion = modeloPrincipal::limpiarCadena($_POST['descripcionModulo-reg']);
 			$observacion = modeloPrincipal::limpiarCadena($_POST['observacionModulo-reg']);
 			$idFase = modeloPrincipal::desencriptar($_POST['CodigoFase-reg']);
+			$idEquipo = modeloPrincipal::desencriptar($_POST['CodigoEquipo-reg']);
+
 
 			$datosModulo = [
 				"Modulo" => $titulo,
 				"Descripcion" => $descripcion,
 				"Observacion" => $observacion,
-				"Fase" => $idFase
+				"Fase" => $idFase,
+				"Equipo" => $idEquipo
 			];
 
 			$moduloAgregado = moduloModelo::agregarModuloModelo($datosModulo);
@@ -50,42 +53,6 @@
 					"Tipo" => "error"
 				];
 			}
-			
-			//$consultaTitulo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT titul FROM modulo WHERE titulo='$titulo'");
-
-			/*
-			if ($consultaTitulo->rowCount()>=1) {
-				$alerta = [
-					"Alerta" => "simple",
-					"Titulo" => "Error",
-					"Texto" => "El TITULO de la fase ya esta registrado en el sistema. Verifique nuevamente",
-					"Tipo" => "error"
-				];
-			}
-			else
-			{
-
-					if( ($inicio > $fin) || ($inicio == $fin) )
-					{
-						$alerta = [
-							"Alerta" => "simple",
-							"Titulo" => "Error",
-							"Texto" => "Las fechas NO son validas. Verifique nuevamente",
-							"Tipo" => "error"
-						];	
-					} 
-					else
-					{
-
-						
-
-					}
-
-					
-					
-			}
-			*/
-
 
 						
 			return modeloPrincipal::mostrarAlerta($alerta);
@@ -183,6 +150,17 @@
 			return $idMetodologia;
 		}
 		
+
+		public function cargarModulosControlador($idEquipo)
+		{
+			$codigo = modeloPrincipal::limpiarCadena($idEquipo);
+
+			$modulos = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM modulo WHERE id_equipo=$codigo");
+
+			return $modulos;
+		}
+
+
 		/*Controlador para paginar FASES*/
 		public function paginarModulosControlador($pagina, $noRegistros, $codigoFase, $busqueda)
 		{

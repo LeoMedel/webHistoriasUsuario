@@ -19,14 +19,16 @@
 				$pdo = modeloPrincipal::conectarBD();
 				
 
-				$sql = "INSERT INTO modulo(titulo, descripcion, observacion, id_fase, created, modified) VALUES(?, ?, ?, ?, now(), now() )";
+				$sql = "INSERT INTO modulo(titulo, descripcion, observacion, id_fase, id_equipo, created, modified) VALUES(?, ?, ?, ?, ?, now(), now() )";
 
 
 				$pdo->prepare($sql)->execute([
 					$datos['Modulo'], 
 					$datos['Descripcion'],
 					$datos['Observacion'], 
-					$datos['Fase']
+					$datos['Fase'],
+					$datos['Equipo']
+
 				]);
 				
 

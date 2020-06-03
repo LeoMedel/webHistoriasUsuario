@@ -38,6 +38,7 @@ if ($datos[1] != "")
 		<div class="panel-body">
 			<form action="<?php echo SERVERURL; ?>ajax/moduloAjax.php" method="POST" data-form="save" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data">
 				<input type="hidden" name="CodigoFase-reg" value="<?php echo $datos[1]; ?>">
+				<input type="hidden" name="CodigoEquipo-reg" value="<?php echo $loginControl->encriptar($_SESSION['codigo_equipo_sesion']); ?>">
 		    	<fieldset>
 		    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información del modulo</legend>
 		    		<div class="container-fluid">

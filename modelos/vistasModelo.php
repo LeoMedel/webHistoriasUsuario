@@ -49,7 +49,10 @@
 				"asignarSalon",
 				"moduloFase",
 				"modulo",
-				"moduloActualizar"
+				"moduloActualizar",
+				"actividadeslist",
+				"actividad",
+				"actividadActualizar"
 			];
 			if(in_array($vistas, $listaBlanca))
 			{
