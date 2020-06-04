@@ -375,6 +375,32 @@
 
 			$codigo = modeloPrincipal::limpiarCadena($codigo);
 
+			$consultarEquipo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM cuenta_equipo WHERE CuentaCodigo='$codigo'");
+
+			if ($consultarEquipo->rowCount() > 0) {
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "El estudiante esta trabajando con un Equipo",
+					"Texto" => "No se elimino la Cuenta del Estudiante. Primero el docente debe sacar al estudiante del equipo",
+					"Tipo" => "error"
+				];
+				return modeloPrincipal::mostrarAlerta($alerta);
+				exit();
+			}
+
+			$consultarResponsable = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM responsable WHERE CuentaCodigo='$codigo'");
+
+			if ($consultarResponsable->rowCount() > 0) {
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "El estudiante es responsable de historias de usuario",
+					"Texto" => "No se elimino la Cuenta del Estudiante. Se deben eliminar las historias de usuario donde es responsable",
+					"Tipo" => "error"
+				];
+				return modeloPrincipal::mostrarAlerta($alerta);
+				exit();
+			}
+
 			$eliminarEstudiante = estudianteModelo::eliminarEstudianteModelo($codigo);
 
 			modeloPrincipal::eliminarBitacora($codigo);

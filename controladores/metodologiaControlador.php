@@ -21,22 +21,6 @@
 			$descripcion = modeloPrincipal::limpiarCadena($_POST['descripcion-reg']);
 			$creador = modeloPrincipal::desencriptar($_POST['CodigoCuenta-reg']);
 			
-			//$consultaMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT metodologia FROM metodologia WHERE metodologia='$metodologia'");
-			/*
-			if ($consultaMetodologia->rowCount()>=1) {
-				$alerta = [
-					"Alerta" => "simple",
-					"Titulo" => "Error",
-					"Texto" => "La METODOLOGÍA ya esta registrada en el sistema. Verifique nuevamente",
-					"Tipo" => "error"
-				];
-			}
-			else
-			{
-				
-		
-			}
-			*/
 
 			$datosMetodologia = [
 				"Metodologia" => $metodologia,
@@ -76,20 +60,6 @@
 			$descripcion = modeloPrincipal::limpiarCadena($_POST['descripcion-up']);
 			$idMetodologia = modeloPrincipal::desencriptar($_POST['idMetodologia-up']);
 			
-			//$consultaMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT metodologia FROM metodologia WHERE metodologia='$metodologia' AND id_metodologia != $idMetodologia ");
-			/*
-			if ($consultaMetodologia->rowCount()>=1) {
-				$alerta = [
-					"Alerta" => "simple",
-					"Titulo" => "Error",
-					"Texto" => "La METODOLOGÍA ya esta registrada en el sistema. Verifique nuevamente",
-					"Tipo" => "error"
-				];
-			}
-			else
-			{
-			}
-			*/
 			$datosMetodologia = [
 				"Metodologia" => $metodologia,
 				"Descripcion" => $descripcion,
@@ -344,8 +314,8 @@
 				if ($consultaEquipo->rowCount()>0) {
 					$alerta = [
 							"Alerta" => "simple",
-							"Titulo" => "Equipo asignado con metodologia",
-							"Texto" => "No se puede eliminar la metodologia. La metodologia tiene un equipo asignado",
+							"Titulo" => "Proyecto asignado con metodologia",
+							"Texto" => "No se puede eliminar la metodologia, porque tiene un Proyecto asignado. Elimine la relacion del proyecto y la metodologia",
 							"Tipo" => "error"
 						];
 				}

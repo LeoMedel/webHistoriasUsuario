@@ -421,7 +421,24 @@
 
 			$codigo = modeloPrincipal::limpiarCadena($codigo);
 
+			//Verificar que no hay informacion relacionada con la Cuenta del docente
+			$consultarCuentaEquipo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM cuenta_equipo WHERE cuentaCreador = '$codigo'");
+			$consultarEquipo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM equipo WHERE cuentaCreador = '$codigo'");
+			$consultarAsignaciones = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM asignacion WHERE cuentaCreador = '$codigo'");
+			$consultarProyectos = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM proyecto WHERE cuentaCreador = '$codigo'");
+			$consultarProyectosMetodo = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM proyecto_metodologia WHERE cuentaCreador = '$codigo'");
+			$consultarMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM metodologia WHERE cuentaCreador = '$codigo'");
 
+			if ($consultarCuentaEquipo->rowCount() > 0 || $consultarEquipo->rowCount() > 0 || $consultarAsignaciones->rowCount() > 0 || $consultarProyectos->rowCount() > 0 || $consultarProyectosMetodo->rowCount() > 0 || $consultarMetodologia->rowCount() > 0 ) {
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Informacion relacionada con el Docente",
+					"Texto" => "No se elimino la Cuenta del Docente. Se debe eliminar toda la informacion relacionada a esta cuenta",
+					"Tipo" => "error"
+				];
+				return modeloPrincipal::mostrarAlerta($alerta);
+				exit();
+			}
 
 			$consultaDoc = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT id FROM persona WHERE CuentaCodigo='$codigo'");
 

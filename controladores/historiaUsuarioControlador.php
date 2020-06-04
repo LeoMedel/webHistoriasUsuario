@@ -33,6 +33,19 @@
 			$precioRecurso = modeloPrincipal::limpiarCadena($_POST['precioRecurso-reg']);
 			
 
+			if ($idActividad == 0) {
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "Seleccione una ACTIVIDAD. Verifique nuevamente",
+					"Tipo" => "error"
+				];
+
+				return modeloPrincipal::mostrarAlerta($alerta);
+				exit();
+			}
+
+
 			$consultarActividad = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM historia WHERE id_actividad =$idActividad");
 
 			if ($consultarActividad->rowCount() > 0) {

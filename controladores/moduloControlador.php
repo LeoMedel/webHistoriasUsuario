@@ -107,6 +107,19 @@
 		{
 			$idModulo = modeloPrincipal::desencriptar($_POST['idModulo-del']);
 
+			$consultarActividades = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM actividades WHERE id_modulo =$idModulo");
+
+			if ($consultarActividades->rowCount() > 0) {
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "No se elimino el modulo. Existen actividades relacionadas con este modulo",
+					"Tipo" => "error"
+				];
+				return modeloPrincipal::mostrarAlerta($alerta);
+				exit();
+			}
+
 			$eliminarModulo = moduloModelo::eliminarModuloModelo($idModulo);
 
 				if ($eliminarModulo->rowCount()==1)
@@ -201,7 +214,7 @@
 											<th class="text-center">DESCRIPCION</th>
 											<th class="text-center">OBSERVACION</th>
 											<th class="text-center">FASE</th>
-											<th class="text-center">ACTIVIDADES</th>
+											<!--th class="text-center">ACTIVIDADES</th-->
 											<th class="text-center">ACTUALIZAR</th>
 											<th class="text-center">ELIMINAR</th>
 										</tr>
@@ -221,11 +234,11 @@
 										<td><p>'.$modulo['observacion'].'</p></td>
 										<td><p>'.$modulo['fase'].'</p></td>';
 						
-						$tabla .= '		<td>
+						$tabla .= '		<!--td>
 											<a href="'.SERVERURL.'moduloActividades/'.modeloPrincipal::encriptar($modulo['id_modulo']).'/" class="btn btn-info btn-raised btn-sm">
 												<i class="zmdi zmdi-file"></i>
 											</a>
-										</td>
+										</td-->
 										<td>
 											<a href="'.SERVERURL.'moduloActualizar/'.modeloPrincipal::encriptar($modulo['id_modulo']).'/" class="btn btn-success btn-raised btn-sm">
 												<i class="zmdi zmdi-file"></i>

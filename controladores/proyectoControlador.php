@@ -191,33 +191,47 @@
 			{
 				$alerta = [
 					"Alerta" => "simple",
-					"Titulo" => "Error",
-					"Texto" => "No se elimino el proyecto. Tiene un equipo asignado",
+					"Titulo" => "Equipo asignado a este proyecto",
+					"Texto" => "No se elimino el proyecto, porque tiene un equipo asignado. Primero elimine la asignacion del proyecto con el equipo",
 					"Tipo" => "error"
 				];
 
 			}
 			else
 			{
+				$consultarMetodologia = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM proyecto_metodologia WHERE id_proyecto=$idProyecto");
 
-				$eliminarProyecto = proyectoModelo::eliminarProyectoModelo($idProyecto);
-
-				if ($eliminarProyecto->rowCount()==1)
-				{
-					$alerta = [
-						"Alerta" => "recargar",
-						"Titulo" => "Éxito",
-						"Texto" => "El Proyecto fue eliminado correctamente del sistema",
-						"Tipo" => "success"
-					];
-				} else {
+				if ($consultarMetodologia->rowCount() > 0) {
 					$alerta = [
 						"Alerta" => "simple",
-						"Titulo" => "Error",
-						"Texto" => "No se elimino el proyecto. Intentelo mas tarde",
+						"Titulo" => "Metodologia asignada a este proyecto",
+						"Texto" => "No se elimino el proyecto, porque tiene una Metodologia asignada. Primero elimine la asignacion del proyecto con la metodologia",
 						"Tipo" => "error"
 					];
 				}
+				else
+				{
+					$eliminarProyecto = proyectoModelo::eliminarProyectoModelo($idProyecto);
+
+					if ($eliminarProyecto->rowCount()==1)
+					{
+						$alerta = [
+							"Alerta" => "recargar",
+							"Titulo" => "Éxito",
+							"Texto" => "El Proyecto fue eliminado correctamente del sistema",
+							"Tipo" => "success"
+						];
+					} else {
+						$alerta = [
+							"Alerta" => "simple",
+							"Titulo" => "Error",
+							"Texto" => "No se elimino el proyecto. Intentelo mas tarde",
+							"Tipo" => "error"
+						];
+					}
+				}
+
+				
 			}
 
 			

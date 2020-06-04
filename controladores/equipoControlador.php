@@ -133,8 +133,8 @@
 			{
 				$alerta = [
 					"Alerta" => "simple",
-					"Titulo" => "Error",
-					"Texto" => "No se elimino el equipo. Tiene un proyecto asignado",
+					"Titulo" => "Proyecto asignado al Equipo",
+					"Texto" => "No se elimino el equipo. Tiene un proyecto asignado. Primero elimine la asignacion del proyecto",
 					"Tipo" => "error"
 				];
 
@@ -147,8 +147,8 @@
 				{
 					$alerta = [
 							"Alerta" => "simple",
-							"Titulo" => "Error",
-							"Texto" => "No se elimino el equipo, tiene estudiantes asignados. Intentelo mas tarde",
+							"Titulo" => "Estudiantes en el Equipo",
+							"Texto" => "No se elimino el equipo, tiene estudiantes asignados. Elimine a los estudiantes integrados en este equipo",
 							"Tipo" => "error"
 						];
 					

@@ -199,6 +199,21 @@
 		{
 			$idFase = modeloPrincipal::desencriptar($_POST['idFase-del']);
 
+			$consultarModulos = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM modulo WHERE id_fase =$idFase");
+
+			if ($consultarModulos->rowCount() > 0) {
+				
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Modulo encontrados en esta fase",
+					"Texto" => "No se elimino la fase. Hay modulos relacionados a esta Fase.",
+					"Tipo" => "error"
+				];
+				return modeloPrincipal::mostrarAlerta($alerta);
+				exit();
+
+			}
+
 			$eliminarFase = faseModelo::eliminarFaseModelo($idFase);
 
 				if ($eliminarFase->rowCount()==1)

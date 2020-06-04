@@ -7,7 +7,7 @@
 
 <div class="container-fluid">
 	<div class="page-header">
-	  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Usuarios <small>DOCENTES</small></h1>
+	  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Usuarios <small>ESTUDIANTES</small></h1>
 	</div>
 	<p class="lead">Listado de los ESTUDIANTES registrados en el sistema</p>
 </div>
