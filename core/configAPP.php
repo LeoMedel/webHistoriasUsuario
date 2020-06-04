@@ -1,11 +1,9 @@
 <?php
 
 	/*Informacion de la Base de Datos*/
-	//const SERVER = "localhost";
-	//const DB = "biblioteca_publica";
 	const USER = "root";
 	const PASS = "";
-	const BD = "historiausuario";
+	const BD = "proyecto";
 	const HOST = "localhost:3307";
 
 	const SGBD = "mysql:host=".HOST.";dbname=".BD.";charset=utf8";

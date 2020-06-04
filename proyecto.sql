@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 04-06-2020 a las 03:55:56
+-- Tiempo de generación: 04-06-2020 a las 04:25:56
 -- Versión del servidor: 10.3.15-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `historiausuario`
+-- Base de datos: `proyecto`
 --
 
 -- --------------------------------------------------------
@@ -82,7 +82,10 @@ CREATE TABLE `bitacora` (
 --
 
 INSERT INTO `bitacora` (`id`, `BitacoraCodigo`, `BitacoraFecha`, `BitacoraHoraInicio`, `BitacoraHoraFinal`, `BitacoraTipo`, `BitacoraYear`, `CuentaCodigo`) VALUES
-(470, 'CB17310-1', '2020-06-03', '08:55:30 pm', '08:55:33 pm', 'Administrador', 2020, 'LM93499-1');
+(470, 'CB17310-1', '2020-06-03', '08:55:30 pm', '08:55:33 pm', 'Administrador', 2020, 'LM93499-1'),
+(471, 'CB27483-2', '2020-06-03', '09:23:32 pm', '09:23:47 pm', 'Administrador', 2020, 'LM93499-1'),
+(472, 'CB87524-3', '2020-06-03', '09:24:19 pm', '09:24:38 pm', 'Docente', 2020, 'LM81613-3'),
+(473, 'CB04519-4', '2020-06-03', '09:24:49 pm', '09:24:53 pm', 'Estudiante', 2020, 'LM00867-6');
 
 -- --------------------------------------------------------
 
@@ -614,7 +617,7 @@ ALTER TABLE `asignacion`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=471;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=474;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta`
