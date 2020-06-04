@@ -52,7 +52,12 @@
 				"moduloActualizar",
 				"actividadeslist",
 				"actividad",
-				"actividadActualizar"
+				"actividadActualizar",
+				"recursoslist",
+				"recurso",
+				"recursoActualizar",
+				"historiasUsuario",
+				"historiaUsuarioConsultar"
 			];
 			if(in_array($vistas, $listaBlanca))
 			{

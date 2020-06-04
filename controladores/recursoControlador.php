@@ -1,66 +1,51 @@
 <?php
 	if($peticionAjax)
 	{
-		require_once "../modelos/actividadModelo.php";
+		require_once "../modelos/recursoModelo.php";
 	}
 	else
 	{
-		require_once "./modelos/actividadModelo.php";
+		require_once "./modelos/recursoModelo.php";
 	}
 
 	/**
 	 * 
 	 */
-	class actividadControlador extends actividadModelo
+	class recursoControlador extends recursoModelo
 	{
 
 		/*Controlador para Agregar FASE*/
-		public function agregarActividadControlador()
+		public function agregarRecursoControlador()
 		{
-			//Fase
-			$actividad = modeloPrincipal::limpiarCadena($_POST['actividad-reg']);
-			$modulo = modeloPrincipal::desencriptar($_POST['idModulo-reg']);
+			//Recurso
+			$recurso = modeloPrincipal::limpiarCadena($_POST['recurso-reg']);
 			$equipo = modeloPrincipal::desencriptar($_POST['CodigoEquipo-reg']);
 			
 			
-			if ($modulo == 0)
+			$datosRecurso = [
+				"Recurso" => $recurso,
+				"Equipo" => $equipo
+			];
+
+			$recursoAgregado = recursoModelo::agregarRecursoModelo($datosRecurso);
+
+			if($recursoAgregado)
 			{
 				$alerta = [
-						"Alerta" => "simple",
-						"Titulo" => "Error",
-						"Texto" => "Seleccione un modulo. ". '\n\n'." NOTA: Para crear un MODULO primero debe crear FASES y dentro de esa fase podra crear un modulo",
-						"Tipo" => "error"
-					];
-				return modeloPrincipal::mostrarAlerta($alerta);
-				exit();
-
-			} else {
-				$datosActividad = [
-					"Actividad" => $actividad,
-					"Modulo" => $modulo,
-					"Equipo" => $equipo
+					"Alerta" => "limpiar",
+					"Titulo" => "Éxito",
+					"Texto" => "El recurso fue agregado correctamente",
+					"Tipo" => "success"
+				];	
+			} 
+			else
+			{
+				$alerta = [
+					"Alerta" => "simple",
+					"Titulo" => "Error",
+					"Texto" => "El recurso NO fue agregado. Verifique nuevamente",
+					"Tipo" => "error"
 				];
-
-				$actividadAgregada = actividadModelo::agregarActividadModelo($datosActividad);
-
-				if($actividadAgregada)
-				{
-					$alerta = [
-						"Alerta" => "limpiar",
-						"Titulo" => "Éxito",
-						"Texto" => "La actividad fue agregada correctamente",
-						"Tipo" => "success"
-					];	
-				} 
-				else
-				{
-					$alerta = [
-						"Alerta" => "simple",
-						"Titulo" => "Error",
-						"Texto" => "La actividad NO fue agregada",
-						"Tipo" => "error"
-					];
-				}
 			}
 					
 						
@@ -70,42 +55,26 @@
 
 
 		/*Inicio de Actualizar FASE*/
-		public function actualizarActividadControlador()
+		public function actualizarRecursoControlador()
 		{
 			//Fase
-			$idActividad = modeloPrincipal::desencriptar($_POST['idActividad-up']);
-			$modulo = modeloPrincipal::desencriptar($_POST['idModulo-up']);
-
-			$actividad = modeloPrincipal::limpiarCadena($_POST['actividad-up']);
+			$idRecurso = modeloPrincipal::desencriptar($_POST['idRecurso-up']);
+			$recurso = modeloPrincipal::limpiarCadena($_POST['recurso-up']);
 
 
-			if ($modulo == 0) {
-				$alerta = [
-					"Alerta" => "simple",
-					"Titulo" => "Error",
-					"Texto" => "Seleccione el modulo. Verifique nuevamente",
-					"Tipo" => "error"
-				];
-				
-				return modeloPrincipal::mostrarAlerta($alerta);
-				exit();
-			}
-			else
-			{
-				$datosActividad = [
-					"IdActividad" => $idActividad,
-					"Modulo" => $modulo,
-					"Actividad" => $actividad,
+			$datosRecurso = [
+					"IdRecurso" => $idRecurso,
+					"Recurso" => $recurso,
 				];
 
-				$actividadActualizada = actividadModelo::actualizarActividadModelo($datosActividad);
+				$recursoActualizado = recursoModelo::actualizarRecursoModelo($datosRecurso);
 
-				if($actividadActualizada)
+				if($recursoActualizado)
 				{
 					$alerta = [
 						"Alerta" => "recargar",
 						"Titulo" => "Éxito",
-						"Texto" => "La actividad fue actualizada correctamente",
+						"Texto" => "El recurso fue actualizado correctamente",
 						"Tipo" => "success"
 					];	
 				} 
@@ -114,12 +83,10 @@
 					$alerta = [
 						"Alerta" => "simple",
 						"Titulo" => "Error",
-						"Texto" => "La actividad NO fue actualizada",
+						"Texto" => "El recurso NO fue actualizado",
 						"Tipo" => "error"
 					];
 				}
-					
-			}
 						
 			return modeloPrincipal::mostrarAlerta($alerta);
 
@@ -128,25 +95,25 @@
 
 
 		/*Eliminar ADMINISTRADORES*/
-		public function eliminarActividadControlador()
+		public function eliminarRecursoControlador()
 		{
-			$idActividad = modeloPrincipal::desencriptar($_POST['idActividad-del']);
+			$idRecurso = modeloPrincipal::desencriptar($_POST['idRecurso-del']);
 
-			$eliminarActividad = actividadModelo::eliminarActividadModelo($idActividad);
+			$eliminarRecurso = recursoModelo::eliminarRecursoModelo($idRecurso);
 
-				if ($eliminarActividad->rowCount()==1)
+				if ($eliminarRecurso->rowCount()==1)
 				{
 					$alerta = [
 						"Alerta" => "recargar",
 						"Titulo" => "Éxito",
-						"Texto" => "La actividad fue eliminada correctamente del sistema",
+						"Texto" => "El recurso fue eliminado correctamente del sistema",
 						"Tipo" => "success"
 					];
 				} else {
 					$alerta = [
 						"Alerta" => "simple",
 						"Titulo" => "Error",
-						"Texto" => "No se elimino la actividad. Intentelo mas tarde",
+						"Texto" => "No se elimino el recurso. Intentelo mas tarde",
 						"Tipo" => "error"
 					];
 				}
@@ -159,24 +126,25 @@
 		/*FIN de Eliminar FASE*/
 
 		/*Controlador para mostrar la informacion FASE*/
-		public function mostrarInfoActividadControlador($codigo)
+		public function mostrarInfoRecursoControlador($codigo)
 		{
 			$codigo = modeloPrincipal::desencriptar($codigo);
 
-			return actividadModelo::mostrarInfoActividadModelo($codigo);
+			return recursoModelo::mostrarInfoRecursoModelo($codigo);
 		}
 		/*FIN Controlador para mostrar la informacion FASE*/
 
-		public function cargarActividadesControlador($equipo)
+		public function cargarRecursosControlador($idEquipo)
 		{
-			$actividades = modeloPrincipal::EjecutarConsultaSimpleSQL("SELECT * FROM actividades WHERE id_equipo=$equipo");
-			return $actividades;
+			$recursos = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM tipo_recurso WHERE id_equipo=$idEquipo");
+
+			return $recursos;
 
 		}
 
 		
 		/*Controlador para paginar FASES*/
-		public function paginarActividadesControlador($pagina, $noRegistros, $codigoEquipo, $busqueda)
+		public function paginarRecursosControlador($pagina, $noRegistros, $codigoEquipo, $busqueda)
 		{
 			$pagina = modeloPrincipal::limpiarCadena($pagina);
 			$noRegistros = modeloPrincipal::limpiarCadena($noRegistros);
@@ -188,8 +156,8 @@
 			$pagina = (isset($pagina) && $pagina>0) ? (int)$pagina : 1 ;
 			$inicio = ($pagina>0) ? (($pagina*$noRegistros)-$noRegistros) : 0;
 			
-			$consulta = "SELECT SQL_CALC_FOUND_ROWS a.id_actividad, a.actividad, m.titulo, e.equipo FROM actividades a JOIN modulo m ON a.id_modulo=m.id_Modulo JOIN equipo e ON a.id_equipo=e.id_equipo WHERE a.id_equipo= $equipo ORDER BY a.actividad ASC LIMIT $inicio, $noRegistros";
-			$paginaURL = "actividadeslist";
+			$consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM tipo_recurso tr WHERE tr.id_equipo= $equipo ORDER BY tr.descripcion_recurso ASC LIMIT $inicio, $noRegistros";
+			$paginaURL = "recursoslist";
 
 			
 
@@ -209,9 +177,7 @@
 									<thead>
 										<tr>
 											<th class="text-center">#</th>
-											<th class="text-center">ACTIVIDAD</th>
-											<th class="text-center">MODULO</th>
-											<th class="text-center">EQUIPO</th>
+											<th class="text-center">TIPO DE RECURSO</th>
 											<th class="text-center">ACTUALIZAR</th>
 											<th class="text-center">ELIMINAR</th>
 										</tr>
@@ -222,24 +188,22 @@
 			{
 				$contador = $inicio+1;
 
-				foreach ($datos as $actividad)
+				foreach ($datos as $recurso)
 				{
 					$tabla .= '		<tr>
 										<td><p>'.$contador.'</p></td>
-										<td><p>'.$actividad['actividad'].'</td>
-										<td><p>'.$actividad['titulo'].'</p></td>
-										<td><p>'.$actividad['equipo'].'</p></td>';
+										<td><p>'.$recurso['descripcion_recurso'].'</td>';
 						
 						$tabla .= '		<td>
-											<a href="'.SERVERURL.'actividadActualizar/'.modeloPrincipal::encriptar($actividad['id_actividad']).'/" class="btn btn-success btn-raised btn-sm">
+											<a href="'.SERVERURL.'recursoActualizar/'.modeloPrincipal::encriptar($recurso['id_tipo_recurso']).'/" class="btn btn-success btn-raised btn-sm">
 												<i class="zmdi zmdi-file"></i>
 											</a>
 										</td>	
 						';
 						$tabla .= '		<td>
-											<form action="'.SERVERURL.'ajax/actividadAjax.php" method="POST" class="FormularioAjax" data-form="delete" enctype="multipart/forma-data" autocomplete="off">
+											<form action="'.SERVERURL.'ajax/recursoAjax.php" method="POST" class="FormularioAjax" data-form="delete" enctype="multipart/forma-data" autocomplete="off">
 
-												<input type="hidden" name="idActividad-del" value="'.modeloPrincipal::encriptar($actividad['id_actividad']).'">
+												<input type="hidden" name="idRecurso-del" value="'.modeloPrincipal::encriptar($recurso['id_tipo_recurso']).'">
 
 												<button type="submit" class="btn btn-danger btn-raised btn-sm">
 													<i class="zmdi zmdi-delete"></i>
@@ -260,7 +224,7 @@
 									<td colspan="6">
 
 										<a href="'.SERVERURL.$paginaURL.'/" class="btn btn-success btn-raised">
-											<i class="zmdi zmdi-refresh zmdi-hc-spin"></i> Recargar tabla de Actividades
+											<i class="zmdi zmdi-refresh zmdi-hc-spin"></i> Recargar tabla de Recursos
 										</a>
 
 									</td>

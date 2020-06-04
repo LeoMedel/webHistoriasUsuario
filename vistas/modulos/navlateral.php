@@ -171,13 +171,13 @@
 							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> ACTIVIDADES
 						</a>
 					</li>
-					<!--li>
-						<a href="<?php echo SERVERURL; ?>faselist/">
-							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> MODULOS
+					<li>
+						<a href="<?php echo SERVERURL; ?>historiasUsuario/">
+							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> HISTORIAS DE USUARIO
 						</a>
 					</li>
 					
-					<li>
+					<!--li>
 						<a href="<?php echo SERVERURL; ?>faselist/">
 							<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> HISTORIAS
 						</a>
@@ -193,7 +193,13 @@
 						<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> MI EQUIPO
 					</a>
 				</li>
-			</li>
+
+				<li>
+					<a href="<?php echo SERVERURL; ?>recursoslist/">
+						<i class="zmdi zmdi-format-list-numbered zmdi-hc-fw"></i> TODOS LOS RECURSOS
+					</a>
+				</li>
+			<!--/li-->
 			<?php } ?>
 
 			

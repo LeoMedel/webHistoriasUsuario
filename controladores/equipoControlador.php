@@ -206,6 +206,15 @@
 		}
 		/*FIN de obtener Equipos*/
 
+		public function cargarEquipoIntegrantesControlador($idEquipo)
+		{
+			$integrantes = modeloPrincipal::EjecutarConsultaSimpleSQL("SELECT * FROM cuenta_equipo ce JOIN cuenta c ON ce.CuentaCodigo = c.CuentaCodigo JOIN persona p ON c.CuentaCodigo=p.CuentaCodigo  WHERE id_equipo = $idEquipo");
+			//$integrantes = equipoModelo::cargarEquipoIntegrantesModelo();
+
+			return $integrantes;
+		}
+
+
 		public function asignarEquipoEstudianteControlador()
 		{
 			$idEquipo = modeloPrincipal::desencriptar($_POST['equipo-asig']);

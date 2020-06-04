@@ -71,6 +71,33 @@
 
 		}
 
+		protected function cargarEquipoIntegrantesModelo($idEquipo)
+		{
+			try
+			{
+				//$pdo = modeloPrincipal::conectarBD();
+				
+				$integrantes = modeloPrincipal::EjecutarConsultaSimpleSQL("SELECT * FROM cuenta_equipo ce JOIN cuenta c ON ce.CuentaCodigo = c.CuentaCodigo JOIN persona p ON c.CuentaCodigo=p.CuentaCodigo  WHERE id_equipo = $idEquipo");
+
+				/*$sql = "SELECT * FROM cuenta_equipo ce JOIN cuenta c ON ce.CuentaCodigo = c.CuentaCodigo JOIN persona p ON c.CuentaCodigo=p.CuentaCodigo  WHERE id_equipo = ? ";
+
+				//print_r("Consulta ".$sql. " ".$datos['idEquipo']. " ". $datos['cuentaEstudiante']);
+
+				$pdo->prepare($sql)->execute([
+					$idEquipo
+				]);
+				*/
+				
+
+				return $integrantes;
+
+			} catch (Exception $e) 
+			{
+				print_r("ERROR ". $e);
+				//return $pdo;
+			}
+		}
+
 		protected function eliminarTodosEstudiantesEquipoModelo()
 		{
 			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM cuenta_equipo WHERE id_equipo=:IdEquipo");

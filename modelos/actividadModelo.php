@@ -61,10 +61,21 @@
 
 		protected function eliminarActividadModelo($id)
 		{
+			$eliminarHistoria = modeloPrincipal::conectarBD()->prepare("DELETE FROM historia WHERE id_actividad=:Actividad");
+			$eliminarHistoria->bindParam("Actividad", $id);
+			$eliminarHistoria->execute();
+
+			$eliminarResponsable = modeloPrincipal::conectarBD()->prepare("DELETE FROM responsable WHERE id_actividad=:ActividadR");
+			$eliminarResponsable->bindParam("ActividadR", $id);
+			$eliminarResponsable->execute();
+
+			$eliminarRecurso = modeloPrincipal::conectarBD()->prepare("DELETE FROM recursos WHERE id_actividad=:ActividadRs");
+			$eliminarRecurso->bindParam("ActividadRs", $id);
+			$eliminarRecurso->execute();
+
+
 			$eliminar = modeloPrincipal::conectarBD()->prepare("DELETE FROM actividades WHERE id_actividad=:IdActividad");
-
 			$eliminar->bindParam("IdActividad", $id);
-
 			$eliminar->execute();
 
 			return $eliminar;
