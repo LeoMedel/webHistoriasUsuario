@@ -523,7 +523,7 @@
 
 		public function cargarEstudiantesControlador($salon)
 		{
-			$estudiantes = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM persona WHERE PersonaPrivilegio='Estudiante' AND Salon = '$salon'");
+			$estudiantes = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM persona WHERE PersonaPrivilegio='Estudiante' AND Salon = '$salon' order by PersonaApellido ASC");
 
 			return $estudiantes;
 		}

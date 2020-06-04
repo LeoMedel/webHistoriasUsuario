@@ -200,7 +200,7 @@
 		/*Controlador para obtener todos los equipos*/
 		public function cargarEquiposControlador($cuenta)
 		{
-			$equipos = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM equipo WHERE cuentaCreador='$cuenta'");
+			$equipos = modeloPrincipal::ejecutarConsultaSimpleSQL("SELECT * FROM equipo WHERE cuentaCreador='$cuenta' order by equipo DESC");
 
 			return $equipos;
 		}
